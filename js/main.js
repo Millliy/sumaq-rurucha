@@ -1,11 +1,19 @@
 const navigationLinks = [
-  { href: "index.html", label: "Inicio" },
+  { href: "index.html", label: '<img src="assets/icons/logo/logo.svg" alt="Sumaq Rurucha" class="nav-logo">' },
   { href: "catalogo.html", label: "Catálogo" },
   { href: "nosotros.html", label: "Conócenos" },
   { href: "contacto.html", label: "Contacto" },
   { href: "soy-distribuidor.html", label: "¿Eres distribuidor?" },
-  { href: "buscador.html", label: "Buscar" },
-  { href: "carrito.html", label: "Carrito" },
+  {
+    href: "buscador.html",
+    label: '<img src="assets/icons/busqueda.svg" alt="" class="nav-icon">',
+    ariaLabel: "Buscar",
+  },
+  {
+    href: "carrito.html",
+    label: '<img src="assets/icons/carrito.svg" alt="" class="nav-icon">',
+    ariaLabel: "Carrito",
+  },
 ];
 
 function renderNavigation() {
@@ -18,12 +26,13 @@ function renderNavigation() {
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
   const links = navigationLinks
-    .map(({ href, label }) => {
+    .map(({ href, label, ariaLabel }) => {
       const isActive = href === currentPage;
       const ariaCurrent = isActive ? ' aria-current="page"' : "";
       const activeClass = isActive ? " is-active" : "";
+      const labelAttribute = ariaLabel ? ` aria-label="${ariaLabel}"` : "";
 
-      return `<a class="nav__link${activeClass}" href="${href}"${ariaCurrent}>${label}</a>`;
+      return `<a class="nav__link${activeClass}" href="${href}"${ariaCurrent}${labelAttribute}>${label}</a>`;
     })
     .join("");
 
