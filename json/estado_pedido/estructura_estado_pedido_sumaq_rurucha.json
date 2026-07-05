@@ -1,0 +1,77 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 256:1212 desktop/09-estado-pedido) el 2026-07-05.",
+  "site_name": "Sumaq Rurucha",
+  "page": "Estado del pedido",
+  "structure": {
+    "header": {
+      "logo": "Sumaq Rurucha (logo/horizontal)",
+      "navigation_menu": [
+        { "label": "Catálogo", "url": "#", "active": true },
+        { "label": "Conócenos", "url": "#", "active": false },
+        { "label": "Contacto", "url": "#", "active": false }
+      ],
+      "user_actions": [
+        { "label": "¿Eres distribuidor?", "url": "#" },
+        { "icon": "search", "url": "#" },
+        { "icon": "user_profile", "url": "#" },
+        { "label": "Mi pedido", "icon": "shipping", "url": "#" },
+        { "icon": "shopping_cart", "count": 2, "url": "#" }
+      ]
+    },
+    "breadcrumb": "Inicio / Mi cuenta / Pedido #SR-48213",
+    "sections": [
+      {
+        "id": "page_header",
+        "type": "order_title",
+        "heading": "Tu pedido está en camino",
+        "meta": "Pedido #SR-48213 · realizado el 4 de julio de 2026"
+      },
+      {
+        "id": "status_stepper",
+        "type": "order_timeline",
+        "steps": [
+          { "label": "Confirmado", "timestamp": "4 jul · 10:32 a.m.", "state": "completed" },
+          { "label": "Preparando", "timestamp": "4 jul · 3:10 p.m.", "state": "completed" },
+          { "label": "Enviado", "timestamp": "5 jul · 9:00 a.m.", "state": "completed" },
+          { "label": "Entregado", "timestamp": "Estimado 6-8 jul", "state": "pending" }
+        ]
+      },
+      {
+        "id": "products_list",
+        "type": "order_items",
+        "heading": "Productos en tu pedido",
+        "items": [
+          { "title": "Quinua real blanca", "subtext": "Bolsa 1 kg · x1", "price": "S/ 24" },
+          { "title": "Mango deshidratado", "subtext": "Pack 250 g · x2", "price": "S/ 36" },
+          { "title": "Mix andino premium", "subtext": "Bolsa 500 g · x1", "price": "S/ 32" }
+        ]
+      },
+      {
+        "id": "shipping_address",
+        "type": "address_block",
+        "heading": "Dirección de envío",
+        "name": "María Fernanda Quispe",
+        "address": "Av. Los Próceres 123, dpto. 201 · San Isidro, Lima",
+        "phone": "987 654 321"
+      },
+      {
+        "id": "summary",
+        "type": "order_summary_card",
+        "heading": "Resumen",
+        "rows": [
+          { "label": "Subtotal", "value": "S/ 92" },
+          { "label": "Envío", "value": "S/ 8" },
+          { "label": "Método de pago", "value": "Yape / Plin" }
+        ],
+        "total": { "label": "Total", "value": "S/ 100" }
+      },
+      {
+        "id": "help",
+        "type": "help_card",
+        "heading": "¿Necesitas ayuda?",
+        "text": "Escríbenos por WhatsApp si tienes dudas sobre tu envío.",
+        "button": "Escribir por WhatsApp"
+      }
+    ]
+  }
+}

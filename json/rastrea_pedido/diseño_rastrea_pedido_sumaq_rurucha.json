@@ -1,0 +1,56 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 260:1727 desktop/10-rastrea-pedido) el 2026-07-05.",
+    "screen": "rastrea_pedido",
+    "colors_used": {
+      "plomo_100": "#FBF9F6",
+      "plomo_100_comment": "Fondo de página, y también fondo de los inputs del formulario (mismo tono que el fondo, con borde para diferenciarlos).",
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Eyebrow, barra superior decorativa de la tarjeta, ícono flotante, botón primario, borde del botón secundario.",
+      "tinta_500": "#211814",
+      "atenuado_500": "#7C6F68",
+      "borde_500": "#DECFC2",
+      "negro_100": "#FFFFFF"
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "weight": "Bold", "size": "32px" },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "weights_used": ["Regular", "Semi Bold", "Extra Bold"] },
+      "sizes_observed": { "eyebrow": "11.5px", "subtext": "13px", "field_label": "9.5px uppercase", "input_placeholder": "12px", "divider_label": "9px uppercase" }
+    },
+    "layout_rules": {
+      "layout": "formulario centrado de 480px de ancho sobre página con fondo plomo/100, todo el contenido con position absolute centrado horizontalmente.",
+      "border_radius": { "card": "12px", "input": "8px", "button": "8px" }
+    },
+    "visual_specifications_by_section": {
+      "header": { "note": "Aquí 'Catálogo' SÍ está activo en vino/500 (a diferencia de estado_pedido que usaba negro/600 — inconsistencia entre pantallas a revisar con el equipo de diseño)." },
+      "intro": {
+        "eyebrow_color": "#7A1F3D",
+        "heading_color": "#211814",
+        "subtext_color": "#7C6F68",
+        "alignment": "center"
+      },
+      "form_card": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "12px",
+        "top_accent_bar": { "height": "6px", "color": "#7A1F3D", "border_radius": "12px 12px 0 0" },
+        "floating_icon_badge": { "shape": "circle", "background": "#7A1F3D (implícito por icon color=white)", "icon": "commerce/shipping", "icon_color": "#FFFFFF" },
+        "field_label_color": "#7C6F68",
+        "input_style": { "background": "#FBF9F6", "border": "1px solid #DECFC2", "border_radius": "8px", "height": "42px", "placeholder_color": "#7C6F68" },
+        "primary_button": { "background": "#7A1F3D", "text_color": "#FFFFFF", "border_radius": "8px" }
+      },
+      "divider": {
+        "line_color": "#DECFC2",
+        "label": "¿YA TIENES CUENTA?",
+        "label_color": "#7C6F68",
+        "label_background": "#FBF9F6 (tapa la línea para simular el texto flotante típico de un divisor 'o')"
+      },
+      "secondary_button": {
+        "type": "outline",
+        "border": "2px solid #7A1F3D",
+        "text_color": "#7A1F3D",
+        "border_radius": "8px"
+      }
+    }
+  }
+}

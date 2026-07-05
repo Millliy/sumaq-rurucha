@@ -1,0 +1,62 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 267:1633 desktop/12-pedido-entregado) el 2026-07-05.",
+  "page": "Pedido entregado",
+  "structure": {
+    "header": "Igual que home, pero con 'Catálogo' en estado neutro (no activo) — ver diseño_pedido_entregado.",
+    "sections": [
+      {
+        "id": "order_header",
+        "type": "breadcrumb_and_title",
+        "breadcrumb": "Inicio / Mi cuenta / Pedido #SR-48213",
+        "heading": "Tu pedido fue entregado",
+        "subheading": "Pedido #SR-48213 · realizado el 4 de julio de 2026"
+      },
+      {
+        "id": "order_stepper",
+        "type": "progress_stepper",
+        "steps": [
+          { "label": "Confirmado", "timestamp": "4 jul · 10:32 a.m.", "state": "completed" },
+          { "label": "Preparando", "timestamp": "4 jul · 3:10 p.m.", "state": "completed" },
+          { "label": "Enviado", "timestamp": "5 jul · 9:00 a.m.", "state": "completed" },
+          { "label": "Entregado", "timestamp": "8 jul · 11:15 a.m.", "state": "completed" }
+        ]
+      },
+      {
+        "id": "order_products",
+        "type": "product_list",
+        "heading": "Productos en tu pedido",
+        "items": [
+          { "title": "Quinua real blanca", "subtext": "Bolsa 1 kg · x1", "price": "S/ 24" },
+          { "title": "Mango deshidratado", "subtext": "Pack 250 g · x2", "price": "S/ 36" },
+          { "title": "Mix andino premium", "subtext": "Bolsa 500 g · x1", "price": "S/ 32" }
+        ]
+      },
+      {
+        "id": "shipping_address",
+        "type": "address_block",
+        "heading": "Dirección de envío",
+        "name": "María Fernanda Quispe",
+        "address": "Av. Los Próceres 123, dpto. 201 · San Isidro, Lima",
+        "phone": "987 654 321"
+      },
+      {
+        "id": "order_summary",
+        "type": "summary_card",
+        "heading": "Resumen",
+        "lines": [
+          { "label": "Subtotal", "value": "S/ 92" },
+          { "label": "Envío", "value": "S/ 8" },
+          { "label": "Método de pago", "value": "Yape / Plin" }
+        ],
+        "total": { "label": "Total", "value": "S/ 100" }
+      },
+      {
+        "id": "review_prompt",
+        "type": "action_card",
+        "heading": "¿Cómo estuvo tu pedido?",
+        "paragraph": "Cuéntanos qué te pareció. Tu opinión ayuda a otros compradores.",
+        "button": { "text": "Calificar mi pedido ★" }
+      }
+    ]
+  }
+}

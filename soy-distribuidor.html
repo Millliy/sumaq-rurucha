@@ -4,15 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soy distribuidor - Sumaq Rurucha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header data-nav></header>
 
-  <main class="page">
-    <section class="hero">
-      <h1>Soy distribuidor</h1>
-      <p>Sitio web en construccion.</p>
+  <main class="distributor-page">
+    <section class="distributor-hero" aria-labelledby="distributor-title">
+      <div class="distributor-hero__copy">
+        <p class="eyebrow">TRABAJA CON NOSOTROS</p>
+        <h1 id="distributor-title">Trabaja con Sumaq Rurucha</h1>
+        <p>Productos andinos, identidad clara y una marca lista para nuevos mercados.</p>
+        <div class="actions">
+          <a class="button button--primary" href="#solicitud">Solicitar cotizaci&oacute;n &rarr;</a>
+          <a class="button button--outline" href="#catalogo-comercial">Descargar cat&aacute;logo</a>
+        </div>
+      </div>
+      <figure>
+        <img src="assets/img/distribuidor/01-hero-trabaja-con-sumaq.png" alt="Productos Sumaq Rurucha para distribuci&oacute;n">
+      </figure>
+    </section>
+
+    <section class="distributor-statement" aria-labelledby="statement-title">
+      <article>
+        <h2 id="statement-title">Origen, producto y oportunidad comercial.</h2>
+        <p>Una propuesta para tiendas, distribuidores y aliados que buscan productos naturales con identidad.</p>
+      </article>
+      <img src="assets/img/distribuidor/02-oportunidad-de-mercado.png" alt="Productos Sumaq Rurucha en punto de venta">
+    </section>
+
+    <section class="distributor-steps" aria-label="Ventajas comerciales">
+      <article>
+        <span>01</span>
+        <h3>Productos con origen</h3>
+        <p>Cereales, deshidratados y mixes seleccionados.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>Presentaci&oacute;n comercial</h3>
+        <p>Formatos listos para venta y exhibici&oacute;n.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>Atenci&oacute;n directa</h3>
+        <p>Coordinamos volumen y disponibilidad.</p>
+      </article>
+    </section>
+
+    <section class="distributor-proof" aria-label="Oportunidades por canal">
+      <figure>
+        <img src="assets/img/distribuidor/03-para-tiendas.png" alt="Productos Sumaq Rurucha exhibidos en tienda">
+      </figure>
+      <div>
+        <article>
+          <h3>Para tiendas saludables</h3>
+          <p>Productos f&aacute;ciles de explicar y recomendar.</p>
+        </article>
+        <article>
+          <h3>Para distribuidores</h3>
+          <p>Cotizaci&oacute;n directa y condiciones por volumen.</p>
+        </article>
+        <article>
+          <h3>Para marcas y negocios</h3>
+          <p>Presentaciones y abastecimiento recurrente.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-section" id="solicitud">
+      <div class="quote-copy">
+        <div>
+          <h2>Hagamos crecer la marca contigo</h2>
+          <p>D&eacute;janos tus datos y te enviaremos disponibilidad y condiciones.</p>
+        </div>
+        <div class="quote-stats">
+          <article><strong>30+</strong><span>productos disponibles</span></article>
+          <article><strong>48 h</strong><span>respuesta comercial</span></article>
+          <article><strong>12 m</strong><span>abastecimiento planificado</span></article>
+        </div>
+      </div>
+
+      <form class="quote-form" aria-labelledby="quote-form-title">
+        <h2 id="quote-form-title">Solicita informaci&oacute;n</h2>
+        <p>Te contactaremos con una propuesta.</p>
+
+        <label><span>Empresa</span><input type="text" placeholder="Nombre de tu empresa"></label>
+        <label>
+          <span>Pa&iacute;s / Regi&oacute;n</span>
+          <select>
+            <option>Selecciona tu pa&iacute;s</option>
+            <option>Per&uacute;</option>
+            <option>Bolivia</option>
+            <option>Chile</option>
+            <option>Estados Unidos</option>
+          </select>
+        </label>
+        <label>
+          <span>Producto de inter&eacute;s</span>
+          <select>
+            <option>Cereales andinos</option>
+            <option>Deshidratados</option>
+            <option>Especias</option>
+            <option>Frutos secos</option>
+          </select>
+        </label>
+        <label><span>Volumen estimado</span><input type="text" placeholder="Ej. 10 toneladas"></label>
+        <label><span>Correo</span><input type="email" placeholder="ejemplo@empresa.com"></label>
+        <label><span>WhatsApp</span><input type="tel" placeholder="+51 987 654 321"></label>
+
+        <button class="button button--primary" type="submit">Enviar solicitud &rarr;</button>
+      </form>
+    </section>
+
+    <section class="download-banner" id="catalogo-comercial">
+      <div>
+        <h2>Cat&aacute;logo comercial</h2>
+        <p>Productos y presentaciones disponibles.</p>
+      </div>
+      <a class="button button--outline" href="catalogo.html">Descargar PDF</a>
     </section>
   </main>
 

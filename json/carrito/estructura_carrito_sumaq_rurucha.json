@@ -1,0 +1,58 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:11 desktop/04-carrito) el 2026-07-05.",
+  "page": "Carrito",
+  "structure": {
+    "header": "reutiliza navigation/topbar-desktop (igual que home), con 'Catálogo' activo",
+    "sections": [
+      { "id": "breadcrumbs", "type": "breadcrumb", "path": ["Inicio", "Carrito"] },
+      {
+        "id": "title_row",
+        "type": "page_title_with_tag",
+        "heading": "Tu carrito",
+        "subheading": "Revisa tu pedido antes de finalizar la compra.",
+        "count_tag": "3 productos"
+      },
+      {
+        "id": "cart_items",
+        "type": "item_list",
+        "items": [
+          { "title": "Quinua real blanca", "subtext": "Bolsa 1 kg", "quantity": 1, "price": "S/ 24" },
+          { "title": "Mango deshidratado", "subtext": "Pack 250 g", "quantity": 2, "price": "S/ 36" },
+          { "title": "Mix andino premium", "subtext": "Bolsa 500 g", "quantity": 1, "price": "S/ 32" }
+        ],
+        "remove_label": "Eliminar",
+        "continue_shopping_link": "← Seguir comprando"
+      },
+      {
+        "id": "trust_row",
+        "type": "three_column_trust",
+        "items": [
+          { "title": "Pago seguro", "text": "Compra protegida con tarjetas y billeteras digitales." },
+          { "title": "Envío coordinado", "text": "Calcula el costo antes de finalizar tu pedido." },
+          { "title": "Soporte cercano", "text": "Te ayudamos si necesitas modificar tu compra." }
+        ]
+      },
+      {
+        "id": "shipping",
+        "type": "shipping_estimator",
+        "heading": "Envío",
+        "select_placeholder": "Selecciona tu departamento",
+        "result_text": "Envío estimado: S/ 8"
+      },
+      {
+        "id": "summary",
+        "type": "order_summary",
+        "heading": "Resumen",
+        "lines": [
+          { "label": "Subtotal", "value": "S/ 92" },
+          { "label": "Envío", "value": "S/ 8" }
+        ],
+        "total": { "label": "Total", "value": "S/ 100" },
+        "cta_button": "Finalizar compra →",
+        "coupon_placeholder": "¿Tienes un código?"
+      }
+    ],
+    "footer": "no se confirmó si esta pantalla incluye footer completo — needs_verification",
+    "notes": "El subtotal (92) coincide con la suma de líneas: 24 + (18x2=36) + 32 = 92. El precio unitario de 'Mango deshidratado' aquí es S/18 (igual que en home), mostrado x2 = S/36."
+  }
+}

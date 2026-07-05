@@ -1,0 +1,76 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:13 desktop/06-nosotros) el 2026-07-05.",
+  "page": "Conócenos",
+  "structure": {
+    "header": "Igual que home, con 'Conócenos' activo.",
+    "sections": [
+      {
+        "id": "hero",
+        "breadcrumb": "Inicio / Conócenos",
+        "heading": "Conoce el origen de Sumaq",
+        "paragraph": "Somos una marca que nace cerca del campo, del producto y de las personas que hacen posible cada cosecha.",
+        "button": { "text": "Ver catálogo →" }
+      },
+      {
+        "id": "nuestra_historia",
+        "heading": "Nuestra historia",
+        "paragraphs": [
+          "Sumaq Rurucha nace para conectar familias productoras con personas que valoran alimentos naturales, frescos y con historia.",
+          "Queremos que cada producto comunique su origen, su cuidado y el trabajo que existe detrás."
+        ]
+      },
+      {
+        "id": "personas_detras_marca",
+        "heading": "Las personas detrás de la marca",
+        "subheading": "Usa retratos reales para que la página se sienta humana, cercana y confiable.",
+        "creators": [
+          { "role": "Fundador", "photo_only": true },
+          { "role": "Fundador", "name": "Ronaldo Capitán", "description": "Visión de marca, relación con productores y selección de productos." },
+          { "role": "Productora", "name": "Hilda Tamaqui", "description": "Origen, cultivo y saberes que sostienen la calidad del producto." }
+        ]
+      },
+      {
+        "id": "valores",
+        "type": "values_bar",
+        "items": [
+          { "index": "01", "title": "Compra directa", "text": "Relaciones cercanas con quienes cultivan y seleccionan." },
+          { "index": "02", "title": "Calidad honesta", "text": "Productos naturales, sin relleno y con trazabilidad." },
+          { "index": "03", "title": "Tradición viva", "text": "Saberes andinos llevados a una experiencia actual." }
+        ]
+      },
+      {
+        "id": "calidad_origen",
+        "heading": "Calidad y origen",
+        "paragraph": "La identidad de Sumaq se entiende mejor cuando se ve: manos, semillas, empaque y comunidad.",
+        "photo_caption": "Foto grande: campo / manos / cosecha",
+        "cards": [
+          { "title": "Trazabilidad", "text": "Conocemos el origen de cada producto y su proceso." },
+          { "title": "Selección", "text": "Revisamos pureza, frescura y presentación." },
+          { "title": "Empaque", "text": "Cuidamos que el producto llegue claro, seguro y confiable." }
+        ]
+      },
+      {
+        "id": "galeria",
+        "type": "photo_gallery",
+        "photos": [
+          { "caption": "Foto: producto en manos" },
+          { "caption": "Foto: empaque Sumaq" },
+          { "caption": "Foto: mesa / preparación" }
+        ]
+      },
+      {
+        "id": "impacto",
+        "heading": "Impacto que se ve y se comparte",
+        "paragraph": "Trabajamos para fortalecer una cadena más justa, transparente y cercana al origen.",
+        "photo_caption": "Foto de comunidad / productores"
+      },
+      {
+        "id": "cta_final",
+        "heading": "Lleva lo mejor de nuestros Andes a tu mesa",
+        "paragraph": "Explora productos naturales seleccionados con cuidado.",
+        "button": { "text": "Ver catálogo →" }
+      }
+    ],
+    "footer": "Igual que home (Comprar: Cereales/Deshidratados/Especias/Frutos secos · Negocios: Exportación-Mayoristas/Recetas/Soy distribuidor · Ayuda: Políticas de envío/Términos/Preguntas frecuentes)."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:14 desktop/07-contacto) el 2026-07-05.",
+    "screen": "contacto",
+    "colors_used": {
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Nav activo, badge CONTACTO, botones CTA.",
+      "tinta_500": "#211814",
+      "atenuado_500": "#7C6F68",
+      "borde_500": "#DECFC2",
+      "negro_100": "#FFFFFF",
+      "exito_500": "#6E8F54",
+      "exito_500_comment": "Punto de estado 'Disponible hoy' junto al canal de WhatsApp."
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "sizes_observed": { "hero": "50px", "card_heading": "28px" } },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "field_label_size": "11px extrabold uppercase", "paragraph_size": "14-16px regular" }
+    },
+    "layout_rules": {
+      "content_padding": "40px horizontal, 28px top, 64px bottom, gap 24px entre bloques",
+      "border_radius": {
+        "hero_cards": "12px",
+        "quick_cards": "12px",
+        "form_card": "12px",
+        "info_card": "12px",
+        "faq_card": "12px",
+        "faq_item": "10px",
+        "text_inputs": "6px",
+        "image_caption_pill": "999px",
+        "button": "8px"
+      }
+    },
+    "visual_specifications_by_section": {
+      "header": "Igual que home, 'Contacto' activo (vino/500 + subrayado).",
+      "hero": {
+        "layout": "split 544px card de texto + foto flexible con caption flotante",
+        "badge": { "text": "CONTACTO", "color": "#7A1F3D", "font_size": "12px extrabold" }
+      },
+      "quick_contact": {
+        "layout": "2 columnas iguales",
+        "status_indicator": { "dot_color": "#6E8F54", "text_color": "#6E8F54", "text": "Disponible hoy" }
+      },
+      "content_layout": {
+        "layout": "form (flex-1) + side-stack (380px: foto + tarjeta de canales)",
+        "form_fields": ["NOMBRE", "CORREO O TELÉFONO", "MOTIVO", "MENSAJE (textarea)"],
+        "info_card_rows": "separadas por borde-bottom 1px #DECFC2, excepto la última fila"
+      },
+      "faq_section": {
+        "card": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "border_radius": "12px" },
+        "faq_item": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "border_radius": "10px" }
+      },
+      "footer": "Igual que home."
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:15 desktop/08-distribuidor) el 2026-07-05.",
+    "screen": "distribuidor",
+    "colors_used": {
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Botones primarios, texto de links/badges destacados, borde de botón secundario, fondo del bloque 'quote-copy' (cotización).",
+      "tinta_500": "#211814",
+      "tinta_500_comment": "Headings y texto oscuro principal (labels de formulario, títulos de tarjetas).",
+      "atenuado_500": "#7C6F68",
+      "atenuado_500_comment": "Texto secundario/párrafos, y — a diferencia de home — también los nav-links del header (ninguno está 'activo' en esta pantalla).",
+      "negro_100": "#FFFFFF",
+      "negro_100_comment": "Fondos claros, texto sobre fondo vino, inputs de formulario.",
+      "borde_500": "#DECFC2",
+      "borde_500_comment": "Bordes de tarjetas, inputs, separadores.",
+      "plomo_100": "#FBF9F6",
+      "plomo_100_comment": "Fondo del placeholder de imagen en 'statement-image'.",
+      "white_on_vino_transparent": "rgba(255,255,255,0.78) / rgba(255,255,255,0.74) / rgba(255,255,255,0.28)",
+      "white_on_vino_transparent_comment": "Variantes de blanco translúcido usadas dentro del bloque vino (quote-copy) para texto secundario y bordes de las mini-tarjetas de datos (30+, 48h, 12m)."
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "weight": "Bold" },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "weights_used": ["Regular", "Semi Bold", "Bold", "Extra Bold"] },
+      "sizes_observed": {
+        "hero_heading": "56px",
+        "statement_heading": "34px",
+        "quote_heading": "40px",
+        "form_heading": "26px",
+        "flow_item_title": "20px",
+        "proof_card_title": "18px",
+        "mini_data_number": "30px",
+        "body_paragraph": "16px",
+        "small_body": "14px",
+        "field_label": "11px (extrabold, mayúsculas)"
+      }
+    },
+    "layout_rules": {
+      "content_max_width": "1360px",
+      "content_padding": "40px laterales, 28px top, 64px bottom",
+      "border_radius": {
+        "hero_statement_quote_form": "14px",
+        "proof_card_download_banner": "12px",
+        "mini_data_card": "10px",
+        "buttons": "8px",
+        "input_field": "6px",
+        "input_field_comment": "Nuevo token no visto en home: radius/6 = 6px, específico de inputs de formulario."
+      }
+    },
+    "visual_specifications_by_section": {
+      "header": {
+        "note": "Igual que home, pero AQUÍ NINGÚN nav-link está activo (los 3 están en color atenuado/500, sin subrayado)."
+      },
+      "hero": {
+        "layout": "split, copy izquierda (490px) + visual derecha (flex-1)",
+        "border": "1px solid #DECFC2",
+        "border_radius": "14px",
+        "eyebrow_color": "#7A1F3D",
+        "heading_color": "#211814",
+        "paragraph_color": "#7C6F68",
+        "buttons": [
+          { "type": "primary", "background": "#7A1F3D", "text_color": "#FFFFFF" },
+          { "type": "secondary", "background": "transparent", "border": "2px solid #7A1F3D", "text_color": "#7A1F3D" }
+        ],
+        "image_note_card": { "background": "rgba(255,255,255,0.92)", "border": "1px solid #DECFC2", "border_radius": "10px" }
+      },
+      "statement": {
+        "layout": "split 50/50, tarjeta de texto + tarjeta de imagen",
+        "border_bottom": "1px solid #DECFC2 (separador de sección)",
+        "card_background": "#FFFFFF",
+        "image_placeholder_background": "#FBF9F6",
+        "border_radius": "14px"
+      },
+      "flow_3_pasos": {
+        "layout": "3 columnas iguales dentro de una tarjeta con borde",
+        "border": "1px solid #DECFC2",
+        "border_radius": "14px",
+        "column_separators": "border-right 1px solid #DECFC2 (excepto la última)",
+        "number_color": "#7A1F3D",
+        "title_color": "#211814",
+        "subtext_color": "#7C6F68"
+      },
+      "brand_section": {
+        "layout": "imagen grande (flex-1) + columna de 3 proof-cards (300px)",
+        "proof_card": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "border_radius": "12px", "title_color": "#211814", "text_color": "#7C6F68" }
+      },
+      "quote_form": {
+        "layout": "split: bloque vino con cita+datos (flex-1) + formulario blanco (400px)",
+        "quote_block": {
+          "background": "#7A1F3D",
+          "border_radius": "14px",
+          "heading_color": "#FFFFFF",
+          "paragraph_color": "rgba(255,255,255,0.78)",
+          "mini_data_cards": { "border": "1px solid rgba(255,255,255,0.28)", "border_radius": "10px", "number_color": "#FFFFFF", "label_color": "rgba(255,255,255,0.74)" }
+        },
+        "form_block": {
+          "background": "#FFFFFF",
+          "border": "1px solid #DECFC2",
+          "border_radius": "14px",
+          "field_label_color": "#211814",
+          "field_label_style": "11px extrabold uppercase",
+          "input_style": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "border_radius": "6px", "height": "44px", "text_color": "#211814", "placeholder_examples_are_real_copy": true },
+          "submit_button": { "background": "#7A1F3D", "text_color": "#FFFFFF", "border_radius": "8px" }
+        }
+      },
+      "download_banner": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "12px",
+        "title_color": "#211814",
+        "subtitle_color": "#7C6F68",
+        "button": { "type": "secondary-outline", "border": "2px solid #7A1F3D", "text_color": "#7A1F3D" }
+      },
+      "footer": { "note": "Idéntico al footer de home (mismas 3 columnas y tagline)." }
+    }
+  }
+}

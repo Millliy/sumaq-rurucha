@@ -1,0 +1,51 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 260:1727 desktop/10-rastrea-pedido) el 2026-07-05.",
+  "site_name": "Sumaq Rurucha",
+  "page": "Rastrea tu pedido",
+  "structure": {
+    "header": {
+      "logo": "Sumaq Rurucha (logo/horizontal)",
+      "navigation_menu": [
+        { "label": "Catálogo", "url": "#", "active": true },
+        { "label": "Conócenos", "url": "#", "active": false },
+        { "label": "Contacto", "url": "#", "active": false }
+      ],
+      "user_actions": [
+        { "label": "¿Eres distribuidor?", "url": "#" },
+        { "icon": "search", "url": "#" },
+        { "icon": "user_profile", "url": "#" },
+        { "label": "Mi pedido", "icon": "shipping", "url": "#" },
+        { "icon": "shopping_cart", "count": 2, "url": "#" }
+      ]
+    },
+    "sections": [
+      {
+        "id": "intro",
+        "type": "centered_intro",
+        "eyebrow": "RASTREA TU PEDIDO",
+        "heading": "¿Dónde está mi pedido?",
+        "subtext": "Ingresa tu número de pedido y el correo o teléfono con el que compraste."
+      },
+      {
+        "id": "form_card",
+        "type": "lookup_form",
+        "icon_badge": "commerce/shipping",
+        "fields": [
+          { "label": "NÚMERO DE PEDIDO", "placeholder": "Ej. SR-48213", "type": "text" },
+          { "label": "CORREO O TELÉFONO", "placeholder": "Ej. maria@gmail.com", "type": "text" }
+        ],
+        "submit_button": "Buscar mi pedido →"
+      },
+      {
+        "id": "divider",
+        "type": "or_divider",
+        "label": "¿YA TIENES CUENTA?"
+      },
+      {
+        "id": "login_button",
+        "type": "secondary_action",
+        "button": "Iniciar sesión"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 291:2 desktop/13-pedido-confirmado) el 2026-07-05.",
+    "screen": "pedido_confirmado",
+    "template_comment": "Mismo template que pedido_entregado — misma grilla, mismos tamaños. Cambia el progreso del stepper (solo 'Confirmado' completado) y la tarjeta inferior derecha (ayuda/WhatsApp en vez de reseña).",
+    "colors_used": {
+      "plomo_100": "#FBF9F6",
+      "plomo_100_comment": "Fondo de página. Además, en este estado del stepper, los conectores AÚN NO completados usan este mismo color (se camuflan con el fondo) en vez de vino/500.",
+      "negro_600": "#424242",
+      "negro_600_comment": "Nav 'Catálogo' en estado neutro, igual que en pedido_entregado.",
+      "tinta_500": "#211814",
+      "atenuado_500": "#7C6F68",
+      "atenuado_500_comment": "Además de su uso habitual, en esta pantalla también colorea las etiquetas y timestamps de los pasos del stepper que están 'Pendiente'.",
+      "vino_500": "#7A1F3D",
+      "borde_500": "#DECFC2",
+      "plomo_500": "#EDE3D3",
+      "negro_100": "#FFFFFF"
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "weight": "Bold", "page_heading_size": "38px" },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "weights_used": ["Regular", "Semi Bold", "Extra Bold"] }
+    },
+    "layout_rules": {
+      "stepper": {
+        "steps": 4,
+        "labels": ["Confirmado", "Preparando", "Enviado", "Entregado"],
+        "completed_style": { "circle_bg": "#7A1F3D", "check_color": "#FFFFFF", "connector_color": "#7A1F3D", "label_color": "#211814" },
+        "pending_style": {
+          "circle": "outline gris claro (asset de imagen, sin check)",
+          "connector_color": "#FBF9F6",
+          "connector_comment": "El conector pendiente usa el mismo color que el fondo de página — visualmente 'apagado'.",
+          "label_color": "#7C6F68",
+          "label_comment": "A diferencia del paso completado (tinta/500 bold), el paso pendiente usa atenuado/500 para label y timestamp."
+        }
+      },
+      "content_card_border_radius": "12px"
+    },
+    "visual_specifications_by_section": {
+      "header": "Igual que pedido_entregado — 'Catálogo' en negro/600, no vino/500.",
+      "summary_card": { "background_color": "#EDE3D3", "border_radius": "12px", "total_price_color": "#7A1F3D" },
+      "action_card": {
+        "background_color": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "12px",
+        "cta_button_background": "#7A1F3D",
+        "cta_button_text": "Escribir por WhatsApp",
+        "comment": "Distinto al de pedido_entregado ('Calificar mi pedido ★') — aquí es un CTA de soporte/ayuda."
+      }
+    }
+  }
+}

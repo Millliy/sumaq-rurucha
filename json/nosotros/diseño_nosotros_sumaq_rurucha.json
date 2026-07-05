@@ -1,0 +1,75 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:13 desktop/06-nosotros) el 2026-07-05.",
+    "screen": "nosotros",
+    "colors_used": {
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Nav activo, botones CTA, fondo del bloque 'Impacto que se ve y se comparte', número de índice de los valores (01/02/03).",
+      "tinta_500": "#211814",
+      "atenuado_500": "#7C6F68",
+      "atenuado_500_comment": "Nav inactivo, todo el texto de párrafo/subtítulo de la página.",
+      "borde_500": "#DECFC2",
+      "negro_100": "#FFFFFF"
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "sizes_observed": { "hero": "60px", "section_heading": "34px", "impact_heading": "38px", "cta_heading": "30px" } },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "breadcrumb_size": "13px extrabold", "paragraph_size": "16px regular line-height 1.5", "card_text_size": "14px" }
+    },
+    "layout_rules": {
+      "content_padding": "40px horizontal, 28px top, 64px bottom",
+      "section_dividers": "border-bottom 1px solid #DECFC2 entre secciones (excepto la última antes del CTA)",
+      "border_radius": {
+        "hero_card": "14px",
+        "story_card": "14px",
+        "creator_cards": "14px",
+        "values_bar": "14px",
+        "origin_cards_small": "12px",
+        "gallery_photos": "14px",
+        "impact_blocks": "14px",
+        "cta_card": "14px",
+        "image_caption_pill": "999px",
+        "button": "8px"
+      }
+    },
+    "visual_specifications_by_section": {
+      "header": "Igual que home, pero aquí 'Conócenos' está activo (vino/500 + subrayado) y 'Catálogo'/'Contacto' inactivos (atenuado/500).",
+      "hero": {
+        "layout": "split 480px copy + foto flexible",
+        "border": "1px solid #DECFC2",
+        "border_radius": "14px",
+        "breadcrumb": "Inicio / Conócenos",
+        "heading_color": "#211814",
+        "paragraph_color": "#7C6F68"
+      },
+      "intro_grid": { "layout": "split card de texto + foto", "card_style": "white, border #DECFC2, radius 14px, padding 34px" },
+      "creators_section": {
+        "layout": "3 columnas",
+        "card_1": "foto a sangre completa (sin card blanca), caption pill flotante 'Fundador'",
+        "card_2_3": "foto arriba (280px) + bloque de texto blanco abajo, caption pill flotante"
+      },
+      "values_bar": {
+        "layout": "3 columnas con separador vertical borde/500",
+        "index_number_color": "#7A1F3D",
+        "title_color": "#211814",
+        "text_color": "#7C6F68"
+      },
+      "origin_section": {
+        "layout": "foto grande izquierda (540px) + 3 tarjetas de texto a la derecha",
+        "small_cards": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "border_radius": "12px" }
+      },
+      "gallery": { "layout": "3 fotos iguales en fila, 280px alto, caption pill flotante en cada una" },
+      "impact_section": {
+        "layout": "split 2 bloques",
+        "left_block": { "background": "#7A1F3D", "text_color": "#FFFFFF", "paragraph_color": "rgba(255,255,255,0.78)" },
+        "right_block": "foto con caption pill"
+      },
+      "cta_final": {
+        "layout": "flexrow, texto + botón",
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "14px"
+      },
+      "footer": "Igual que home (Comprar / Negocios / Ayuda)."
+    }
+  }
+}

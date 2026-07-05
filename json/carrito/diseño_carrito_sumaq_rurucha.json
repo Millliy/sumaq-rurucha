@@ -1,0 +1,81 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:11 desktop/04-carrito) el 2026-07-05.",
+    "screen": "carrito",
+    "colors_used": {
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Link 'Eliminar' y 'Seguir comprando', total del pedido, botón 'Finalizar compra', stepper +/-.",
+      "vino_100": "#E4D2D8",
+      "vino_100_comment": "NUEVO TOKEN respecto a pantallas previas. Fondo rosado claro de la franja 'Envío estimado: S/ 8'.",
+      "tinta_500": "#211814",
+      "tinta_500_comment": "Headings, nombres de producto, precios, valores del resumen (subtotal/envío), texto del selector de departamento cuando tiene valor.",
+      "atenuado_500": "#7C6F68",
+      "atenuado_500_comment": "Subtítulos de producto (presentación), breadcrumb inactivo, labels de subtotal/envío, texto de trust-items, placeholder del selector de envío y del cupón.",
+      "borde_500": "#DECFC2",
+      "borde_500_comment": "Bordes de item-cards, imagen de producto, selects, summary-card, trust-items, separadores del resumen.",
+      "plomo_500": "#EDE3D3",
+      "plomo_500_comment": "Fondo del tag '3 productos'.",
+      "plomo_200": "#F8F4ED",
+      "plomo_200_comment": "Fondo de los botones +/- del stepper de cantidad.",
+      "negro_100": "#FFFFFF"
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "weight": "Bold", "sizes_observed": { "page_title": "48px (Tu carrito)", "summary_heading": "26px (Resumen)", "total_amount": "30px" } },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "weights_used": ["Regular", "Medium", "Bold", "Extra Bold"] }
+    },
+    "layout_rules": {
+      "layout": "2 columnas: left-col (flex) + summary (390px fijo)",
+      "border_radius": {
+        "item_card": "12px",
+        "item_image": "10px",
+        "quantity_stepper": "6px",
+        "trust_item": "10px",
+        "shipping_card": "12px",
+        "summary_card": "12px",
+        "select_and_coupon": "8px",
+        "cta_button": "8px"
+      },
+      "shadows": { "summary_card": "0px 14px 34px rgba(33,24,20,0.06)" }
+    },
+    "visual_specifications_by_section": {
+      "title_row": {
+        "heading_color": "#211814",
+        "subheading_color": "#7C6F68",
+        "count_tag": { "background": "#EDE3D3", "text_color": "#211814" }
+      },
+      "cart_item": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "12px",
+        "image_size": "92x92px",
+        "title_color": "#211814",
+        "subtitle_color": "#7C6F68",
+        "remove_link_color": "#7A1F3D",
+        "price_color": "#211814",
+        "quantity_stepper": { "buttons_bg": "#F8F4ED", "buttons_text": "#7A1F3D", "qty_text": "#211814" }
+      },
+      "trust_row": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "10px",
+        "title_color": "#211814",
+        "text_color": "#7C6F68"
+      },
+      "shipping_card": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "select_style": { "border": "1px solid #DECFC2", "border_radius": "8px", "text_color": "#7C6F68" },
+        "result_band": { "background": "#E4D2D8", "text_color": "#211814", "dot_color": "needs_verification (Ellipse asset, probablemente vino/500 o exito/500)" }
+      },
+      "summary_card": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "shadow": "0px 14px 34px rgba(33,24,20,0.06)",
+        "line_items": { "label_color": "#7C6F68", "value_color": "#211814", "row_border_bottom": "1px solid #DECFC2" },
+        "total": { "label_color": "#211814", "amount_color": "#7A1F3D", "amount_font": "Cormorant Bold 30px" },
+        "cta_button": { "background": "#7A1F3D", "text_color": "#FFFFFF", "height": "52px", "text": "Finalizar compra →" },
+        "coupon_field": { "border": "1px solid #DECFC2", "border_radius": "8px", "text_color": "#7C6F68" }
+      }
+    }
+  }
+}

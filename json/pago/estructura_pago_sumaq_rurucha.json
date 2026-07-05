@@ -1,0 +1,84 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:12 desktop/05-pago) el 2026-07-05.",
+  "page": "Finalizar compra",
+  "structure": {
+    "header": "Igual que home (logo Sumaq Rurucha, nav Catálogo/Conócenos/Contacto, acciones ¿Eres distribuidor?/búsqueda/usuario/Mi pedido/carrito con badge=2).",
+    "sections": [
+      {
+        "id": "checkout_head",
+        "heading": "Finalizar compra",
+        "subheading": "Completa tus datos para confirmar tu pedido.",
+        "steps": [
+          { "number": 1, "label": "Datos", "state": "active" },
+          { "number": 2, "label": "Envío y pago", "state": "active" },
+          { "number": 3, "label": "Confirmar", "state": "inactive" }
+        ]
+      },
+      {
+        "id": "datos_cliente",
+        "type": "form_section",
+        "number": 1,
+        "heading": "Datos del cliente",
+        "fields": [
+          { "label": "NOMBRE COMPLETO", "placeholder": "Ej. Maria Fernanda Quispe" },
+          { "label": "TELEFONO", "placeholder": "Ej. 987 654 321" },
+          { "label": "CORREO ELECTRONICO", "placeholder": "Ej. maria@gmail.com" }
+        ],
+        "note": "No es necesario registrarse para comprar."
+      },
+      {
+        "id": "envio",
+        "type": "form_section",
+        "number": 2,
+        "heading": "Envío",
+        "fields": [
+          { "label": "CIUDAD", "type": "select", "placeholder": "Selecciona tu ciudad" },
+          { "label": "DISTRITO", "type": "select", "placeholder": "Selecciona tu distrito" },
+          { "label": "DIRECCION", "type": "text", "placeholder": "Ej. Av. Los Proceres 123, dpto. 201" },
+          { "label": "REFERENCIA OPCIONAL", "type": "text", "placeholder": "Ej. casa azul, al lado de la bodega" }
+        ]
+      },
+      {
+        "id": "metodo_pago",
+        "type": "form_section",
+        "number": 3,
+        "heading": "Método de pago",
+        "options": [
+          { "title": "Yape / Plin", "subtext": "Pago rapido desde tu app.", "selected": true },
+          { "title": "Tarjeta", "subtext": "Debito o credito.", "selected": false },
+          { "title": "Transferencia", "subtext": "Desde banca por internet.", "selected": false },
+          { "title": "Contraentrega", "subtext": "Disponible segun ubicacion.", "selected": false }
+        ]
+      },
+      {
+        "id": "confirmar",
+        "type": "form_section",
+        "number": 4,
+        "heading": "Confirmar",
+        "notice": "Revisa que tus datos, productos y metodo de pago esten correctos antes de confirmar.",
+        "button": { "text": "Confirmar compra →" }
+      },
+      {
+        "id": "resumen",
+        "type": "order_summary",
+        "heading": "Resumen",
+        "items": [
+          { "title": "Quinua real blanca", "variant": "Bolsa 1 kg · x1", "price": "S/ 24" },
+          { "title": "Mango deshidratado", "variant": "Pack 250 g · x2", "price": "S/ 36" },
+          { "title": "Mix andino premium", "variant": "Bolsa 500 g · x1", "price": "S/ 32" }
+        ],
+        "summary_lines": [
+          { "label": "Subtotal", "value": "S/ 92" },
+          { "label": "Envío estimado", "value": "S/ 8" }
+        ],
+        "total": { "label": "Total", "value": "S/ 100" },
+        "coupon": { "placeholder": "¿Tienes un código?" },
+        "trust_items": [
+          { "title": "Envío", "subtext": "A todo el país" },
+          { "title": "Pago", "subtext": "Seguro" },
+          { "title": "Cambios", "subtext": "Hasta 7 días" }
+        ]
+      }
+    ]
+  }
+}

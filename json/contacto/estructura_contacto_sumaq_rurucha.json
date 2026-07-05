@@ -1,0 +1,63 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:14 desktop/07-contacto) el 2026-07-05.",
+  "page": "Contacto",
+  "structure": {
+    "header": "Igual que home, con 'Contacto' activo.",
+    "sections": [
+      {
+        "id": "hero",
+        "badge": "CONTACTO",
+        "heading": "Estamos para ayudarte",
+        "paragraph": "Escríbenos por WhatsApp o envíanos un mensaje. Te responderemos lo antes posible para resolver dudas sobre pedidos, envíos o productos.",
+        "button": { "text": "Escribir por WhatsApp →" },
+        "image_caption": {
+          "title": "Imagen de producto / comunidad",
+          "text": "Espacio para una foto de quinua, empaque, manos preparando producto o textura natural de marca."
+        }
+      },
+      {
+        "id": "quick_contact",
+        "cards": [
+          { "title": "Respuesta rápida por WhatsApp", "text": "Ideal para consultar por pedidos, stock o coordinación de envío.", "status": "Disponible hoy" },
+          { "title": "Atención por mensaje", "text": "Para consultas con más detalle, cambios, devoluciones o ventas por volumen." }
+        ]
+      },
+      {
+        "id": "formulario",
+        "heading": "Envíanos un mensaje",
+        "subheading": "Completa tus datos y selecciona el motivo de contacto.",
+        "fields": [
+          { "label": "NOMBRE", "placeholder": "Ej. María Fernanda Quispe" },
+          { "label": "CORREO O TELÉFONO", "placeholder": "Ej. 987 654 321" },
+          { "label": "MOTIVO", "placeholder": "Pedido en curso" },
+          { "label": "MENSAJE", "type": "textarea", "placeholder": "Escribe tu mensaje aquí..." }
+        ],
+        "button": { "text": "Enviar mensaje" }
+      },
+      {
+        "id": "side_stack",
+        "image_caption": "Imagen secundaria / textura",
+        "canales_card": {
+          "heading": "Canales",
+          "subheading": "Elige el canal que prefieras.",
+          "rows": [
+            { "title": "WhatsApp", "text": "Respuesta rápida para pedidos y dudas puntuales." },
+            { "title": "Correo", "text": "contacto@sumaqrurucha.pe" },
+            { "title": "Horario", "text": "Lunes a sábado · 9:00 a.m. a 6:00 p.m." }
+          ]
+        }
+      },
+      {
+        "id": "faq",
+        "heading": "Preguntas frecuentes",
+        "subheading": "Respuestas rápidas para las consultas más comunes.",
+        "items": [
+          { "question": "¿Cuánto tarda el envío?", "answer": "24-48 h en Lima y 3-5 días útiles al resto del país." },
+          { "question": "¿Puedo cambiar o devolver un producto?", "answer": "Sí, dentro de 7 días desde la entrega si el empaque no fue abierto." },
+          { "question": "¿Hacen envíos fuera de Lima?", "answer": "Sí, enviamos a todo el país. El costo se calcula antes del pago." }
+        ]
+      }
+    ],
+    "footer": "Igual que home (Comprar / Negocios / Ayuda)."
+  }
+}

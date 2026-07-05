@@ -3,17 +3,262 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo - Sumaq Rurucha</title>
+  <title>Cat&aacute;logo - Sumaq Rurucha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header data-nav></header>
 
-  <main class="page">
-    <section class="hero">
-      <h1>Catálogo</h1>
-      <p>Sitio web en construccion.</p>
-      <p><a href="producto.html">Ver producto de ejemplo</a></p>
+  <main class="catalog-page">
+    <section class="catalog-hero" aria-labelledby="catalog-title">
+      <div class="catalog-hero__main">
+        <p class="eyebrow">CAT&Aacute;LOGO</p>
+        <h1 id="catalog-title">Productos andinos para cada rutina</h1>
+        <p>Encuentra cereales, especias, frutos secos y productos naturales por categor&iacute;a, uso o presentaci&oacute;n. Una navegaci&oacute;n simple para comprar sin perderte.</p>
+      </div>
+
+      <aside class="catalog-hero__side">
+        <img src="assets/img/catalogo/01-mix-recomendado.png" alt="Mixes recomendados Sumaq Rurucha">
+        <h2>Mixes recomendados</h2>
+        <p>Bloque para destacar combos, ofertas o productos de temporada sin saturar la pantalla.</p>
+      </aside>
+    </section>
+
+    <section class="catalog-toolbar" aria-label="Filtros r&aacute;pidos">
+      <div class="catalog-chips">
+        <button class="catalog-chip catalog-chip--active" type="button">Todos</button>
+        <button class="catalog-chip" type="button">Cereales</button>
+        <button class="catalog-chip" type="button">Deshidratados</button>
+        <button class="catalog-chip" type="button">Especias</button>
+        <button class="catalog-chip" type="button">Frutos secos</button>
+      </div>
+      <button class="catalog-sort" type="button">M&aacute;s vendidos &#9662;</button>
+    </section>
+
+    <section class="catalog-layout" aria-label="Productos del cat&aacute;logo">
+      <aside class="catalog-filters">
+        <div class="catalog-filters__head">
+          <h2>Filtrar</h2>
+          <a href="catalogo.html">Limpiar</a>
+        </div>
+        <p>Elige solo lo necesario para encontrar productos m&aacute;s r&aacute;pido.</p>
+
+        <fieldset>
+          <legend>Tipo de producto</legend>
+          <label><input type="checkbox" checked> Cocinar</label>
+          <label><input type="checkbox"> Desayuno</label>
+          <label><input type="checkbox"> Infusiones</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Tama&ntilde;o</legend>
+          <label><input type="checkbox"> 100 g</label>
+          <label><input type="checkbox"> 500 g</label>
+          <label><input type="checkbox"> 1 kg</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Disponibilidad</legend>
+          <label><input type="checkbox" checked> En stock</label>
+        </fieldset>
+
+        <button class="button button--primary" type="button">Aplicar filtros</button>
+      </aside>
+
+      <div class="catalog-results">
+        <div class="catalog-results__head">
+          <div>
+            <strong>47 productos</strong>
+            <p>Filtros activos: cocinar, 500 g, en stock</p>
+          </div>
+          <span>Productos naturales</span>
+        </div>
+
+        <section class="catalog-category" aria-labelledby="cereales-title">
+          <h2 id="cereales-title">Cereales</h2>
+          <div class="catalog-grid">
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-ajonjoli-tostado-100g.png" alt="Ajonjol&iacute; tostado"></a>
+              <div>
+                <h3>Ajonjol&iacute; tostado</h3>
+                <p>Cereales &middot; Bolsa 100 g</p>
+                <strong>S/ 14</strong>
+                <a class="button button--primary" href="carrito.html">Agregar al carrito</a>
+              </div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-ajonjoli-blanca-100g.png" alt="Ajonjol&iacute; blanca"></a>
+              <div><h3>Ajonjol&iacute; blanca</h3><p>Cereales &middot; Bolsa 100 g</p><strong>S/ 12</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-Ajonjolí-blanca-1000g.png" alt="Ajonjol&iacute; blanca 1 kg"></a>
+              <div><h3>Ajonjol&iacute; blanca</h3><p>Cereales &middot; Bolsa 1 kg</p><strong>S/ 38</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-chia-gramos-500g.png" alt="Ch&iacute;a en granos"></a>
+              <div><h3>Ch&iacute;a en granos</h3><p>Cereales &middot; Bolsa 500 g</p><strong>S/ 26</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-Crema-de-habas-100g.png" alt="Crema de habas"></a>
+              <div><h3>Crema de habas</h3><p>Cereales &middot; Bolsa 100 g</p><strong>S/ 11</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-Harina-de-arvejas-100g.png" alt="Harina de arvejas"></a>
+              <div><h3>Harina de arvejas</h3><p>Cereales &middot; Bolsa 100 g</p><strong>S/ 10</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-Harina-de-cañihua-100g.png" alt="Harina de ca&ntilde;ihua"></a>
+              <div><h3>Harina de ca&ntilde;ihua</h3><p>Cereales &middot; Bolsa 100 g</p><strong>S/ 12</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-Harina-de-quinua-tostada-100g.png" alt="Harina de quinua tostada"></a>
+              <div><h3>Harina de quinua tostada</h3><p>Cereales &middot; Bolsa 100 g</p><strong>S/ 12</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-Hojuela-de-kiwicha-orgánica-100g.png" alt="Hojuela de kiwicha org&aacute;nica"></a>
+              <div><h3>Hojuela de kiwicha org&aacute;nica</h3><p>Cereales &middot; Bolsa 100 g</p><strong>S/ 13</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-hojuelasdequinua-100g.png" alt="Hojuelas de quinua"></a>
+              <div><h3>Hojuelas de quinua</h3><p>Cereales &middot; Bolsa 100 g</p><strong>S/ 13</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-kiwicha-100g.png" alt="Kiwicha"></a>
+              <div><h3>Kiwicha</h3><p>Cereales &middot; Bolsa 100 g</p><strong>S/ 12</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-Quinua-blanca-100g.png" alt="Quinua blanca"></a>
+              <div><h3>Quinua blanca</h3><p>Cereales &middot; Bolsa 100 g</p><strong>S/ 14</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales -quinua-blanca-1000g.png" alt="Quinua blanca 1 kg"></a>
+              <div><h3>Quinua blanca</h3><p>Cereales &middot; Bolsa 1 kg</p><strong>S/ 42</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+            <article class="catalog-card">
+              <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+              <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Cereales/cereales-Hojuela-de-kiwicha-orgánica-1000g.png" alt="Hojuela de kiwicha org&aacute;nica 1 kg"></a>
+              <div><h3>Hojuela de kiwicha org&aacute;nica</h3><p>Cereales &middot; Bolsa 1 kg</p><strong>S/ 38</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="catalog-category" aria-labelledby="deshidratados-title">
+          <h2 id="deshidratados-title">Deshidratados</h2>
+          <div class="catalog-grid">
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/deshidratados-Aguaymanto-Fino-100g.png" alt="Aguaymanto fino"></a><div><h3>Aguaymanto fino</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 18</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/deshidratados-Arándanos-deshidratados-100g.png" alt="Ar&aacute;ndanos deshidratados"></a><div><h3>Ar&aacute;ndanos deshidratados</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 20</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png" alt="Coco rallado fino"></a><div><h3>Coco rallado fino</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 12</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-grueso-100g.png" alt="Coco rallado grueso"></a><div><h3>Coco rallado grueso</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 12</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/deshidratados-Guindones-100g.png" alt="Guindones"></a><div><h3>Guindones</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 16</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/deshidratados-Higo-100g.png" alt="Higo"></a><div><h3>Higo</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 15</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/deshidratados-Higos-Secos-100g.png" alt="Higos secos"></a><div><h3>Higos secos</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 15</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/Deshidratados-kiwi-100g.png" alt="Kiwi deshidratado"></a><div><h3>Kiwi deshidratado</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 18</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/deshidratados-Pera-deshidradata-100g.png" alt="Pera deshidratada"></a><div><h3>Pera deshidratada</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 17</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Deshidratados/deshitrados-toronja-dishidratado-100g.png" alt="Toronja deshidratada"></a><div><h3>Toronja deshidratada</h3><p>Deshidratados &middot; Bolsa 100 g</p><strong>S/ 17</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+          </div>
+        </section>
+
+        <section class="catalog-category" aria-labelledby="especias-title">
+          <h2 id="especias-title">Especias</h2>
+          <div class="catalog-grid">
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=anis-estrella"><img src="assets/img/catalogo/Especias/Especias-Airampo-100g.png" alt="Airampo"></a><div><h3>Airampo</h3><p>Especias &middot; Bolsa 100 g</p><strong>S/ 11</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=anis-estrella"><img src="assets/img/catalogo/Especias/Especias-Aji-amarillo-100g.png" alt="Aj&iacute; amarillo"></a><div><h3>Aj&iacute; amarillo</h3><p>Especias &middot; Bolsa 100 g</p><strong>S/ 13</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=anis-estrella"><img src="assets/img/catalogo/Especias/Especias-Ají-panca-100g.png" alt="Aj&iacute; panca"></a><div><h3>Aj&iacute; panca</h3><p>Especias &middot; Bolsa 100 g</p><strong>S/ 13</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=anis-estrella"><img src="assets/img/catalogo/Especias/Especias-ají-panca-molido-100g.png" alt="Aj&iacute; panca molido"></a><div><h3>Aj&iacute; panca molido</h3><p>Especias &middot; Bolsa 100 g</p><strong>S/ 13</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=anis-estrella"><img src="assets/img/catalogo/Especias/Especias-Anís-100g.png" alt="An&iacute;s"></a><div><h3>An&iacute;s</h3><p>Especias &middot; Bolsa 100 g</p><strong>S/ 12</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=anis-estrella"><img src="assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png" alt="An&iacute;s estrella"></a><div><h3>An&iacute;s estrella</h3><p>Especias &middot; Bolsa 100 g</p><strong>S/ 14</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=anis-estrella"><img src="assets/img/catalogo/Especias/Especias-bicarbonato-100g.png" alt="Bicarbonato"></a><div><h3>Bicarbonato</h3><p>Especias &middot; Bolsa 100 g</p><strong>S/ 8</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=anis-estrella"><img src="assets/img/catalogo/Especias/Especias-canela-molida-100g.png" alt="Canela molida"></a><div><h3>Canela molida</h3><p>Especias &middot; Bolsa 100 g</p><strong>S/ 15</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=anis-estrella"><img src="assets/img/catalogo/Especias/Especias-Clavo-de-olor-100g.png" alt="Clavo de olor"></a><div><h3>Clavo de olor</h3><p>Especias &middot; Bolsa 100 g</p><strong>S/ 14</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+          </div>
+        </section>
+
+        <section class="catalog-category" aria-labelledby="frutos-title">
+          <h2 id="frutos-title">Frutos secos</h2>
+          <div class="catalog-grid">
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-Almendras-100g.png" alt="Almendras"></a><div><h3>Almendras</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 18</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-cajú-cruda-100g.png" alt="Caj&uacute; cruda"></a><div><h3>Caj&uacute; cruda</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 20</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-cajú-tostado-100g.png" alt="Caj&uacute; tostado"></a><div><h3>Caj&uacute; tostado</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 21</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-castaña-100g.png" alt="Casta&ntilde;a"></a><div><h3>Casta&ntilde;a</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 22</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=mani-tostado-natural"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png" alt="Man&iacute; tostado natural"></a><div><h3>Man&iacute; tostado natural</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 12</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-nueces-100g.png" alt="Nueces"></a><div><h3>Nueces</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 20</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-Pecanas-100g.png" alt="Pecanas"></a><div><h3>Pecanas</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 24</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-pistachos-100g.png" alt="Pistachos"></a><div><h3>Pistachos</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 26</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-sacha-inca-100g.png" alt="Sacha inchi"></a><div><h3>Sacha inchi</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 18</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-Pasas-morenas-importadas-grandes-100g.png" alt="Pasas morenas importadas"></a><div><h3>Pasas morenas importadas</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 14</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-pasas-morenas-nacionales-100g.png" alt="Pasas morenas nacionales"></a><div><h3>Pasas morenas nacionales</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 12</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-Pasas-rubias-pequeñas-100g.png" alt="Pasas rubias peque&ntilde;as"></a><div><h3>Pasas rubias peque&ntilde;as</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 13</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-calabaza-100g.png" alt="Semillas de calabaza"></a><div><h3>Semillas de calabaza</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 15</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+            <article class="catalog-card"><button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button><a href="producto.html?slug=semillas-girasol"><img src="assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png" alt="Semillas de girasol"></a><div><h3>Semillas de girasol</h3><p>Frutos secos &middot; Bolsa 100 g</p><strong>S/ 13</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="purchase-guide" aria-labelledby="guide-title">
+      <div>
+        <p class="eyebrow">Compra por objetivo</p>
+        <h2 id="guide-title">Compra por objetivo</h2>
+        <p>Ayuda al usuario a elegir sin revisar todo el cat&aacute;logo. Cada acceso puede abrir una selecci&oacute;n filtrada.</p>
+      </div>
+      <article><span>01</span><h3>Para desayuno</h3><p>Cereales, quinua, maca y mixes energ&eacute;ticos.</p></article>
+      <article><span>02</span><h3>Para cocinar</h3><p>Especias, condimentos y harinas naturales.</p></article>
+      <article><span>03</span><h3>Para bienestar</h3><p>Infusiones, hierbas y productos digestivos.</p></article>
+    </section>
+
+    <section class="recommended-row" aria-labelledby="recommended-title">
+      <div class="section-heading section-heading--split">
+        <div>
+          <h2 id="recommended-title">Mixes para ti</h2>
+          <p>Productos frecuentes seg&uacute;n los filtros aplicados.</p>
+        </div>
+        <a href="catalogo.html">Ver todos &rarr;</a>
+      </div>
+      <div class="recommended-grid">
+        <article class="catalog-card"><a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Mixes para ti/mixes-saludables.png" alt="Mixes saludables"></a><div><h3>Mixes saludables</h3><p>Mixes para ti</p><strong>S/ 32</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+        <article class="catalog-card"><a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Mixes para ti/Mixes-premium.png" alt="Mixes premium"></a><div><h3>Mixes premium</h3><p>Mixes para ti</p><strong>S/ 36</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+        <article class="catalog-card"><a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/catalogo/Mixes para ti/Mixes-energéticos.png" alt="Mixes energ&eacute;ticos"></a><div><h3>Mixes energ&eacute;ticos</h3><p>Mixes para ti</p><strong>S/ 34</strong><a class="button button--primary" href="carrito.html">Agregar al carrito</a></div></article>
+      </div>
+    </section>
+
+    <nav class="pagination" aria-label="Paginaci&oacute;n">
+      <a href="#" aria-current="page">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+    </nav>
+
+    <section class="catalog-info-band" aria-label="Informaci&oacute;n de compra">
+      <article><h3>Selecci&oacute;n de origen</h3><p>Productos elegidos de comunidades y proveedores locales.</p></article>
+      <article><h3>Compra segura</h3><p>Agrega al carrito y revisa tu pedido antes de confirmar.</p></article>
+      <article><h3>Atenci&oacute;n para distribuidores</h3><p>Solicita precios por volumen desde contacto.</p></article>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <div>
+        <h2 id="newsletter-title">Recibe recetas y novedades</h2>
+        <p>Contenido breve sobre productos naturales, usos y promociones de temporada.</p>
+      </div>
+      <form>
+        <label class="sr-only" for="newsletter-email">Correo electr&oacute;nico</label>
+        <input id="newsletter-email" type="email" placeholder="Correo electr&oacute;nico">
+        <button class="button button--primary" type="submit">Suscribirme</button>
+      </form>
     </section>
   </main>
 

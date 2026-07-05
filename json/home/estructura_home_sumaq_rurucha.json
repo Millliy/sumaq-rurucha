@@ -1,0 +1,165 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:8 desktop/01-home) el 2026-07-05.",
+  "site_name": "Sumaq Rurucha",
+  "page": "Home",
+  "structure": {
+    "header": {
+      "logo": "Sumaq Rurucha (logo/horizontal)",
+      "navigation_menu": [
+        { "label": "Catálogo", "url": "#", "active": true },
+        { "label": "Conócenos", "url": "#" },
+        { "label": "Contacto", "url": "#" }
+      ],
+      "user_actions": [
+        { "label": "¿Eres distribuidor?", "url": "#" },
+        { "icon": "search", "url": "#" },
+        { "icon": "user_profile", "url": "#" },
+        { "label": "Mi pedido", "icon": "shipping", "url": "#" },
+        { "icon": "shopping_cart", "count": 2, "url": "#" }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "type": "banner_principal",
+        "badge": "COSECHA ANDINA · PERÚ",
+        "heading": "Del altiplano a tu despensa.",
+        "heading_emphasis_words": ["altiplano", "despensa"],
+        "subheading": "Productos naturales seleccionados a mano, con origen claro y sabor verdadero.",
+        "buttons": [
+          { "text": "Ver catálogo", "type": "primary" },
+          { "text": "Conocer la marca", "type": "secondary" }
+        ],
+        "floating_widget": {
+          "rating": "4.8",
+          "text": "Promedio sobre 1,240 reseñas verificadas. Frescura, origen y calidad en cada pedido."
+        },
+        "background_image_placeholder": "imagen-principal-altiplano.webp"
+      },
+      {
+        "id": "features_bar",
+        "type": "icon_grid",
+        "items": [
+          { "icon": "nature/sustainable", "text": "Certificación SENASA", "subtext": "Orgánico verificado" },
+          { "icon": "commerce/shipping", "text": "Envío 24-48 h", "subtext": "A todo el país" },
+          { "icon": "nature/herbal", "text": "Garantía de frescura", "subtext": "O te devolvemos" },
+          { "icon": "commerce/payment", "text": "Pago seguro", "subtext": "Tarjeta · Yape · Plin" }
+        ]
+      },
+      {
+        "id": "most_ordered",
+        "type": "product_highlight_grid",
+        "heading": "Más pedidos",
+        "subheading": "Una vitrina visual para los productos que más venden.",
+        "link": { "text": "Ver todos →", "url": "#" },
+        "main_featured_product": {
+          "title": "Quinua real blanca",
+          "description": "Grano seleccionado, limpio y versátil para ensaladas, bowls y guarniciones.",
+          "price": "S/ 24",
+          "button_text": "Agregar",
+          "image_placeholder": "quinua-real-blanca.webp"
+        },
+        "secondary_products": [
+          { "title": "Mango deshidratado", "subtext": "Pack 250 g", "price": "S/ 18", "image_placeholder": "mango-deshidratado.webp" },
+          { "title": "Cúrcuma molida", "subtext": "Frasco 120 g", "price": "S/ 15", "image_placeholder": "curcuma-molida.webp" },
+          { "title": "Mix andino premium", "subtext": "Bolsa 500 g", "price": "S/ 32", "image_placeholder": "mix-andino.webp" },
+          { "title": "Infusión natural", "subtext": "Digestivo natural", "price": "S/ 18", "image_placeholder": "infusion-natural.webp" }
+        ]
+      },
+      {
+        "id": "brand_manifesto",
+        "type": "split_banner_dark",
+        "text_content": {
+          "heading": "Cada grano, seleccionado a mano.",
+          "paragraph": "Una imagen fuerte aquí puede vender mejor que una lista de beneficios. Usa textura, movimiento y producto real."
+        },
+        "image_placeholder": "granos-en-movimiento.webp"
+      },
+      {
+        "id": "main_categories",
+        "type": "category_grid",
+        "heading": "Categorías principales",
+        "subheading": "Haz que el usuario compre por imagen antes que por texto.",
+        "link": { "text": "Explorar categorías →", "url": "#" },
+        "featured_category": {
+          "title": "Cereales andinos",
+          "subtext": "Quinua, kiwicha, cañihua y avena.",
+          "image_placeholder": "categoria-cereales-andinos.webp"
+        },
+        "secondary_categories": [
+          { "title": "Deshidratados", "subtext": "Frutas listas para snacks y recetas.", "image_placeholder": "cat-deshidratados.webp" },
+          { "title": "Especias", "subtext": "Color, aroma y origen en cocina diaria.", "image_placeholder": "cat-especias.webp" },
+          { "title": "Frutos secos", "subtext": "Mixes premium para energía natural.", "image_placeholder": "cat-frutos-secos.webp" }
+        ]
+      },
+      {
+        "id": "brand_story",
+        "type": "split_content_light",
+        "image_placeholder": "foto-chacra-agricultores.webp",
+        "text_content": {
+          "badge": "ORIGEN",
+          "heading": "Nacimos entre chacras, no entre góndolas.",
+          "heading_highlight_word": "chacras",
+          "paragraph": "Compramos directo a familias productoras del altiplano para que su trabajo llegue entero a tu mesa.",
+          "button": { "text": "Conocer Sumaq Rurucha", "url": "#" }
+        }
+      },
+      {
+        "id": "testimonials",
+        "type": "testimonial_carousel_summary",
+        "summary": {
+          "rating_score": "4.8",
+          "total_reviews": "· Promedio sobre 1,240 reseñas verificadas"
+        },
+        "cards": [
+          { "comment": "La quinua llega impecable y se nota que es fresca.", "author": "Daniela Quispe", "location": "Lima" },
+          { "comment": "Pedí especias y llegaron en menos de dos días.", "author": "Marco Salazar", "location": "Arequipa" },
+          { "comment": "Me encanta saber de dónde viene cada producto.", "author": "Lucía Ferreyra", "location": "Cusco" },
+          { "comment": "Los frutos secos son enormes y bien crocantes.", "author": "Andrés Pinto", "location": "Trujillo" }
+        ]
+      },
+      {
+        "id": "promo_bundle",
+        "type": "cta_banner_light",
+        "text_content": {
+          "badge": "EMPIEZA POR LOS GRANOS",
+          "heading": "Arma tu despensa andina y ahorra 10%.",
+          "paragraph": "Quinua, kiwicha y cañihua seleccionadas. Llega en 24-48 h con garantía de frescura.",
+          "button": { "text": "Ver catálogo de cereales", "url": "#" }
+        },
+        "image_placeholder": "empaques-sumaq-bowls.webp"
+      }
+    ],
+    "footer": {
+      "logo": "Sumaq Rurucha",
+      "tagline": "Alimentos naturales del altiplano peruano.",
+      "links_columns": [
+        {
+          "title": "Comprar",
+          "links": [
+            { "text": "Cereales", "url": "#" },
+            { "text": "Deshidratados", "url": "#" },
+            { "text": "Especias", "url": "#" },
+            { "text": "Frutos secos", "url": "#" }
+          ]
+        },
+        {
+          "title": "Negocios",
+          "links": [
+            { "text": "Exportación / Mayoristas", "url": "#" },
+            { "text": "Recetas", "url": "#" },
+            { "text": "Soy distribuidor", "url": "#" }
+          ]
+        },
+        {
+          "title": "Ayuda",
+          "links": [
+            { "text": "Políticas de envío", "url": "#" },
+            { "text": "Términos", "url": "#" },
+            { "text": "Preguntas frecuentes", "url": "#" }
+          ]
+        }
+      ]
+    }
+  }
+}

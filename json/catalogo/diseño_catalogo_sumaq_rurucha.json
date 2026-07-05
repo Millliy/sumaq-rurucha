@@ -1,0 +1,94 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 160:164 desktop/02-catalogo) el 2026-07-05.",
+    "screen": "catalogo",
+    "colors_used": {
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Chip activo 'Todos', checkbox marcado, botón 'Aplicar filtros', botón 'Agregar al carrito' de cada card, badge 'CATÁLOGO'.",
+      "tinta_500": "#211814",
+      "tinta_500_comment": "Headings, texto de precios, labels de filtros, texto de chips inactivos.",
+      "atenuado_500": "#7C6F68",
+      "atenuado_500_comment": "Subtítulos, descripciones, texto secundario de las cards de producto.",
+      "negro_100": "#FFFFFF",
+      "negro_100_comment": "Fondos de tarjetas (hero, toolbar, filtros, product cards) y texto sobre vino.",
+      "borde_500": "#DECFC2",
+      "borde_500_comment": "Bordes de todas las tarjetas/paneles (hero, toolbar, filtros, product cards, checkboxes sin marcar, separadores entre grupos de filtro).",
+      "plomo_500": "#EDE3D3",
+      "plomo_500_comment": "NUEVO TOKEN respecto a home. Fondo de los chips de categoría inactivos (Cereales, Deshidratados, Especias, Frutos secos) en la toolbar. Coincide con 'Plomo (Brand Soft)' de colores.jpg.",
+      "plomo_200": "#F8F4ED",
+      "plomo_100": "#FBF9F6"
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "weight": "Bold", "sizes_observed": { "hero_heading": "58px", "hero_side_heading": "26px" } },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "weights_used": ["Regular", "Medium", "Bold", "Extra Bold"] }
+    },
+    "layout_rules": {
+      "content_max_width": "1360px",
+      "sidebar_filters_width": "248px",
+      "results_column_width": "1088px",
+      "product_card_width": "351px",
+      "product_card_image_height": "337px",
+      "border_radius": {
+        "hero_panels": "10px",
+        "toolbar": "10px",
+        "filters_panel": "10px",
+        "chips_and_checkboxes": "6px (radius/6)",
+        "product_card": "8px (radius/8)",
+        "buttons": "8px",
+        "sort_dropdown": "8px"
+      },
+      "shadows": {
+        "hero_panels": "0px 14px 34px rgba(33,24,20,0.06)",
+        "product_card": "0px 12px 14px rgba(33,24,20,0.08)",
+        "comment": "NUEVO respecto a home: en catálogo sí se usan sombras suaves (home no tenía ninguna)."
+      }
+    },
+    "visual_specifications_by_section": {
+      "hero": {
+        "layout": "flexrow, gap 28px",
+        "hero_main": { "width": "952px (flex)", "padding": "42px", "background": "#FFFFFF", "border": "1px solid #DECFC2" },
+        "hero_side": { "width": "380px", "padding": "24px", "background": "#FFFFFF", "border": "1px solid #DECFC2" }
+      },
+      "toolbar": {
+        "layout": "flexrow-space-between",
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "10px",
+        "padding": "16px",
+        "chip_active": { "background": "#7A1F3D", "text_color": "#FFFFFF" },
+        "chip_inactive": { "background": "#EDE3D3", "text_color": "#211814" },
+        "sort_dropdown": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "text_color": "#211814" }
+      },
+      "filters_sidebar": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "10px",
+        "padding": "20px",
+        "group_separator": "1px solid #DECFC2 (border-top entre grupos)",
+        "checkbox_checked": { "background": "#7A1F3D", "border_radius": "6px", "size": "16px" },
+        "checkbox_unchecked": { "background": "#FFFFFF", "border": "1.5px solid #DECFC2", "border_radius": "6px", "size": "16px" },
+        "apply_button": { "background": "#7A1F3D", "text_color": "#FFFFFF", "border_radius": "8px", "width": "100%" }
+      },
+      "product_card": {
+        "border": "1px solid #DECFC2",
+        "border_radius": "8px",
+        "shadow": "0px 12px 14px rgba(33,24,20,0.08)",
+        "image_height": "337px",
+        "favorite_icon": "círculo blanco translúcido, top-right",
+        "body_padding": "14px",
+        "title_color": "#211814",
+        "subtitle_color": "#7C6F68",
+        "price_color": "#211814",
+        "cta_button": { "background": "#7A1F3D", "text_color": "#FFFFFF", "border_radius": "8px", "width": "100%", "text": "Agregar al carrito" }
+      },
+      "goal_cards_guide": {
+        "comment": "Bloque 'Compra por objetivo' con 3 tarjetas numeradas (01, 02, 03). No se confirmó el color de fondo del ícono numerado circular — needs_verification.",
+        "icon_background": "needs_verification"
+      },
+      "newsletter_block": {
+        "layout": "split flexrow",
+        "input_style": "instance input/text, mismo look que resto de inputs del sistema (needs_verification exacto padding/border si difiere de filtros)"
+      }
+    }
+  }
+}

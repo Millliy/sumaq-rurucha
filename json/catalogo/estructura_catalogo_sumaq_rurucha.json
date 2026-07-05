@@ -1,0 +1,100 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 160:164 desktop/02-catalogo) el 2026-07-05.",
+  "page": "Catálogo",
+  "structure": {
+    "header": "reutiliza navigation/topbar-desktop (igual que home)",
+    "sections": [
+      {
+        "id": "hero",
+        "type": "page_header_split",
+        "badge": "CATÁLOGO",
+        "heading": "Productos andinos para cada rutina",
+        "paragraph": "Encuentra cereales, especias, frutos secos y productos naturales por categoría, uso o presentación. Una navegación simple para comprar sin perderte.",
+        "side_card": {
+          "heading": "Mixes recomendados",
+          "paragraph": "Bloque para destacar combos, ofertas o productos de temporada sin saturar la pantalla.",
+          "image_placeholder": true
+        }
+      },
+      {
+        "id": "toolbar",
+        "type": "filter_chips_and_sort",
+        "chips": [
+          { "label": "Todos", "active": true },
+          { "label": "Cereales" },
+          { "label": "Deshidratados" },
+          { "label": "Especias" },
+          { "label": "Frutos secos" }
+        ],
+        "sort": { "label": "Más vendidos ▾" }
+      },
+      {
+        "id": "filters_sidebar",
+        "type": "filters_panel",
+        "heading": "Filtrar",
+        "clear_link": "Limpiar",
+        "helper_text": "Elige solo lo necesario para encontrar productos más rápido.",
+        "groups": [
+          { "title": "TIPO DE PRODUCTO", "options": [ { "label": "Cocinar", "checked": true }, { "label": "Desayuno" }, { "label": "Infusiones" } ] },
+          { "title": "TAMAÑO", "options": [ { "label": "100 g" }, { "label": "500 g" }, { "label": "1 kg" } ] },
+          { "title": "DISPONIBILIDAD", "options": [ { "label": "En stock", "checked": true } ] }
+        ],
+        "apply_button": "Aplicar filtros"
+      },
+      {
+        "id": "results",
+        "type": "product_grid_by_category",
+        "results_head": {
+          "count_label": "43 productos",
+          "active_filters_label": "Filtros activos: cocinar, 500 g, en stock",
+          "extra_tag": true
+        },
+        "categories": [
+          { "name": "Cereales", "product_count_in_grid": 16, "example_product": { "title": "Ajonjolí tostado", "category_subtext": "Cereales · Bolsa 100 g", "price": "S/ 14", "cta": "Agregar al carrito" } },
+          { "name": "Deshidratados", "product_count_in_grid": 10 },
+          { "name": "Especias", "product_count_in_grid": 9 },
+          { "name": "Frutos secos", "product_count_in_grid": 14 }
+        ],
+        "categories_comment": "Solo se extrajo el copy completo de la primera card (Ajonjolí tostado) como referencia de formato; el resto de las ~49 cards de producto no se leyeron una a una para no exceder contexto — todas siguen el mismo componente card/product."
+      },
+      {
+        "id": "purchase_guide",
+        "type": "goal_based_guide",
+        "heading": "Compra por objetivo",
+        "paragraph": "Ayuda al usuario a elegir sin revisar todo el catálogo. Cada acceso puede abrir una selección filtrada.",
+        "cards": [
+          { "number": "01", "title": "Para desayuno", "text": "Cereales, quinua, maca y mixes energéticos." },
+          { "number": "02", "title": "Para cocinar", "text": "Especias, condimentos y harinas naturales." },
+          { "number": "03", "title": "Para bienestar", "text": "Infusiones, hierbas y productos digestivos." }
+        ]
+      },
+      {
+        "id": "recommended",
+        "type": "product_row",
+        "heading": "Mixes para ti",
+        "subheading": "Productos frecuentes según los filtros aplicados.",
+        "link": "Ver todos →",
+        "product_count": 3
+      },
+      { "id": "pagination", "type": "pagination_control" },
+      {
+        "id": "info_band",
+        "type": "three_column_info",
+        "items": [
+          { "title": "Selección de origen", "text": "Productos elegidos de comunidades y proveedores locales." },
+          { "title": "Compra segura", "text": "Agrega al carrito y revisa tu pedido antes de confirmar." },
+          { "title": "Atención para distribuidores", "text": "Solicita precios por volumen desde contacto." }
+        ]
+      },
+      {
+        "id": "newsletter",
+        "type": "cta_inline_form",
+        "heading": "Recibe recetas y novedades",
+        "paragraph": "Contenido breve sobre productos naturales, usos y promociones de temporada.",
+        "input_placeholder": "needs_verification (no se leyó el placeholder del input)",
+        "button": "Suscribirme (texto exacto needs_verification, no se leyó el label del botón en esta pasada)"
+      }
+    ],
+    "footer": "reutiliza el footer de home (Sumaq Rurucha, Comprar/Negocios/Ayuda) — no se re-verificó en esta pantalla, asumir igual salvo aviso contrario"
+  }
+}

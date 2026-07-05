@@ -1,0 +1,104 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:15 desktop/08-distribuidor) el 2026-07-05.",
+  "site_name": "Sumaq Rurucha",
+  "page": "Distribuidor",
+  "structure": {
+    "header": {
+      "logo": "Sumaq Rurucha (logo/horizontal)",
+      "navigation_menu": [
+        { "label": "Catálogo", "url": "#", "active": false },
+        { "label": "Conócenos", "url": "#", "active": false },
+        { "label": "Contacto", "url": "#", "active": false }
+      ],
+      "user_actions": [
+        { "label": "¿Eres distribuidor?", "url": "#" },
+        { "icon": "search", "url": "#" },
+        { "icon": "user_profile", "url": "#" },
+        { "label": "Mi pedido", "icon": "shipping", "url": "#" },
+        { "icon": "shopping_cart", "count": 2, "url": "#" }
+      ]
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "type": "split_hero",
+        "eyebrow": "TRABAJA CON NOSOTROS",
+        "heading": "Trabaja con Sumaq Rurucha",
+        "paragraph": "Productos andinos, identidad clara y una marca lista para nuevos mercados.",
+        "buttons": [
+          { "text": "Solicitar cotización →", "type": "primary" },
+          { "text": "Descargar catálogo", "type": "secondary" }
+        ],
+        "image_note": { "title": "Imagen hero", "text": "Foto amplia de producto, empaque u origen." }
+      },
+      {
+        "id": "statement",
+        "type": "split_content",
+        "heading": "Origen, producto y oportunidad comercial.",
+        "paragraph": "Una propuesta para tiendas, distribuidores y aliados que buscan productos naturales con identidad.",
+        "image_placeholder": "imagen-7.webp"
+      },
+      {
+        "id": "flow",
+        "type": "numbered_steps",
+        "steps": [
+          { "number": "01", "title": "Productos con origen", "text": "Cereales, deshidratados y mixes seleccionados." },
+          { "number": "02", "title": "Presentación comercial", "text": "Formatos listos para venta y exhibición." },
+          { "number": "03", "title": "Atención directa", "text": "Coordinamos volumen y disponibilidad." }
+        ]
+      },
+      {
+        "id": "brand_section",
+        "type": "image_with_proof_cards",
+        "image_placeholder": "visual-large.webp",
+        "proof_cards": [
+          { "title": "Para tiendas saludables", "text": "Productos fáciles de explicar y recomendar." },
+          { "title": "Para distribuidores", "text": "Cotización directa y condiciones por volumen." },
+          { "title": "Para marcas y negocios", "text": "Presentaciones y abastecimiento recurrente." }
+        ]
+      },
+      {
+        "id": "quote_form",
+        "type": "cta_with_form",
+        "quote_block": {
+          "heading": "Hagamos crecer la marca contigo",
+          "paragraph": "Déjanos tus datos y te enviaremos disponibilidad y condiciones.",
+          "stats": [
+            { "value": "30+", "label": "productos disponibles" },
+            { "value": "48 h", "label": "respuesta comercial" },
+            { "value": "12 m", "label": "abastecimiento planificado" }
+          ]
+        },
+        "form": {
+          "heading": "Solicita información",
+          "subheading": "Te contactaremos con una propuesta.",
+          "fields": [
+            { "label": "EMPRESA", "placeholder": "Nombre de tu empresa", "type": "text" },
+            { "label": "PAÍS / REGIÓN", "placeholder": "Selecciona tu país", "type": "select" },
+            { "label": "PRODUCTO DE INTERÉS", "placeholder": "Cereales andinos", "type": "select" },
+            { "label": "VOLUMEN ESTIMADO", "placeholder": "Ej. 10 toneladas", "type": "text" },
+            { "label": "CORREO", "placeholder": "ejemplo@empresa.com", "type": "email" },
+            { "label": "WHATSAPP", "placeholder": "+51 987 654 321", "type": "tel" }
+          ],
+          "submit_button": "Enviar solicitud →"
+        }
+      },
+      {
+        "id": "download",
+        "type": "download_banner",
+        "title": "Catálogo comercial",
+        "subtitle": "Productos y presentaciones disponibles.",
+        "button": "Descargar PDF"
+      }
+    ],
+    "footer": {
+      "logo": "Sumaq Rurucha",
+      "tagline": "Alimentos naturales del altiplano peruano.",
+      "links_columns": [
+        { "title": "Comprar", "links": [{ "text": "Cereales", "url": "#" }, { "text": "Deshidratados", "url": "#" }, { "text": "Especias", "url": "#" }, { "text": "Frutos secos", "url": "#" }] },
+        { "title": "Negocios", "links": [{ "text": "Exportación / Mayoristas", "url": "#" }, { "text": "Recetas", "url": "#" }, { "text": "Soy distribuidor", "url": "#" }] },
+        { "title": "Ayuda", "links": [{ "text": "Políticas de envío", "url": "#" }, { "text": "Términos", "url": "#" }, { "text": "Preguntas frecuentes", "url": "#" }] }
+      ]
+    }
+  }
+}

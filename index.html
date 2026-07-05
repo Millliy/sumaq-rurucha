@@ -1,131 +1,216 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sumaq Rurucha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header data-nav></header>
 
   <main>
-    <section class="home-hero">
+    <section class="home-hero" aria-labelledby="home-title">
       <div class="home-hero__content">
-        <p class="eyebrow">Cosecha andina · Perú</p>
-        <h1>Del altiplano a tu despensa.</h1>
-        <p>Cereales, deshidratados, especias y frutos secos seleccionados a mano en comunidades de los Andes. Trazables, certificados y enviados frescos a todo el país.</p>
+        <p class="eyebrow eyebrow--hero">COSECHA ANDINA &middot; PER&Uacute;</p>
+        <h1 id="home-title">Del <strong>altiplano</strong> a tu <strong>despensa</strong>.</h1>
+        <p>Productos naturales seleccionados a mano, con origen claro y sabor verdadero.</p>
 
-        <div class="actions">
-          <a class="button button--primary" href="catalogo.html">Ver catálogo</a>
+        <div class="actions" aria-label="Acciones principales">
+          <a class="button button--primary" href="catalogo.html">Ver cat&aacute;logo</a>
           <a class="button button--secondary" href="nosotros.html">Conocer la marca</a>
         </div>
-
-        <p class="rating">4.8 estrellas · 1,240 reseñas verificadas</p>
       </div>
 
-      <div class="home-hero__panel" aria-label="Productos destacados">
-        <span>Quinua real</span>
-        <strong>S/ 24</strong>
-        <span>Mango deshidratado</span>
-        <strong>S/ 18</strong>
-        <span>Mix andino premium</span>
-        <strong>S/ 32</strong>
-      </div>
+      <aside class="rating-card" aria-label="Valoraci&oacute;n de clientes">
+        <strong>4.8</strong>
+        <span>Promedio sobre 1,240 rese&ntilde;as verificadas. Frescura, origen y calidad en cada pedido.</span>
+      </aside>
     </section>
 
-    <section class="trust-bar" aria-label="Beneficios de compra">
-      <p>Certificación SENASA · Orgánico verificado</p>
-      <p>Envío 24-48 h · A todo el país</p>
-      <p>Garantía de frescura · O te devolvemos</p>
-      <p>Pago seguro · Tarjeta · Yape · Plin</p>
+    <section class="features-bar" aria-label="Beneficios de compra">
+      <article>
+        <span aria-hidden="true">01</span>
+        <div>
+          <h2>Certificaci&oacute;n SENASA</h2>
+          <p>Org&aacute;nico verificado</p>
+        </div>
+      </article>
+      <article>
+        <span aria-hidden="true">02</span>
+        <div>
+          <h2>Env&iacute;o 24-48 h</h2>
+          <p>A todo el pa&iacute;s</p>
+        </div>
+      </article>
+      <article>
+        <span aria-hidden="true">03</span>
+        <div>
+          <h2>Garant&iacute;a de frescura</h2>
+          <p>O te devolvemos</p>
+        </div>
+      </article>
+      <article>
+        <span aria-hidden="true">04</span>
+        <div>
+          <h2>Pago seguro</h2>
+          <p>Tarjeta &middot; Yape &middot; Plin</p>
+        </div>
+      </article>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <h2>Más pedidos</h2>
-        <a href="catalogo.html">Ver todos</a>
+    <section class="section most-ordered" aria-labelledby="most-ordered-title">
+      <div class="section-heading section-heading--split">
+        <div>
+          <p class="eyebrow">M&Aacute;S PEDIDOS</p>
+          <h2 id="most-ordered-title">M&aacute;s pedidos</h2>
+          <p>Una vitrina visual para los productos que m&aacute;s venden.</p>
+        </div>
+        <a href="catalogo.html">Ver todos &rarr;</a>
       </div>
 
-      <div class="product-grid">
-        <article class="product-card">
-          <p>Cereales</p>
-          <h3>Quinua real blanca</h3>
-          <span>Bolsa 1 kg</span>
-          <strong>S/ 24</strong>
+      <div class="product-layout">
+        <article class="featured-product">
+          <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/home/02-producto-destacado.png" alt="Quinua real blanca"></a>
+          <div>
+            <p class="eyebrow">Producto destacado</p>
+            <h3>Quinua real blanca</h3>
+            <p>Grano seleccionado, limpio y vers&aacute;til para ensaladas, bowls y guarniciones.</p>
+            <div class="product-action">
+              <strong>S/ 24</strong>
+              <a class="button button--light" href="producto.html?slug=quinua-real-blanca">Agregar</a>
+            </div>
+          </div>
         </article>
-        <article class="product-card">
-          <p>Deshidratados</p>
-          <h3>Mango deshidratado</h3>
-          <span>Pack 250 g</span>
-          <strong>S/ 18</strong>
-        </article>
-        <article class="product-card">
-          <p>Especias</p>
-          <h3>Cúrcuma molida</h3>
-          <span>Frasco 120 g</span>
-          <strong>S/ 15</strong>
-        </article>
-        <article class="product-card">
-          <p>Frutos secos</p>
-          <h3>Mix andino premium</h3>
-          <span>Bolsa 500 g</span>
-          <strong>S/ 32</strong>
-        </article>
+
+        <div class="mini-products" aria-label="Productos secundarios">
+          <article>
+            <a href="producto.html?slug=coco-rallado-fino"><img src="assets/img/home/03-mini-mango-deshidratado.png" alt="Mango deshidratado"></a>
+            <span>Pack 250 g</span>
+            <h3>Mango deshidratado</h3>
+            <strong>S/ 18</strong>
+            <a class="button button--mini" href="producto.html?slug=coco-rallado-fino">Agregar</a>
+          </article>
+          <article>
+            <a href="producto.html?slug=anis-estrella"><img src="assets/img/home/04-mini-curcuma.png" alt="C&uacute;rcuma molida"></a>
+            <span>Frasco 120 g</span>
+            <h3>C&uacute;rcuma molida</h3>
+            <strong>S/ 15</strong>
+            <a class="button button--mini" href="producto.html?slug=anis-estrella">Agregar</a>
+          </article>
+          <article>
+            <a href="producto.html?slug=quinua-real-blanca"><img src="assets/img/home/05-mini-miel-andina.png" alt="Mix andino premium"></a>
+            <span>Bolsa 500 g</span>
+            <h3>Mix andino premium</h3>
+            <strong>S/ 32</strong>
+            <a class="button button--mini" href="producto.html?slug=quinua-real-blanca">Agregar</a>
+          </article>
+          <article>
+            <a href="producto.html?slug=anis-estrella"><img src="assets/img/home/06-mini-infusion.png" alt="Infusi&oacute;n natural"></a>
+            <span>Digestivo natural</span>
+            <h3>Infusi&oacute;n natural</h3>
+            <strong>S/ 18</strong>
+            <a class="button button--mini" href="producto.html?slug=anis-estrella">Agregar</a>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="brand-cut">
-      <p>Cada grano, seleccionado a mano.</p>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <h2>Categorías principales</h2>
-        <a href="catalogo.html">Explorar categorías</a>
-      </div>
-
-      <div class="category-grid">
-        <a href="catalogo.html">Cereales <span>12 productos</span></a>
-        <a href="catalogo.html">Deshidratados <span>9 productos</span></a>
-        <a href="catalogo.html">Especias <span>15 productos</span></a>
-        <a href="catalogo.html">Frutos secos <span>8 productos</span></a>
-      </div>
-    </section>
-
-    <section class="origin-section">
+    <section class="brand-manifesto" aria-labelledby="manifesto-title">
       <div>
-        <p class="eyebrow">Origen</p>
-        <h2>Nacimos entre chacras, no entre góndolas.</h2>
+        <h2 id="manifesto-title">Cada grano, seleccionado a mano.</h2>
+        <p>Una imagen fuerte aqu&iacute; puede vender mejor que una lista de beneficios. Usa textura, movimiento y producto real.</p>
       </div>
+      <img src="assets/img/home/07-macro-campana-granos.png" alt="Granos andinos seleccionados">
+    </section>
+
+    <section class="section categories" aria-labelledby="categories-title">
+      <div class="section-heading section-heading--split">
+        <div>
+          <p class="eyebrow">CATEGOR&Iacute;AS PRINCIPALES</p>
+          <h2 id="categories-title">Categor&iacute;as principales</h2>
+          <p>Haz que el usuario compre por imagen antes que por texto.</p>
+        </div>
+        <a href="catalogo.html">Explorar categor&iacute;as &rarr;</a>
+      </div>
+
+      <div class="category-layout">
+        <a class="category-card category-card--featured" href="catalogo.html">
+          <img src="assets/img/home/08-categoria-cereales.png" alt="Cereales andinos">
+          <span>Cereales andinos</span>
+          <strong>Quinua, kiwicha, ca&ntilde;ihua y avena.</strong>
+        </a>
+        <div class="category-stack">
+          <a class="category-card" href="catalogo.html">
+            <img src="assets/img/home/09-categoria-deshidratados.png" alt="Deshidratados">
+            <span>Deshidratados</span>
+            <strong>Frutas listas para snacks y recetas.</strong>
+          </a>
+          <a class="category-card" href="catalogo.html">
+            <img src="assets/img/home/10-categoria-especias.png" alt="Especias">
+            <span>Especias</span>
+            <strong>Color, aroma y origen en cocina diaria.</strong>
+          </a>
+          <a class="category-card" href="catalogo.html">
+            <img src="assets/img/home/11-categoria-frutos-secos.png" alt="Frutos secos">
+            <span>Frutos secos</span>
+            <strong>Mixes premium para energ&iacute;a natural.</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="origin-story" aria-labelledby="origin-title">
+      <img src="assets/img/home/12-origen-chacras.png" alt="Chacras andinas de origen">
       <div>
-        <p>Sumaq Rurucha empezó comprando directo a familias productoras del altiplano para que su trabajo llegara entero a tu mesa: sin intermediarios, sin relleno, con el sabor de su origen.</p>
+        <p class="eyebrow">ORIGEN</p>
+        <h2 id="origin-title">Nacimos entre <span>chacras</span>, no entre g&oacute;ndolas.</h2>
+        <p>Compramos directo a familias productoras del altiplano para que su trabajo llegue entero a tu mesa.</p>
         <a class="button button--primary" href="nosotros.html">Conocer Sumaq Rurucha</a>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-heading">
-        <h2>Testimonios</h2>
-        <p>4.8 · Promedio sobre 1,240 reseñas verificadas</p>
+    <section class="section testimonials" aria-labelledby="testimonials-title">
+      <div class="section-heading section-heading--center">
+        <p class="review-score">4.8 <span>&middot; Promedio sobre 1,240 rese&ntilde;as verificadas</span></p>
+        <h2 id="testimonials-title">Nuestros clientes opinan.</h2>
       </div>
 
       <div class="testimonial-grid">
-        <article><strong>Daniela Quispe</strong><span>Lima</span></article>
-        <article><strong>Marco Salazar</strong><span>Arequipa</span></article>
-        <article><strong>Lucía Ferreyra</strong><span>Cusco</span></article>
-        <article><strong>Andrés Pinto</strong><span>Trujillo</span></article>
+        <article>
+          <strong>&ldquo;</strong>
+          <p>La quinua llega impecable y se nota que es fresca.</p>
+          <span>Daniela Quispe &middot; Lima</span>
+        </article>
+        <article>
+          <strong>&ldquo;</strong>
+          <p>Ped&iacute; especias y llegaron en menos de dos d&iacute;as.</p>
+          <span>Marco Salazar &middot; Arequipa</span>
+        </article>
+        <article>
+          <strong>&ldquo;</strong>
+          <p>Me encanta saber de d&oacute;nde viene cada producto.</p>
+          <span>Luc&iacute;a Ferreyra &middot; Cusco</span>
+        </article>
+        <article>
+          <strong>&ldquo;</strong>
+          <p>Los frutos secos son enormes y bien crocantes.</p>
+          <span>Andr&eacute;s Pinto &middot; Trujillo</span>
+        </article>
       </div>
     </section>
 
-    <section class="final-cta">
-      <p class="eyebrow">Empieza por los granos</p>
-      <h2>Arma tu despensa andina y ahorra 10% en tu primera caja de cereales.</h2>
-      <p>Quinua, kiwicha y cañihua seleccionadas. Llega en 24-48 h con garantía de frescura.</p>
-      <div class="actions">
-        <a class="button button--primary" href="catalogo.html">Ver catálogo de cereales</a>
-        <a class="button button--secondary" href="catalogo.html">Explorar categorías</a>
+    <section class="promo-bundle" aria-labelledby="promo-title">
+      <div>
+        <p class="eyebrow">EMPIEZA POR LOS GRANOS</p>
+        <h2 id="promo-title">Arma tu despensa andina y ahorra 10%.</h2>
+        <p>Quinua, kiwicha y ca&ntilde;ihua seleccionadas. Llega en 24-48 h con garant&iacute;a de frescura.</p>
+        <a class="button button--danger" href="catalogo.html">Ver cat&aacute;logo de cereales</a>
       </div>
+      <img src="assets/img/home/13-cta-despensa-andina.png" alt="Despensa andina con productos Sumaq Rurucha">
     </section>
   </main>
 
@@ -134,3 +219,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+

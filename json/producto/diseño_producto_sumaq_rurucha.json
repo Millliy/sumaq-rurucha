@@ -1,0 +1,83 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:10 desktop/03-producto_1) el 2026-07-05. Existen 3 variantes más (producto_2, _3, _4) no procesadas en esta pasada.",
+    "screen": "producto",
+    "colors_used": {
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Precio destacado, badge 'TOP VENTAS', pill de presentación seleccionada, botón 'Añadir al carrito', botones 'Agregar al carrito' de productos relacionados, stepper de cantidad (texto +/-), links activos.",
+      "tinta_500": "#211814",
+      "tinta_500_comment": "Headings (Cormorant Bold), texto de breadcrumb activo, labels de datos clave, cantidad numérica.",
+      "atenuado_500": "#7C6F68",
+      "atenuado_500_comment": "Breadcrumbs inactivos, texto de reseñas, descripciones, valores de la tabla de datos clave.",
+      "borde_500": "#DECFC2",
+      "borde_500_comment": "Bordes de galería, thumbnails, summary-card, separadores de breadcrumb ('/'), separador antes de 'También puede interesarte', filas de datos clave.",
+      "plomo_200": "#F8F4ED",
+      "plomo_200_comment": "Fondo de thumbnails no seleccionados y de los botones +/- del stepper de cantidad.",
+      "plomo_500": "#EDE3D3",
+      "plomo_500_comment": "Fondo de pills de presentación no seleccionadas (ej. 'Herbal', 'Bolsa 500 g').",
+      "exito_500": "#6E8F54",
+      "exito_500_comment": "NUEVO uso respecto a home/catálogo: texto 'En stock' en disponibilidad del producto (antes solo se había visto en la palabra 'chacras' del home).",
+      "negro_100": "#FFFFFF"
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "weight": "Bold", "sizes_observed": { "product_title": "44px", "price": "38px", "detail_subheadings": "26px (Descripción breve, Uso recomendado, Datos clave)", "related_heading": "28px" } },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "weights_used": ["Regular", "Medium", "Bold", "Extra Bold"] }
+    },
+    "layout_rules": {
+      "content_padding": "40px horizontal, 28px top, 64px bottom",
+      "gallery_width": "flex (≈890px)",
+      "gallery_main_image_height": "560px",
+      "gallery_thumb_height": "106px",
+      "summary_card_width": "470px",
+      "border_radius": {
+        "gallery_main_image": "12px",
+        "gallery_thumbs": "10px",
+        "summary_card": "12px",
+        "badge_top_ventas": "6px",
+        "pills_presentacion": "6px (radius/6)",
+        "quantity_stepper": "6px",
+        "benefit_mini_cards": "9px",
+        "cta_button": "8px",
+        "related_product_card": "8px (radius/8, igual que catálogo)"
+      },
+      "shadows": {
+        "summary_card": "0px 14px 34px rgba(33,24,20,0.06)",
+        "related_product_card": "0px 12px 14px rgba(33,24,20,0.08)"
+      }
+    },
+    "visual_specifications_by_section": {
+      "breadcrumbs": { "text_color_inactive": "#7C6F68", "text_color_active": "#211814 (bold)", "separator_color": "#DECFC2" },
+      "gallery": {
+        "main_image": { "background_fallback": "#C4C4C4 (placeholder gris cuando no hay foto)", "border": "1px solid #DECFC2" },
+        "thumb_selected": { "border": "2px solid #7A1F3D" },
+        "thumb_unselected": { "background": "#F8F4ED", "border": "1px solid #DECFC2" }
+      },
+      "summary_card": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "badge": { "background": "#7A1F3D", "text_color": "#FFFFFF", "text": "TOP VENTAS" },
+        "rating_stars_color": "needs_verification (mismo caso que home/testimonials: ícono de imagen, no se confirmó hex)",
+        "price_color": "#7A1F3D",
+        "pill_selected": { "background": "#7A1F3D", "text_color": "#FFFFFF" },
+        "pill_unselected": { "background": "#EDE3D3", "text_color": "#211814" },
+        "availability_dot_color": "needs_verification (ícono Ellipse de imagen, probablemente exito/500 #6E8F54 a juego con el texto 'En stock')",
+        "quantity_stepper": { "buttons_bg": "#F8F4ED", "buttons_text": "#7A1F3D", "qty_text": "#211814" },
+        "cta_button": { "background": "#7A1F3D", "text_color": "#FFFFFF", "height": "54px", "text": "Añadir al carrito" },
+        "benefit_cards": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "border_radius": "9px", "title_color": "#211814", "subtitle_color": "#7C6F68" }
+      },
+      "details_section": {
+        "layout": "split 50/50",
+        "border_top": "1px solid #DECFC2",
+        "subheading_color": "#211814",
+        "body_text_color": "#7C6F68",
+        "facts_table": { "row_border_bottom": "1px solid #DECFC2", "label_color": "#211814", "value_color": "#7C6F68" }
+      },
+      "related_products": {
+        "heading_color": "#211814",
+        "subheading_color": "#7C6F68",
+        "link_color": "#7A1F3D",
+        "card_style": "idéntico a card/product de catálogo (border #DECFC2, radius 8px, shadow 0px 12px 14px rgba(33,24,20,0.08))"
+      }
+    }
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:8 desktop/01-home) el 2026-07-05.",
+    "brand_identity": {
+      "name": "Sumaq Rurucha",
+      "colors": {
+        "vino_500": "#7A1F3D",
+        "vino_500_comment": "Color primario de marca. Botones, links activos, badge ORIGEN, cart badge.",
+        "vino_600": "#621931",
+        "vino_600_comment": "Fondo de tarjetas mini-producto (sección Más pedidos) y categoría grande.",
+        "vino_700": "#491325",
+        "vino_700_comment": "Fondo del producto destacado grande y filas de categoría apiladas.",
+        "tinta_500": "#211814",
+        "tinta_500_comment": "Texto oscuro principal (headings, links inactivos, nombres de reseñas).",
+        "atenuado_500": "#7C6F68",
+        "atenuado_500_comment": "Texto secundario / muted (subtítulos, etiquetas de imagen placeholder).",
+        "negro_100": "#FFFFFF",
+        "negro_100_comment": "Blanco. Fondos claros y texto sobre fondos oscuros.",
+        "negro_800": "#0D0D0D",
+        "negro_900": "#000000",
+        "negro_900_comment": "Fondo negro puro del banner 'Cada grano, seleccionado a mano.'",
+        "borde_500": "#DECFC2",
+        "borde_500_comment": "Bordes de tarjetas, separadores, borde del footer.",
+        "plomo_100": "#FBF9F6",
+        "plomo_100_comment": "Fondo crema claro (columna de texto en 'Origen' y en banner final).",
+        "plomo_200": "#F8F4ED",
+        "plomo_200_comment": "Fondo de los círculos de íconos en la barra de confianza (trust bar).",
+        "advertencia_500": "#F3AA34",
+        "advertencia_500_comment": "Dorado/mostaza. Usado en TODO el heading del banner oscuro 'Cada grano, seleccionado a mano.'",
+        "exito_500": "#6E8F54",
+        "exito_500_comment": "Verde. Usado solo en la palabra 'chacras' dentro del heading de la sección Origen.",
+        "error_500": "#E74848",
+        "error_500_comment": "Rojo. Usado en el badge 'COSECHA ANDINA · PERÚ' del hero y en el botón CTA del banner final ('Ver catálogo de cereales')."
+      },
+      "typography": {
+        "headings": {
+          "font_family": "Cormorant, Georgia, serif",
+          "weights_used": ["Regular", "Bold"],
+          "font_style": "Serif elegante. La mayoría de headings usan Bold; el hero usa Regular con palabras clave en Bold ('altiplano', 'despensa') dentro de la misma frase.",
+          "sizes_observed": {
+            "hero_display": "137px (Regular + palabras en Bold, no hay cambio de color, solo de peso)",
+            "section_heading": "46px (Más pedidos, Categorías principales)",
+            "feature_product_title": "52px",
+            "origin_heading": "58px",
+            "final_banner_heading": "56px",
+            "review_quote_mark": "34px"
+          },
+          "note": "No existe una escala fija H1/H2/H3/H4 tipo 48/36/28/22 como sugiere tipografia.jpg — en la práctica cada sección define su propio tamaño de heading."
+        },
+        "body_and_labels": {
+          "font_family": "Inter, Arial, sans-serif",
+          "weights_used": ["Regular", "Semi Bold", "Bold", "Extra Bold"],
+          "font_style": "Sans-serif para párrafos, botones, nav, precios y labels."
+        }
+      }
+    },
+    "layout_rules": {
+      "page_frame_width": "1440px",
+      "content_max_width": "1360px",
+      "content_horizontal_padding": "40px",
+      "header_height": "69px",
+      "border_radius": {
+        "hero": "28px",
+        "trust_bar": "18px",
+        "feature_product_card": "22px",
+        "category_large_card": "22px",
+        "mini_product_card": "20px",
+        "category_row_small": "18px",
+        "campaign_origin_final_sections": "24px",
+        "review_card": "18px",
+        "buttons": "8px",
+        "buttons_comment": "CORRECCIÓN: los botones NO son píldora/completamente redondeados, usan 8px de radio (var(--size/8)).",
+        "image_label_pill": "999px",
+        "cart_badge": "999px (circular)"
+      },
+      "shadows": {
+        "testimonial_cards": "none",
+        "comment": "CORRECCIÓN: en Figma las tarjetas de reseñas no tienen box-shadow, solo un borde de 1px en #DECFC2 (borde/500)."
+      }
+    },
+    "contrast_and_shadow_audit_2026-07-05": {
+      "method": "WCAG 2.x contrast ratio (relative luminance) calculado sobre los pares de color reales extraídos de Figma. Verificación visual adicional con captura del hero renderizado.",
+      "passing_no_action_needed": [
+        "vino/500 sobre blanco: 10.04:1 (AAA)",
+        "blanco sobre vino/600 y vino/700: ~15:1 (AAA)",
+        "tinta/500 sobre blanco / plomo/100: 17.4:1 / 16.6:1 (AAA)",
+        "advertencia/500 (dorado) sobre negro: 10.6:1 (AAA)",
+        "atenuado/500 sobre blanco / plomo/100: 4.84:1 / 4.60:1 (AA, justo)",
+        "heading del hero sobre la foto: composición ya separa el texto de la zona clara de la imagen — OK"
+      ],
+      "issues_found": [
+        {
+          "issue": "Tarjeta flotante '4.8' del hero",
+          "severity": "alto (confirmado visualmente)",
+          "detail": "Panel rgba(255,255,255,0.38) sobre foto con textura — texto e ícono de estrella pierden legibilidad.",
+          "fix": "Subir opacidad a ~0.78 + box-shadow 0 20px 60px rgba(0,0,0,0.25)."
+        },
+        {
+          "issue": "Badge 'COSECHA ANDINA · PERÚ'",
+          "severity": "medio (frágil, depende del crop de foto)",
+          "detail": "~3.9:1 contra blanco, cae sobre zona oscura variable de la montaña.",
+          "fix": "text-shadow: 0 1px 6px rgba(0,0,0,0.5)."
+        },
+        {
+          "issue": "Botón CTA 'Ver catálogo de cereales' (banner final)",
+          "severity": "alto (falla AA confirmada por cálculo, no depende de foto)",
+          "detail": "Blanco sobre error/500 a 12px extrabold = 3.88:1, se necesita 4.5:1.",
+          "fix": "Usar vino/500 como fondo (10.04:1) o oscurecer el rojo a ~#C93B3B."
+        },
+        {
+          "issue": "Palabra 'chacras' en verde éxito/500",
+          "severity": "bajo (pasa en su uso actual)",
+          "detail": "3.49:1 sobre plomo/100 — cumple solo el umbral de texto grande (3:1), no el de texto normal (4.5:1).",
+          "fix": "Ninguno necesario a 58px. No reutilizar este verde en texto pequeño (body/labels)."
+        },
+        {
+          "issue": "Sección 'Más pedidos' — nombres de producto sin separación del fondo",
+          "severity": "alto (confirmado visualmente, mismo patrón que la tarjeta del hero)",
+          "detail": "Ninguna de las 5 tarjetas (feature-product + 4 mini) tiene gradiente entre la foto y el texto. 'Quinua real blanca' se mezcla con el empaque, 'Mango deshidratado'/'Cúrcuma molida' casi desaparecen contra fondos claros.",
+          "fix": "Agregar linear-gradient(to top, rgba(0,0,0,0.65), transparent) detrás del bloque de texto en las 5 tarjetas."
+        },
+        {
+          "issue": "Sección 'Más pedidos' — botones '+' desproporcionados",
+          "severity": "alto (confirmado visualmente)",
+          "detail": "Los 4 botones '+' de las mini-tarjetas heredan el ancho de 137px del botón 'Agregar' del que fueron copiados, dejando una píldora vacía con el signo perdido en el centro.",
+          "fix": "Convertir a icon-button cuadrado ~38x38px, sin el ancho fijo de 137px."
+        }
+      ]
+    },
+    "visual_specifications_by_section": {
+      "header": {
+        "layout": "flexrow-space-between",
+        "alignment": "center",
+        "logo_position": "left",
+        "menu_position": "center",
+        "actions_position": "right",
+        "background_color": "#FFFFFF",
+        "border_bottom": "1px solid #DECFC2",
+        "elements": {
+          "nav_links_active": { "font_size": "13px", "font_weight": "bold", "color": "#7A1F3D", "underline": "2px solid #7A1F3D" },
+          "nav_links_inactive": { "font_size": "13px", "font_weight": "semibold", "color": "#211814" },
+          "actions_text": { "font_size": "14px", "font_weight": "semibold", "color": "#7A1F3D" },
+          "cart_badge": { "background_color": "#7A1F3D", "text_color": "#FFFFFF", "shape": "circle" }
+        }
+      },
+      "hero_banner": {
+        "height": "700px",
+        "border_radius": "28px",
+        "background": {
+          "type": "image_with_overlay",
+          "fallback_color": "#0D0D0D"
+        },
+        "text_alignment": "left-bottom",
+        "heading_style": {
+          "font_family": "Cormorant",
+          "font_size": "137px",
+          "color": "#FFFFFF",
+          "highlight_word_color": null,
+          "highlight_word_comment": "CORRECCIÓN: no hay color de resaltado. 'altiplano' y 'despensa' se destacan solo con peso Bold, mismo color blanco que el resto.",
+          "contrast_check": "OK — en la foto actual el bloque de texto cae sobre la zona oscura de la montaña, separado del saco de quinua claro que queda a la derecha. Buena composición, no requiere cambios mientras el crop de la foto no cambie."
+        },
+        "badge_style": {
+          "text": "COSECHA ANDINA · PERÚ",
+          "color": "#E74848",
+          "font_size": "13px",
+          "font_weight": "extrabold",
+          "contrast_check": "RIESGO — contraste ~3.9:1 contra blanco puro, y en la foto cae sobre una zona de montaña oscura variable (~4.5:1 límite en el crop actual). Texto de 13px no califica como 'texto grande' (necesita 4.5:1 fijo, no depende de suerte de composición).",
+          "recommended_fix": "Agregar text-shadow: 0 1px 6px rgba(0,0,0,0.5) para blindar la legibilidad sin depender de qué haya detrás en la foto."
+        },
+        "floating_score_card": {
+          "background_color": "rgba(255,255,255,0.38)",
+          "border": "1px solid rgba(255,255,255,0.3)",
+          "border_radius": "18px",
+          "text_colors": { "score_4_8": "#211814", "paragraph": "#0D0D0D" },
+          "contrast_check": "FALLA VISIBLE — el panel al 38% de opacidad se transparenta contra la foto del saco de quinua (zona clara y con textura), el texto oscuro y el ícono de estrella dorada pierden legibilidad. Confirmado visualmente con captura de Figma, no es solo teoría.",
+          "recommended_fix": "Subir background_color a rgba(255,255,255,0.78) aprox., y agregar box-shadow: 0 20px 60px rgba(0,0,0,0.25) para dar elevación real y separar la tarjeta de la foto en vez de que se vea como 'vidrio sobre textura'."
+        }
+      },
+      "features_bar": {
+        "background_color": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "18px",
+        "columns": 4,
+        "item_layout": "flexrow-left",
+        "icon_circle_background": "#F8F4ED",
+        "icon_color": "needs_verification",
+        "icon_color_comment": "Los íconos usan una variante 'color=red' pre-renderizada como imagen; no se pudo leer el hex exacto desde el código. Verificar en Figma si corresponde a error/500 (#E74848) o a vino/500 (#7A1F3D).",
+        "title_color": "#211814",
+        "subtitle_color": "#7C6F68"
+      },
+      "section_mas_pedidos": {
+        "layout_grid": "custom-mosaic",
+        "left_featured_card": {
+          "width": "804px",
+          "background_color": "#491325",
+          "border_radius": "22px",
+          "text_position": "absolute-bottom-left",
+          "text_color": "#FFFFFF"
+        },
+        "right_grid_cards": {
+          "width": "258px_each",
+          "background_color": "#621931",
+          "background_color_comment": "CORRECCIÓN: no es gris (#F4F4F4), es vino/600 (#621931) — tarjetas oscuras con foto de producto.",
+          "border_radius": "20px",
+          "padding": "22px"
+        },
+        "issues_found_2026-07-05": [
+          {
+            "issue": "Texto de nombre de producto sin separación del fondo",
+            "severity": "alto (confirmado visualmente en las 5 tarjetas)",
+            "detail": "Ni la tarjeta grande ('Quinua real blanca') ni las 4 mini-tarjetas tienen gradiente/scrim entre la foto y el texto. Resultado real: 'Quinua real blanca' se mezcla con el empaque beige (bajo contraste), y 'Mango deshidratado' / 'Cúrcuma molida' (texto claro) casi desaparecen contra el plato/tazón claro de fondo. Es el mismo patrón de falla que la tarjeta flotante del hero — texto puesto directo sobre foto sin protección.",
+            "recommended_fix": "Agregar un overlay de gradiente 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 55%)' entre la imagen y el bloque de texto en las 5 tarjetas (feature-product y las 4 mini), igual que ya debería existir (y falta) en section_categorias."
+          },
+          {
+            "issue": "Botones '+' de las mini-tarjetas no tienen sentido visualmente",
+            "severity": "alto (confirmado visualmente)",
+            "detail": "El botón '+' de cada mini-tarjeta mide 137px de ancho (mismo width que el componente 'Agregar' del que fue copiado) pero el contenido es solo el glifo '+'. Se ve como una píldora vacía con un signo de más perdido en el centro.",
+            "recommended_fix": "Cambiar estos 4 botones a un icon-button cuadrado de ~38x38px (mismo alto, ancho = alto), border-radius 8px, '+' centrado. No reusar el ancho fijo de 137px pensado para la palabra 'Agregar'."
+          }
+        ]
+      },
+      "banner_manifiesto_oscuro": {
+        "layout": "split-50-50",
+        "border_radius": "24px",
+        "left_column": {
+          "background_color": "#000000",
+          "heading_color": "#F3AA34",
+          "heading_color_comment": "CORRECCIÓN: todo el heading es dorado (advertencia/500), no blanco. No solo la palabra 'grano'.",
+          "paragraph_color": "rgba(255,255,255,0.72)",
+          "alignment": "center-left",
+          "padding": "46px"
+        },
+        "right_column": { "type": "image" }
+      },
+      "section_categorias": {
+        "layout_grid": "custom-mosaic-reversed",
+        "border_radius_large_card": "22px",
+        "border_radius_small_rows": "18px",
+        "card_styles": {
+          "text_overlay": "gradient-bottom-to-top",
+          "text_color": "#FFFFFF"
+        }
+      },
+      "section_historia": {
+        "layout": "split-50-50",
+        "border_radius": "24px",
+        "left_column": { "type": "image", "width": "714px" },
+        "right_column": {
+          "background_color": "#FBF9F6",
+          "padding": "56px",
+          "badge_style": { "color": "#7A1F3D", "font_size": "13px", "font_weight": "extrabold" },
+          "heading_color": "#211814",
+          "heading_highlight_word": { "word": "chacras", "color": "#6E8F54" },
+          "heading_highlight_comment": "CORRECCIÓN: falta este color en el JSON actual — 'chacras' es verde (éxito/500), el resto del heading es tinta/500.",
+          "heading_highlight_contrast_check": "PASA SOLO POR SER TEXTO GRANDE — éxito/500 sobre plomo/100 da 3.49:1. Cumple AA para texto grande (≥3:1, este heading es 58px) pero NO cumple para texto normal (necesita 4.5:1). No reutilizar este verde en texto de body/labels pequeños."
+        }
+      },
+      "testimonials": {
+        "background_color": "#FFFFFF",
+        "header_alignment": "center",
+        "score_color": "#211814",
+        "stars_color": "needs_verification",
+        "stars_color_comment": "CORRECCIÓN: el ícono de estrella es un asset de imagen; no se pudo confirmar el hex exacto (#FFB800 del JSON actual no está en la paleta de variables). Verificar si usa advertencia/500 (#F3AA34).",
+        "grid_layout": "4-columns",
+        "card_style": {
+          "background_color": "#FFFFFF",
+          "border": "1px solid #DECFC2",
+          "border_radius": "18px",
+          "padding": "28px",
+          "shadow": "none",
+          "quote_mark_color": "#7A1F3D"
+        }
+      },
+      "promo_bundle": {
+        "layout": "split-646-714",
+        "border": "1px solid #DECFC2",
+        "border_radius": "24px",
+        "left_column": {
+          "background_color": "#FBF9F6",
+          "padding": "52px",
+          "badge_color": "#7A1F3D",
+          "heading_color": "#211814",
+          "cta_button_background": "#E74848",
+          "cta_button_background_comment": "CORRECCIÓN: el botón de este banner usa error/500 (rojo), no vino/500 como el resto de botones del sitio.",
+          "cta_button_contrast_check": "FALLA AA — texto blanco 12px extrabold sobre error/500 da 3.88:1 (se necesita 4.5:1 para texto de este tamaño; 12px no califica como 'texto grande' aunque sea extrabold). Confirmado por cálculo de color, no depende de ninguna foto.",
+          "cta_button_recommended_fix": "Opción A (recomendada): usar vino/500 como fondo, igual que el resto de botones del sitio (10.04:1, ya aprobado). Opción B: si se quiere mantener el rojo por jerarquía visual, oscurecerlo a ~#C93B3B para alcanzar 4.5:1."
+        },
+        "right_column": { "type": "image" }
+      },
+      "footer": {
+        "background_color": "#FFFFFF",
+        "border_top": "1px solid #DECFC2",
+        "padding_vertical": "58px top-spacer + 28px",
+        "layout": "flexrow-space-between",
+        "column_title_style": { "font_size": "13px", "font_weight": "bold", "color": "#211814" },
+        "link_style": { "font_size": "13px", "color": "#7C6F68" }
+      }
+    }
+  }
+}

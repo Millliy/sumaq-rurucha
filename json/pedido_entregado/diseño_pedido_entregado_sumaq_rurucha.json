@@ -1,0 +1,73 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 267:1633 desktop/12-pedido-entregado) el 2026-07-05.",
+    "screen": "pedido_entregado",
+    "template_comment": "Esta pantalla comparte el mismo template 'detalle/estado de pedido' que pedido_confirmado y (probablemente) estado_pedido — cambia solo el progreso del stepper y la tarjeta de acción inferior derecha.",
+    "colors_used": {
+      "plomo_100": "#FBF9F6",
+      "plomo_100_comment": "Fondo de toda la página.",
+      "negro_600": "#424242",
+      "negro_600_comment": "CORRECCIÓN/HALLAZGO: en esta pantalla (páginas internas de cuenta/pedido) el link 'Catálogo' del header NO usa vino/500 como en home, usa un gris neutro negro/600. Es un token nuevo no documentado en diseño_home.",
+      "tinta_500": "#211814",
+      "tinta_500_comment": "Heading principal, títulos de sección (Productos en tu pedido, Dirección de envío, Resumen), nombres de producto, precios de línea.",
+      "atenuado_500": "#7C6F68",
+      "atenuado_500_comment": "Breadcrumb, subtítulos, texto secundario de productos y resumen.",
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Círculos y líneas del stepper en estado completado (con check ✓ blanco), precio total en Resumen, botón primario 'Calificar mi pedido ★'.",
+      "borde_500": "#DECFC2",
+      "borde_500_comment": "Línea divisora antes del total en Resumen, borde de la tarjeta de reseña.",
+      "plomo_500": "#EDE3D3",
+      "plomo_500_comment": "Fondo de la tarjeta 'Resumen' (destacada, tono crema más oscuro que el fondo de página).",
+      "negro_100": "#FFFFFF",
+      "negro_100_comment": "Fondo de las tarjetas de contenido (barra de progreso, tarjeta de reseña), texto sobre botón vino y sobre círculos completados del stepper."
+    },
+    "typography": {
+      "headings": {
+        "font_family": "Cormorant, Georgia, serif",
+        "weight": "Bold",
+        "sizes_observed": { "page_heading": "38px", "section_heading": "22px (Productos en tu pedido)", "section_heading_sm": "20px (Dirección de envío)", "card_heading": "19px (Resumen)", "total_price": "22px" }
+      },
+      "body_and_labels": {
+        "font_family": "Inter, Arial, sans-serif",
+        "weights_used": ["Regular", "Semi Bold", "Extra Bold"],
+        "breadcrumb_size": "12px regular",
+        "body_size": "13-13.5px",
+        "product_title_size": "14px semibold",
+        "product_subtext_size": "12px regular",
+        "button_text_size": "12px extrabold"
+      }
+    },
+    "layout_rules": {
+      "content_max_width": "1360px (igual que home)",
+      "stepper": {
+        "steps": 4,
+        "labels": ["Confirmado", "Preparando", "Enviado", "Entregado"],
+        "circle_size": "24px",
+        "connector_height": "2px",
+        "completed_style": { "circle_bg": "#7A1F3D", "check_color": "#FFFFFF", "connector_color": "#7A1F3D", "label_color": "#211814" },
+        "pending_style_reference": "ver diseño_pedido_confirmado_sumaq_rurucha.json para el estilo del estado pendiente/gris"
+      },
+      "product_row": { "thumbnail_size": "64px", "thumbnail_border_radius": "8px" },
+      "content_card_border_radius": "12px"
+    },
+    "visual_specifications_by_section": {
+      "header": "Igual estructura que home, PERO 'Catálogo' en negro/600 (#424242) en vez de vino/500 — no está marcado como sección activa en este contexto.",
+      "progress_bar_card": { "background_color": "#FFFFFF", "border_radius": "12px", "height": "160px" },
+      "products_list": { "background": "transparent", "row_height": "64px thumbnail + texto" },
+      "shipping_address": { "text_color_name": "#211814", "text_color_detail": "#7C6F68" },
+      "summary_card": {
+        "background_color": "#EDE3D3",
+        "border_radius": "12px",
+        "divider_color": "#DECFC2",
+        "total_price_color": "#7A1F3D"
+      },
+      "action_card": {
+        "background_color": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "12px",
+        "cta_button_background": "#7A1F3D",
+        "cta_button_text": "Calificar mi pedido ★"
+      }
+    }
+  }
+}

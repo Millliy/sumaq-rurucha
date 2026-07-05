@@ -1,0 +1,77 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:10 desktop/03-producto_1) el 2026-07-05.",
+  "page": "Producto — Quinua real blanca",
+  "structure": {
+    "header": "reutiliza navigation/topbar-desktop (igual que home), con 'Catálogo' activo",
+    "sections": [
+      {
+        "id": "breadcrumbs",
+        "type": "breadcrumb",
+        "path": ["Inicio", "Catálogo", "Cereales", "Quinua real blanca"]
+      },
+      {
+        "id": "product_layout",
+        "type": "gallery_plus_summary",
+        "gallery": {
+          "main_image": "Quinua-Blanca-Foto-Detallado",
+          "thumbnails": ["producto-quinua-vista1-min (seleccionado)", "Quinua-Foto-Detallado", "Cereales-Quinua-Blanca-3-4-100g", "Quinua-Foto-Uso"]
+        },
+        "summary": {
+          "badge": "TOP VENTAS",
+          "title": "Quinua real blanca",
+          "rating": { "score": "4.9", "reviews_text": "312 reseñas verificadas" },
+          "price": "S/ 24",
+          "presentacion_options": [
+            { "label": "Bolsa 100 g", "selected": true },
+            { "label": "Herbal" },
+            { "label": "Bolsa 500 g" }
+          ],
+          "presentacion_comment": "La opción 'Herbal' parece un texto de placeholder/componente reutilizado sin actualizar — no encaja semánticamente con presentaciones de peso (100 g / 500 g). Verificar con el equipo de diseño si es un error de contenido en Figma.",
+          "availability": "En stock",
+          "quantity_default": 2,
+          "cta_button": "Añadir al carrito",
+          "benefits": [
+            { "title": "Envío seguro", "text": "A todo el país" },
+            { "title": "Pago seguro", "text": "Tarjetas y billeteras" },
+            { "title": "Devolución", "text": "Hasta 7 días" }
+          ]
+        }
+      },
+      {
+        "id": "details",
+        "type": "description_and_facts",
+        "description": {
+          "heading": "Descripción breve",
+          "text": "Quinua real blanca cultivada en comunidades del altiplano de Puno, a más de 3,800 m s.n.m. Grano grande, de cocción rápida y sabor limpio."
+        },
+        "uso_recomendado": {
+          "heading": "Uso recomendado",
+          "text": "Ideal para ensaladas, bowls, guarniciones calientes o como reemplazo de arroz."
+        },
+        "facts": {
+          "heading": "Datos clave",
+          "items": [
+            { "label": "Ingredientes", "value": "100% quinua" },
+            { "label": "Origen", "value": "Puno, Perú" },
+            { "label": "Cocción", "value": "15 minutos" },
+            { "label": "Conservación", "value": "Lugar fresco y seco" }
+          ]
+        }
+      },
+      {
+        "id": "related_products",
+        "type": "product_row",
+        "heading": "También puede interesarte",
+        "subheading": "Opciones similares para comparar rápidamente.",
+        "link": "Ver todos →",
+        "products": [
+          { "title": "Anís estrella", "subtext": "Especias · Bolsa 100 g", "price": "S/ 12" },
+          { "title": "Semillas de girasol", "subtext": "Frutos secos · Bolsa 100 g", "price": "S/ 18" },
+          { "title": "Coco rallado fino", "subtext": "Deshidratados · Bolsa 100 g", "price": "S/ 16" },
+          { "title": "Maní tostado al natural", "subtext": "Frutos secos · Bolsa 100 g", "price": "S/ 14" }
+        ]
+      }
+    ],
+    "footer": "no se confirmó si esta pantalla incluye footer completo o termina en la sección de relacionados — needs_verification"
+  }
+}

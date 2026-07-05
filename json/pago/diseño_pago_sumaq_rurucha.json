@@ -1,0 +1,68 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:12 desktop/05-pago) el 2026-07-05.",
+    "screen": "pago",
+    "colors_used": {
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Steps activos, número de sección, borde+radio de opción de pago seleccionada, botón CTA 'Confirmar compra', precio total.",
+      "vino_100": "#E4D2D8",
+      "vino_100_comment": "NUEVO TOKEN (no visto en home). Tinte claro de vino usado como fondo del círculo numerado de cada sección y fondo de la opción de pago seleccionada.",
+      "tinta_500": "#211814",
+      "atenuado_500": "#7C6F68",
+      "borde_500": "#DECFC2",
+      "negro_100": "#FFFFFF",
+      "plomo_100": "#FBF9F6",
+      "plomo_100_comment": "Fondo del recuadro de aviso en la sección 'Confirmar'."
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "sizes_observed": { "page_title": "48px (Finalizar compra)", "section_title": "26px (Datos del cliente, Envío, Método de pago, Confirmar, Resumen)", "total_price": "30px" } },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "weights_used": ["Regular", "Bold", "Semi Bold", "Extra Bold"], "field_label_size": "11px extrabold uppercase", "input_text_size": "14px" }
+    },
+    "layout_rules": {
+      "content_padding": "40px horizontal, 28px top, 64px bottom",
+      "two_column_layout": "form (flex-1) + summary (390px fijo)",
+      "border_radius": {
+        "cards_section": "12px",
+        "payment_option": "10px",
+        "text_inputs": "6px",
+        "selects_and_button": "8px",
+        "thumbnails": "8px",
+        "step_pill": "999px",
+        "number_badge_circle": "999px"
+      },
+      "borders": "1px solid #DECFC2 en cards, inputs, selects y opciones no seleccionadas"
+    },
+    "visual_specifications_by_section": {
+      "header": "Igual que home: navigation/topbar-desktop (logo, nav Catálogo/Conócenos/Contacto, acciones distribuidor/búsqueda/usuario/mi pedido/carrito con badge).",
+      "checkout_head": {
+        "layout": "flexrow items-end justify-between",
+        "steps_indicator": {
+          "type": "pill x3",
+          "active_style": { "background": "#7A1F3D", "text_color": "#FFFFFF" },
+          "inactive_style": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "text_color": "#7C6F68" }
+        }
+      },
+      "checkout_form_sections": {
+        "card_style": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "border_radius": "12px", "padding": "24px" },
+        "section_title_style": { "number_badge_bg": "#E4D2D8", "number_badge_text": "#7A1F3D", "title_color": "#211814" },
+        "input_style": { "height": "44px", "background": "#FFFFFF", "border": "1px solid #DECFC2", "border_radius": "6px", "placeholder_color": "#211814" },
+        "select_style": { "height": "44px", "border": "1px solid #DECFC2", "border_radius": "8px", "text_color": "#7C6F68", "font_weight": "bold" },
+        "payment_option_style": {
+          "unselected": { "background": "#FFFFFF", "border": "1px solid #DECFC2", "radio": "outline #DECFC2 1.5px" },
+          "selected": { "background": "#E4D2D8", "border": "1px solid #7A1F3D", "radio": "filled #7A1F3D" }
+        },
+        "cta_button": { "background": "#7A1F3D", "text_color": "#FFFFFF", "border_radius": "8px", "width": "100%" }
+      },
+      "summary_card": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "12px",
+        "order_item_thumb": { "size": "58px", "border_radius": "8px", "border": "1px solid #DECFC2" },
+        "summary_line_border": "1px solid #DECFC2 (bottom)",
+        "total_price_color": "#7A1F3D",
+        "coupon_row": { "border": "1px solid #DECFC2", "border_radius": "8px" },
+        "trust_row": { "dividers": "1px solid #DECFC2 (left border entre items)", "alignment": "center" }
+      }
+    }
+  }
+}

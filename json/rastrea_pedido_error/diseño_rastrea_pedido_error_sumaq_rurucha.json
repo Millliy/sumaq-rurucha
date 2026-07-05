@@ -1,0 +1,84 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 263:1450 desktop/11-rastrea-pedido-error) el 2026-07-05.",
+    "screen": "rastrea_pedido_error",
+    "colors_used": {
+      "plomo_100": "#FBF9F6",
+      "plomo_100_comment": "Fondo de toda la página, y fondo de los inputs con error, y del rectángulo que 'corta' la línea divisora sobre '¿YA TIENES CUENTA?'.",
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Barra de acento superior de la tarjeta (6px, esquinas redondeadas arriba), ícono circular superior, botón primario 'Buscar mi pedido →', borde y texto del botón secundario 'Iniciar sesión', eyebrow 'RASTREA TU PEDIDO'.",
+      "tinta_500": "#211814",
+      "tinta_500_comment": "Heading '¿Dónde está mi pedido?'.",
+      "atenuado_500": "#7C6F68",
+      "atenuado_500_comment": "Subtítulo, labels de campo (uppercase), placeholders, texto '¿YA TIENES CUENTA?'.",
+      "error_500": "#E74848",
+      "error_500_comment": "Borde de los inputs en estado de error (1.5px), fondo del banner de alerta (rgba(231,72,72,0.1) con borde sólido), ícono ⚠ y texto del mensaje de error.",
+      "borde_500": "#DECFC2",
+      "borde_500_comment": "Borde de la tarjeta del formulario, línea divisora antes de 'Iniciar sesión'.",
+      "negro_100": "#FFFFFF",
+      "negro_100_comment": "Fondo de la tarjeta del formulario, texto sobre botón vino."
+    },
+    "colors_new_found_in_variables": {
+      "dorado_500": "#B5703A",
+      "dorado_500_comment": "needs_verification: aparece en las variables del archivo pero no se identificó en qué elemento visual de esta pantalla se usa exactamente (posible color del puntito/badge junto al ícono circular superior).",
+      "plomo_500": "#EDE3D3",
+      "plomo_500_comment": "No usado visiblemente en esta pantalla, pero está definido como variable del sistema (ver uso confirmado en pedido_entregado / pedido_confirmado)."
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "weight": "Bold", "size_observed": "32px (¿Dónde está mi pedido?)" },
+      "body_and_labels": {
+        "font_family": "Inter, Arial, sans-serif",
+        "weights_used": ["Regular", "Semi Bold", "Extra Bold"],
+        "eyebrow_size": "11.5px semibold uppercase",
+        "field_label_size": "9.5px semibold uppercase",
+        "body_size": "13px regular",
+        "input_text_size": "12px regular",
+        "button_text_size": "12px extrabold"
+      }
+    },
+    "layout_rules": {
+      "form_card_width": "480px",
+      "form_card_border_radius": "12px",
+      "form_card_top_accent": "6px solid vino/500, esquinas superiores redondeadas a juego con la tarjeta",
+      "input_border_radius": "8px",
+      "input_height": "42px",
+      "button_height": "44px",
+      "button_border_radius": "8px",
+      "button_comment": "Confirma la corrección ya documentada en home: botones usan 8px, no píldora."
+    },
+    "visual_specifications_by_section": {
+      "header": "Igual que en home (ver diseño_home_sumaq_rurucha.json) — topbar blanco, borde inferior borde/500, 'Catálogo' activo en vino/500.",
+      "status_icon": {
+        "shape": "circle 64px",
+        "background_color": "#7A1F3D",
+        "icon": "commerce/shipping color=white",
+        "small_dot_top_right": "needs_verification (asset de imagen, posible dorado/500 o advertencia)"
+      },
+      "form_card": {
+        "background_color": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "12px",
+        "top_accent_bar": { "height": "6px", "color": "#7A1F3D" },
+        "fields": [
+          { "label": "NÚMERO DE PEDIDO", "placeholder": "Ej. SR-48213", "state": "error", "border_color": "#E74848", "background": "#FBF9F6" },
+          { "label": "CORREO O TELÉFONO", "placeholder": "Ej. maria@gmail.com", "state": "error", "border_color": "#E74848", "background": "#FBF9F6" }
+        ],
+        "error_banner": {
+          "background": "rgba(231,72,72,0.1)",
+          "border": "1px solid #E74848",
+          "border_radius": "8px",
+          "icon_color": "#E74848",
+          "text_color": "#E74848"
+        },
+        "primary_button": { "background": "#7A1F3D", "text_color": "#FFFFFF" }
+      },
+      "secondary_action": {
+        "divider_color": "#DECFC2",
+        "label_color": "#7C6F68",
+        "button_style": "outline",
+        "button_border": "2px solid #7A1F3D",
+        "button_text_color": "#7A1F3D"
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "design_system": {
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 256:1212 desktop/09-estado-pedido) el 2026-07-05.",
+    "screen": "estado_pedido",
+    "colors_used": {
+      "plomo_100": "#FBF9F6",
+      "plomo_100_comment": "Fondo de toda la página (a diferencia de home/distribuidor que usan blanco).",
+      "plomo_500": "#EDE3D3",
+      "plomo_500_comment": "NUEVO TOKEN no visto antes — fondo de la tarjeta 'Resumen' del pedido. Coincide con el 'Plomo (Brand Soft)' de tu guía colores.jpg.",
+      "negro_600": "#424242",
+      "negro_600_comment": "NUEVO TOKEN — color del nav-link activo 'Catálogo' en esta pantalla de cuenta/pedido (en home y distribuidor el activo usa vino/500). Revisar si es intencional: páginas de 'cuenta' usan negro/600 para el estado activo en vez de vino/500.",
+      "vino_500": "#7A1F3D",
+      "vino_500_comment": "Puntos completados del stepper, precio Total, botón de WhatsApp.",
+      "tinta_500": "#211814",
+      "atenuado_500": "#7C6F68",
+      "borde_500": "#DECFC2",
+      "negro_100": "#FFFFFF"
+    },
+    "typography": {
+      "headings": { "font_family": "Cormorant, Georgia, serif", "weight": "Bold" },
+      "sizes_observed": {
+        "page_title": "38px",
+        "section_title": "22px / 20px / 19px",
+        "total_price": "22px"
+      },
+      "body_and_labels": { "font_family": "Inter, Arial, sans-serif", "weights_used": ["Regular", "Semi Bold", "Extra Bold"] },
+      "sizes_observed_body": { "breadcrumb": "12px", "order_meta": "13.5px", "product_name": "14px", "product_subtext": "12px", "summary_row": "12.5px" }
+    },
+    "layout_rules": {
+      "note": "Esta pantalla usa posicionamiento absoluto (no flex) sobre un lienzo de 1440px; los bloques principales están a x=40 con ancho de contenido 1360px, igual que el resto del sitio.",
+      "border_radius": {
+        "status_card": "12px",
+        "product_thumbnail": "8px",
+        "summary_card": "12px",
+        "help_card": "12px",
+        "button": "8px"
+      }
+    },
+    "visual_specifications_by_section": {
+      "header": {
+        "note": "CORRECCIÓN/HALLAZGO: 'Catálogo' aparece como link activo pero en color negro/600 (#424242) con subrayado del mismo color, NO en vino/500 como en home. Verificar si esto es el patrón esperado para páginas post-compra."
+      },
+      "breadcrumb": { "color": "#7C6F68", "font_size": "12px" },
+      "page_header": {
+        "title_color": "#211814",
+        "title_font_size": "38px",
+        "meta_color": "#7C6F68"
+      },
+      "status_stepper": {
+        "container": { "background": "#FFFFFF", "border_radius": "12px", "height": "160px" },
+        "line_completed_color": "#7A1F3D",
+        "step_completed": { "circle_background": "#7A1F3D", "checkmark_color": "#FFFFFF", "label_color": "#211814" },
+        "step_pending": { "circle": "outline/gris (asset ellipse distinto, needs_verification del hex exacto)", "label_color": "#7C6F68" },
+        "timestamp_color": "#7C6F68",
+        "steps_count": 4
+      },
+      "products_list": {
+        "section_title_size": "22px",
+        "thumbnail": { "size": "64px", "border_radius": "8px" },
+        "product_name_color": "#211814",
+        "product_subtext_color": "#7C6F68",
+        "price_color": "#211814"
+      },
+      "shipping_address": {
+        "section_title_size": "20px",
+        "name_color": "#211814",
+        "address_color": "#7C6F68"
+      },
+      "summary_card": {
+        "background": "#EDE3D3",
+        "border_radius": "12px",
+        "title_size": "19px",
+        "row_label_color": "#7C6F68",
+        "row_value_color": "#211814",
+        "divider": "1px solid #DECFC2",
+        "total_label_color": "#211814",
+        "total_value_color": "#7A1F3D",
+        "total_value_font": "Cormorant Bold 22px"
+      },
+      "help_card": {
+        "background": "#FFFFFF",
+        "border": "1px solid #DECFC2",
+        "border_radius": "12px",
+        "title_color": "#211814",
+        "text_color": "#7C6F68",
+        "button": { "background": "#7A1F3D", "text_color": "#FFFFFF", "border_radius": "8px" }
+      }
+    }
+  }
+}

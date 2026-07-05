@@ -4,15 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto - Sumaq Rurucha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header data-nav></header>
 
-  <main class="page">
-    <section class="hero">
-      <h1>Contacto</h1>
-      <p>Sitio web en construccion.</p>
+  <main class="contact-page">
+    <section class="contact-hero" aria-labelledby="contact-title">
+      <div class="contact-hero__copy">
+        <p class="eyebrow">CONTACTO</p>
+        <h1 id="contact-title">Estamos para ayudarte</h1>
+        <p>Escr&iacute;benos por WhatsApp o env&iacute;anos un mensaje. Te responderemos lo antes posible para resolver dudas sobre pedidos, env&iacute;os o productos.</p>
+        <a class="button button--primary" href="https://wa.me/" target="_blank" rel="noreferrer">Escribir por WhatsApp &rarr;</a>
+      </div>
+      <figure>
+        <img src="assets/img/contacto/01-hero-estamos-para-ayudarte.png" alt="Producto Sumaq Rurucha en mesa">
+      </figure>
+    </section>
+
+    <section class="quick-contact" aria-label="Canales r&aacute;pidos de contacto">
+      <article>
+        <h2>Respuesta r&aacute;pida por WhatsApp</h2>
+        <p>Ideal para consultar por pedidos, stock o coordinaci&oacute;n de env&iacute;o.</p>
+        <span><i aria-hidden="true"></i> Disponible hoy</span>
+      </article>
+      <article>
+        <h2>Atenci&oacute;n por mensaje</h2>
+        <p>Para consultas con m&aacute;s detalle, cambios, devoluciones o ventas por volumen.</p>
+      </article>
+    </section>
+
+    <section class="contact-content">
+      <form class="contact-form" aria-labelledby="form-title">
+        <div>
+          <h2 id="form-title">Env&iacute;anos un mensaje</h2>
+          <p>Completa tus datos y selecciona el motivo de contacto.</p>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            <span>Nombre</span>
+            <input type="text" placeholder="Ej. Mar&iacute;a Fernanda Quispe">
+          </label>
+          <label>
+            <span>Correo o tel&eacute;fono</span>
+            <input type="text" placeholder="Ej. 987 654 321">
+          </label>
+        </div>
+
+        <label>
+          <span>Motivo</span>
+          <input type="text" placeholder="Pedido en curso">
+        </label>
+
+        <label>
+          <span>Mensaje</span>
+          <textarea placeholder="Escribe tu mensaje aqu&iacute;..."></textarea>
+        </label>
+
+        <button class="button button--primary" type="submit">Enviar mensaje</button>
+      </form>
+
+      <aside class="contact-side">
+        <figure>
+          <img src="assets/img/contacto/02-textura-secundaria.png" alt="Detalle visual de Sumaq Rurucha">
+        </figure>
+
+        <div class="channels-card">
+          <h2>Canales</h2>
+          <p>Elige el canal que prefieras.</p>
+          <article>
+            <h3>WhatsApp</h3>
+            <p>Respuesta r&aacute;pida para pedidos y dudas puntuales.</p>
+          </article>
+          <article>
+            <h3>Correo</h3>
+            <p>contacto@sumaqrurucha.pe</p>
+          </article>
+          <article>
+            <h3>Horario</h3>
+            <p>Lunes a s&aacute;bado &middot; 9:00 a.m. a 6:00 p.m.</p>
+          </article>
+        </div>
+      </aside>
+    </section>
+
+    <section class="contact-faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Preguntas frecuentes</h2>
+      <p>Respuestas r&aacute;pidas para las consultas m&aacute;s comunes.</p>
+
+      <article>
+        <h3>&iquest;Cu&aacute;nto tarda el env&iacute;o?</h3>
+        <p>24-48 h en Lima y 3-5 d&iacute;as &uacute;tiles al resto del pa&iacute;s.</p>
+      </article>
+      <article>
+        <h3>&iquest;Puedo cambiar o devolver un producto?</h3>
+        <p>S&iacute;, dentro de 7 d&iacute;as desde la entrega si el empaque no fue abierto.</p>
+      </article>
+      <article>
+        <h3>&iquest;Hacen env&iacute;os fuera de Lima?</h3>
+        <p>S&iacute;, enviamos a todo el pa&iacute;s. El costo se calcula antes del pago.</p>
+      </article>
     </section>
   </main>
 

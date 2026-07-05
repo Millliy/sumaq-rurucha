@@ -1,0 +1,25 @@
+{
+  "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 263:1450 desktop/11-rastrea-pedido-error) el 2026-07-05.",
+  "page": "Rastrea tu pedido — error",
+  "structure": {
+    "header": "Igual que home (ver json/home/estructura_home_sumaq_rurucha.json).",
+    "sections": [
+      {
+        "id": "track_order_form_error",
+        "type": "centered_form_error_state",
+        "status_icon": "commerce/shipping (dentro de círculo vino/500)",
+        "eyebrow": "RASTREA TU PEDIDO",
+        "heading": "¿Dónde está mi pedido?",
+        "subheading": "Ingresa tu número de pedido y el correo o teléfono con el que compraste.",
+        "form_fields": [
+          { "label": "NÚMERO DE PEDIDO", "placeholder": "Ej. SR-48213", "state": "error" },
+          { "label": "CORREO O TELÉFONO", "placeholder": "Ej. maria@gmail.com", "state": "error" }
+        ],
+        "error_message": "No encontramos un pedido con esos datos. Revisa el número y el correo/teléfono.",
+        "primary_button": { "text": "Buscar mi pedido →" },
+        "secondary_prompt": "¿YA TIENES CUENTA?",
+        "secondary_button": { "text": "Iniciar sesión" }
+      }
+    ]
+  }
+}
