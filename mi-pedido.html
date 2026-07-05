@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -12,10 +12,37 @@
 <body>
   <header data-nav></header>
 
-  <main class="page">
-    <section class="hero">
-      <h1>Mi pedido</h1>
-      <p>Sitio web en construccion.</p>
+  <main class="track-order-page">
+    <section class="track-order" aria-labelledby="track-order-title">
+      <div class="track-order__icon">
+        <img src="assets/icons/envio.svg" alt="">
+      </div>
+
+      <p class="eyebrow">RASTREA TU PEDIDO</p>
+      <h1 id="track-order-title">&iquest;D&oacute;nde est&aacute; mi pedido?</h1>
+      <p class="track-order__subtext">Ingresa tu n&uacute;mero de pedido y el correo o tel&eacute;fono con el que compraste.</p>
+
+      <form class="track-order-card" data-track-order-form novalidate>
+        <label class="track-order-field" data-track-order-field="orderNumber">
+          <span>N&uacute;mero de pedido</span>
+          <input type="text" name="orderNumber" placeholder="Ej. SR-48213" autocomplete="off">
+        </label>
+
+        <label class="track-order-field" data-track-order-field="contact">
+          <span>Correo o tel&eacute;fono</span>
+          <input type="text" name="contact" placeholder="Ej. maria@gmail.com" autocomplete="off">
+        </label>
+
+        <p class="track-order-error" data-track-order-error hidden>
+          No encontramos un pedido con esos datos. Revisa el n&uacute;mero y el correo/tel&eacute;fono.
+        </p>
+
+        <button class="button button--primary" type="submit">Buscar mi pedido &rarr;</button>
+      </form>
+
+      <div class="track-order-divider"><span>&iquest;YA TIENES CUENTA?</span></div>
+
+      <a class="button button--outline" href="#">Iniciar sesi&oacute;n</a>
     </section>
   </main>
 
@@ -24,4 +51,3 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-

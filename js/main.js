@@ -85,6 +85,119 @@ const footerColumns = [
   },
 ];
 
+const catalogProducts = [
+  // Cereales
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Ajonjolí tostado", subtext: "Cereales · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Cereales/cereales-ajonjoli-tostado-100g.png", alt: "Ajonjolí tostado" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Ajonjolí blanca", subtext: "Cereales · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Cereales/cereales-ajonjoli-blanca-100g.png", alt: "Ajonjolí blanca" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Ajonjolí blanca", subtext: "Cereales · Bolsa 1 kg", price: "S/ 38", image: "assets/img/catalogo/Cereales/cereales-Ajonjolí-blanca-1000g.png", alt: "Ajonjolí blanca 1 kg" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Chía en granos", subtext: "Cereales · Bolsa 500 g", price: "S/ 26", image: "assets/img/catalogo/Cereales/cereales-chia-gramos-500g.png", alt: "Chía en granos" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Crema de habas", subtext: "Cereales · Bolsa 100 g", price: "S/ 11", image: "assets/img/catalogo/Cereales/cereales-Crema-de-habas-100g.png", alt: "Crema de habas" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Harina de arvejas", subtext: "Cereales · Bolsa 100 g", price: "S/ 10", image: "assets/img/catalogo/Cereales/cereales-Harina-de-arvejas-100g.png", alt: "Harina de arvejas" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Harina de cañihua", subtext: "Cereales · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Cereales/cereales-Harina-de-cañihua-100g.png", alt: "Harina de cañihua" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Harina de quinua tostada", subtext: "Cereales · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Cereales/cereales-Harina-de-quinua-tostada-100g.png", alt: "Harina de quinua tostada" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Hojuela de kiwicha orgánica", subtext: "Cereales · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Cereales/cereales-Hojuela-de-kiwicha-orgánica-100g.png", alt: "Hojuela de kiwicha orgánica" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Hojuelas de quinua", subtext: "Cereales · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Cereales/cereales-hojuelasdequinua-100g.png", alt: "Hojuelas de quinua" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Kiwicha", subtext: "Cereales · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Cereales/cereales-kiwicha-100g.png", alt: "Kiwicha" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Quinua blanca", subtext: "Cereales · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Cereales/cereales-Quinua-blanca-100g.png", alt: "Quinua blanca" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Quinua blanca", subtext: "Cereales · Bolsa 1 kg", price: "S/ 42", image: "assets/img/catalogo/Cereales/cereales -quinua-blanca-1000g.png", alt: "Quinua blanca 1 kg" },
+  { slug: "quinua-real-blanca", category: "Cereales", title: "Hojuela de kiwicha orgánica", subtext: "Cereales · Bolsa 1 kg", price: "S/ 38", image: "assets/img/catalogo/Cereales/cereales-Hojuela-de-kiwicha-orgánica-1000g.png", alt: "Hojuela de kiwicha orgánica 1 kg" },
+
+  // Deshidratados
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Aguaymanto fino", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 18", image: "assets/img/catalogo/Deshidratados/deshidratados-Aguaymanto-Fino-100g.png", alt: "Aguaymanto fino" },
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Arándanos deshidratados", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 20", image: "assets/img/catalogo/Deshidratados/deshidratados-Arándanos-deshidratados-100g.png", alt: "Arándanos deshidratados" },
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Coco rallado fino", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png", alt: "Coco rallado fino" },
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Coco rallado grueso", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-grueso-100g.png", alt: "Coco rallado grueso" },
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Guindones", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 16", image: "assets/img/catalogo/Deshidratados/deshidratados-Guindones-100g.png", alt: "Guindones" },
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Higo", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 15", image: "assets/img/catalogo/Deshidratados/deshidratados-Higo-100g.png", alt: "Higo" },
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Higos secos", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 15", image: "assets/img/catalogo/Deshidratados/deshidratados-Higos-Secos-100g.png", alt: "Higos secos" },
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Kiwi deshidratado", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 18", image: "assets/img/catalogo/Deshidratados/Deshidratados-kiwi-100g.png", alt: "Kiwi deshidratado" },
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Pera deshidratada", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 17", image: "assets/img/catalogo/Deshidratados/deshidratados-Pera-deshidradata-100g.png", alt: "Pera deshidratada" },
+  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Toronja deshidratada", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 17", image: "assets/img/catalogo/Deshidratados/deshitrados-toronja-dishidratado-100g.png", alt: "Toronja deshidratada" },
+
+  // Especias
+  { slug: "anis-estrella", category: "Especias", title: "Airampo", subtext: "Especias · Bolsa 100 g", price: "S/ 11", image: "assets/img/catalogo/Especias/Especias-Airampo-100g.png", alt: "Airampo" },
+  { slug: "anis-estrella", category: "Especias", title: "Ají amarillo", subtext: "Especias · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Especias/Especias-Aji-amarillo-100g.png", alt: "Ají amarillo" },
+  { slug: "anis-estrella", category: "Especias", title: "Ají panca", subtext: "Especias · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Especias/Especias-Ají-panca-100g.png", alt: "Ají panca" },
+  { slug: "anis-estrella", category: "Especias", title: "Ají panca molido", subtext: "Especias · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Especias/Especias-ají-panca-molido-100g.png", alt: "Ají panca molido" },
+  { slug: "anis-estrella", category: "Especias", title: "Anís", subtext: "Especias · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Especias/Especias-Anís-100g.png", alt: "Anís" },
+  { slug: "anis-estrella", category: "Especias", title: "Anís estrella", subtext: "Especias · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png", alt: "Anís estrella" },
+  { slug: "anis-estrella", category: "Especias", title: "Bicarbonato", subtext: "Especias · Bolsa 100 g", price: "S/ 8", image: "assets/img/catalogo/Especias/Especias-bicarbonato-100g.png", alt: "Bicarbonato" },
+  { slug: "anis-estrella", category: "Especias", title: "Canela molida", subtext: "Especias · Bolsa 100 g", price: "S/ 15", image: "assets/img/catalogo/Especias/Especias-canela-molida-100g.png", alt: "Canela molida" },
+  { slug: "anis-estrella", category: "Especias", title: "Clavo de olor", subtext: "Especias · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Especias/Especias-Clavo-de-olor-100g.png", alt: "Clavo de olor" },
+
+  // Frutos secos
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Almendras", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 18", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Almendras-100g.png", alt: "Almendras" },
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Cajú cruda", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 20", image: "assets/img/catalogo/Frutos secos/Fruto-secos-cajú-cruda-100g.png", alt: "Cajú cruda" },
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Cajú tostado", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 21", image: "assets/img/catalogo/Frutos secos/Fruto-secos-cajú-tostado-100g.png", alt: "Cajú tostado" },
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Castaña", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 22", image: "assets/img/catalogo/Frutos secos/Fruto-secos-castaña-100g.png", alt: "Castaña" },
+  { slug: "mani-tostado-natural", category: "Frutos secos", title: "Maní tostado natural", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png", alt: "Maní tostado natural" },
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Nueces", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 20", image: "assets/img/catalogo/Frutos secos/Fruto-secos-nueces-100g.png", alt: "Nueces" },
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Pecanas", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 24", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Pecanas-100g.png", alt: "Pecanas" },
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Pistachos", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 26", image: "assets/img/catalogo/Frutos secos/Fruto-secos-pistachos-100g.png", alt: "Pistachos" },
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Sacha inchi", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 18", image: "assets/img/catalogo/Frutos secos/Fruto-secos-sacha-inca-100g.png", alt: "Sacha inchi" },
+  { slug: "coco-rallado-fino", category: "Frutos secos", title: "Pasas morenas importadas", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Pasas-morenas-importadas-grandes-100g.png", alt: "Pasas morenas importadas" },
+  { slug: "coco-rallado-fino", category: "Frutos secos", title: "Pasas morenas nacionales", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Frutos secos/Fruto-secos-pasas-morenas-nacionales-100g.png", alt: "Pasas morenas nacionales" },
+  { slug: "coco-rallado-fino", category: "Frutos secos", title: "Pasas rubias pequeñas", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Pasas-rubias-pequeñas-100g.png", alt: "Pasas rubias pequeñas" },
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Semillas de calabaza", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 15", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-calabaza-100g.png", alt: "Semillas de calabaza" },
+  { slug: "semillas-girasol", category: "Frutos secos", title: "Semillas de girasol", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png", alt: "Semillas de girasol" },
+
+  // Mixes para ti
+  { slug: "quinua-real-blanca", category: "Mixes para ti", title: "Mixes saludables", subtext: "Mixes para ti", price: "S/ 32", image: "assets/img/catalogo/Mixes para ti/mixes-saludables.png", alt: "Mixes saludables" },
+  { slug: "quinua-real-blanca", category: "Mixes para ti", title: "Mixes premium", subtext: "Mixes para ti", price: "S/ 36", image: "assets/img/catalogo/Mixes para ti/Mixes-premium.png", alt: "Mixes premium" },
+  { slug: "quinua-real-blanca", category: "Mixes para ti", title: "Mixes energéticos", subtext: "Mixes para ti", price: "S/ 34", image: "assets/img/catalogo/Mixes para ti/Mixes-energéticos.png", alt: "Mixes energéticos" },
+];
+
+const catalogCategoryIds = {
+  Cereales: "cereales",
+  Deshidratados: "deshidratados",
+  Especias: "especias",
+  "Frutos secos": "frutos",
+};
+
+function getProductSize(product) {
+  if (/1 kg/.test(product.subtext)) return "1kg";
+  if (/500 g/.test(product.subtext)) return "500g";
+  if (/100 g/.test(product.subtext)) return "100g";
+  return null;
+}
+
+const catalogFilterState = {
+  category: "Todos",
+  sizes: [],
+};
+
+const sizeLabels = { "100g": "100 g", "500g": "500 g", "1kg": "1 kg" };
+
+function matchesCatalogFilters(product) {
+  const categoryMatch =
+    catalogFilterState.category === "Todos" || product.category === catalogFilterState.category;
+  const sizeMatch =
+    catalogFilterState.sizes.length === 0 || catalogFilterState.sizes.includes(getProductSize(product));
+
+  return categoryMatch && sizeMatch;
+}
+
+function pickRandomProducts(excludeSlug, count) {
+  const pool = catalogProducts.filter((item) => item.slug !== excludeSlug);
+  const shuffled = pool.slice();
+
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled.slice(0, count);
+}
+
+function buildSingleImageGallery(src, title) {
+  return [
+    { src, alt: title },
+    { src, alt: `${title} vista alternativa` },
+    { src, alt: `${title} detalle` },
+    { src, alt: `${title} uso` },
+  ];
+}
+
 const productVariants = {
   "quinua-real-blanca": {
     slug: "quinua-real-blanca",
@@ -131,40 +244,6 @@ const productVariants = {
       { label: "Cocción", value: "15 minutos" },
       { label: "Conservación", value: "Lugar fresco y seco" },
     ],
-    related: [
-      {
-        slug: "anis-estrella",
-        title: "Anís estrella",
-        subtext: "Especias · Bolsa 100 g",
-        price: "S/ 12",
-        image: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
-        alt: "Anís estrella",
-      },
-      {
-        slug: "semillas-girasol",
-        title: "Semillas de girasol",
-        subtext: "Frutos secos · Bolsa 100 g",
-        price: "S/ 18",
-        image: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
-        alt: "Semillas de girasol",
-      },
-      {
-        slug: "coco-rallado-fino",
-        title: "Coco rallado fino",
-        subtext: "Deshidratados · Bolsa 100 g",
-        price: "S/ 16",
-        image: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
-        alt: "Coco rallado fino",
-      },
-      {
-        slug: "mani-tostado-natural",
-        title: "Maní tostado al natural",
-        subtext: "Frutos secos · Bolsa 100 g",
-        price: "S/ 14",
-        image: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
-        alt: "Maní tostado al natural",
-      },
-    ],
   },
   "anis-estrella": {
     slug: "anis-estrella",
@@ -183,24 +262,10 @@ const productVariants = {
     ],
     availability: "En stock",
     quantity: 2,
-    gallery: [
-      {
-        src: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
-        alt: "Anís estrella",
-      },
-      {
-        src: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
-        alt: "Anís estrella vista alternativa",
-      },
-      {
-        src: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
-        alt: "Anís estrella detalle",
-      },
-      {
-        src: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
-        alt: "Anís estrella uso",
-      },
-    ],
+    gallery: buildSingleImageGallery(
+      "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
+      "Anís estrella"
+    ),
     description:
       "Especia aromática de sabor intenso, ideal para infusiones, postres y mezclas especiadas.",
     usage: "Perfecto para infusiones, repostería y preparaciones aromáticas.",
@@ -209,40 +274,6 @@ const productVariants = {
       { label: "Origen", value: "Perú" },
       { label: "Cocción", value: "Infusión 5 minutos" },
       { label: "Conservación", value: "Lugar fresco y seco" },
-    ],
-    related: [
-      {
-        slug: "quinua-real-blanca",
-        title: "Quinua real blanca",
-        subtext: "Cereales · Bolsa 100 g",
-        price: "S/ 24",
-        image: "assets/img/producto/producto-quinua-blanca/producto-quinua-vista1-min.png",
-        alt: "Quinua real blanca",
-      },
-      {
-        slug: "semillas-girasol",
-        title: "Semillas de girasol",
-        subtext: "Frutos secos · Bolsa 100 g",
-        price: "S/ 18",
-        image: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
-        alt: "Semillas de girasol",
-      },
-      {
-        slug: "coco-rallado-fino",
-        title: "Coco rallado fino",
-        subtext: "Deshidratados · Bolsa 100 g",
-        price: "S/ 16",
-        image: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
-        alt: "Coco rallado fino",
-      },
-      {
-        slug: "mani-tostado-natural",
-        title: "Maní tostado al natural",
-        subtext: "Frutos secos · Bolsa 100 g",
-        price: "S/ 14",
-        image: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
-        alt: "Maní tostado al natural",
-      },
     ],
   },
   "semillas-girasol": {
@@ -262,24 +293,10 @@ const productVariants = {
     ],
     availability: "En stock",
     quantity: 2,
-    gallery: [
-      {
-        src: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
-        alt: "Semillas de girasol",
-      },
-      {
-        src: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
-        alt: "Semillas de girasol vista alternativa",
-      },
-      {
-        src: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
-        alt: "Semillas de girasol detalle",
-      },
-      {
-        src: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
-        alt: "Semillas de girasol uso",
-      },
-    ],
+    gallery: buildSingleImageGallery(
+      "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
+      "Semillas de girasol"
+    ),
     description:
       "Semillas naturales listas para snacks, desayunos y mezclas caseras.",
     usage: "Úsalas en ensaladas, panes, bowls o como snack directo.",
@@ -288,40 +305,6 @@ const productVariants = {
       { label: "Origen", value: "Perú" },
       { label: "Cocción", value: "Listo para consumo" },
       { label: "Conservación", value: "Lugar fresco y seco" },
-    ],
-    related: [
-      {
-        slug: "quinua-real-blanca",
-        title: "Quinua real blanca",
-        subtext: "Cereales · Bolsa 100 g",
-        price: "S/ 24",
-        image: "assets/img/producto/producto-quinua-blanca/producto-quinua-vista1-min.png",
-        alt: "Quinua real blanca",
-      },
-      {
-        slug: "anis-estrella",
-        title: "Anís estrella",
-        subtext: "Especias · Bolsa 100 g",
-        price: "S/ 12",
-        image: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
-        alt: "Anís estrella",
-      },
-      {
-        slug: "coco-rallado-fino",
-        title: "Coco rallado fino",
-        subtext: "Deshidratados · Bolsa 100 g",
-        price: "S/ 16",
-        image: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
-        alt: "Coco rallado fino",
-      },
-      {
-        slug: "mani-tostado-natural",
-        title: "Maní tostado al natural",
-        subtext: "Frutos secos · Bolsa 100 g",
-        price: "S/ 14",
-        image: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
-        alt: "Maní tostado al natural",
-      },
     ],
   },
   "coco-rallado-fino": {
@@ -341,24 +324,10 @@ const productVariants = {
     ],
     availability: "En stock",
     quantity: 2,
-    gallery: [
-      {
-        src: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
-        alt: "Coco rallado fino",
-      },
-      {
-        src: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
-        alt: "Coco rallado fino vista alternativa",
-      },
-      {
-        src: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
-        alt: "Coco rallado fino detalle",
-      },
-      {
-        src: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
-        alt: "Coco rallado fino uso",
-      },
-    ],
+    gallery: buildSingleImageGallery(
+      "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
+      "Coco rallado fino"
+    ),
     description:
       "Deshidratado fino para repostería, bowls y preparaciones dulces.",
     usage: "Ideal para pasteles, granolas y preparaciones de desayuno.",
@@ -367,40 +336,6 @@ const productVariants = {
       { label: "Origen", value: "Perú" },
       { label: "Cocción", value: "Listo para consumo" },
       { label: "Conservación", value: "Lugar fresco y seco" },
-    ],
-    related: [
-      {
-        slug: "quinua-real-blanca",
-        title: "Quinua real blanca",
-        subtext: "Cereales · Bolsa 100 g",
-        price: "S/ 24",
-        image: "assets/img/producto/producto-quinua-blanca/producto-quinua-vista1-min.png",
-        alt: "Quinua real blanca",
-      },
-      {
-        slug: "anis-estrella",
-        title: "Anís estrella",
-        subtext: "Especias · Bolsa 100 g",
-        price: "S/ 12",
-        image: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
-        alt: "Anís estrella",
-      },
-      {
-        slug: "semillas-girasol",
-        title: "Semillas de girasol",
-        subtext: "Frutos secos · Bolsa 100 g",
-        price: "S/ 18",
-        image: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
-        alt: "Semillas de girasol",
-      },
-      {
-        slug: "mani-tostado-natural",
-        title: "Maní tostado al natural",
-        subtext: "Frutos secos · Bolsa 100 g",
-        price: "S/ 14",
-        image: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
-        alt: "Maní tostado al natural",
-      },
     ],
   },
   "mani-tostado-natural": {
@@ -420,24 +355,10 @@ const productVariants = {
     ],
     availability: "En stock",
     quantity: 2,
-    gallery: [
-      {
-        src: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
-        alt: "Maní tostado al natural",
-      },
-      {
-        src: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
-        alt: "Maní tostado al natural vista alternativa",
-      },
-      {
-        src: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
-        alt: "Maní tostado al natural detalle",
-      },
-      {
-        src: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
-        alt: "Maní tostado al natural uso",
-      },
-    ],
+    gallery: buildSingleImageGallery(
+      "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
+      "Maní tostado al natural"
+    ),
     description:
       "Snack clásico, tostado sin añadidos, ideal para consumo directo o mixes.",
     usage: "Perfecto para meriendas, mezclas y consumo directo.",
@@ -447,128 +368,27 @@ const productVariants = {
       { label: "Cocción", value: "Listo para consumo" },
       { label: "Conservación", value: "Lugar fresco y seco" },
     ],
-    related: [
-      {
-        slug: "quinua-real-blanca",
-        title: "Quinua real blanca",
-        subtext: "Cereales · Bolsa 100 g",
-        price: "S/ 24",
-        image: "assets/img/producto/producto-quinua-blanca/producto-quinua-vista1-min.png",
-        alt: "Quinua real blanca",
-      },
-      {
-        slug: "anis-estrella",
-        title: "Anís estrella",
-        subtext: "Especias · Bolsa 100 g",
-        price: "S/ 12",
-        image: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
-        alt: "Anís estrella",
-      },
-      {
-        slug: "semillas-girasol",
-        title: "Semillas de girasol",
-        subtext: "Frutos secos · Bolsa 100 g",
-        price: "S/ 18",
-        image: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
-        alt: "Semillas de girasol",
-      },
-      {
-        slug: "coco-rallado-fino",
-        title: "Coco rallado fino",
-        subtext: "Deshidratados · Bolsa 100 g",
-        price: "S/ 16",
-        image: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
-        alt: "Coco rallado fino",
-      },
-    ],
   },
 };
 
-const catalogProductSlugMap = {
-  "ajonjoli tostado": "quinua-real-blanca",
-  "ajonjoli blanca": "quinua-real-blanca",
-  "chia en granos": "quinua-real-blanca",
-  "crema de habas": "quinua-real-blanca",
-  "harina de arvejas": "quinua-real-blanca",
-  "harina de canihua": "quinua-real-blanca",
-  "harina de quinua tostada": "quinua-real-blanca",
-  "hojuela de kiwicha organica": "quinua-real-blanca",
-  "hojuelas de quinua": "quinua-real-blanca",
-  kiwicha: "quinua-real-blanca",
-  "quinua blanca": "quinua-real-blanca",
-  "Aguaymanto fino": "coco-rallado-fino",
-  "arandanos deshidratados": "coco-rallado-fino",
-  "coco rallado fino": "coco-rallado-fino",
-  "coco rallado grueso": "coco-rallado-fino",
-  guindones: "coco-rallado-fino",
-  higo: "coco-rallado-fino",
-  "higos secos": "coco-rallado-fino",
-  "kiwi deshidratado": "coco-rallado-fino",
-  "pera deshidratada": "coco-rallado-fino",
-  "toronja deshidratada": "coco-rallado-fino",
-  airampo: "anis-estrella",
-  "aji amarillo": "anis-estrella",
-  "aji panca": "anis-estrella",
-  "aji panca molido": "anis-estrella",
-  anis: "anis-estrella",
-  "anis estrella": "anis-estrella",
-  bicarbonato: "anis-estrella",
-  "canela molida": "anis-estrella",
-  "clavo de olor": "anis-estrella",
-  almendras: "semillas-girasol",
-  "caju cruda": "semillas-girasol",
-  "caju tostado": "semillas-girasol",
-  "castana": "semillas-girasol",
-  "mani tostado natural": "mani-tostado-natural",
-  nueces: "semillas-girasol",
-  pecanas: "semillas-girasol",
-  pistachos: "semillas-girasol",
-  "sacha inchi": "semillas-girasol",
-  "pasas morenas importadas": "coco-rallado-fino",
-  "pasas morenas nacionales": "coco-rallado-fino",
-  "pasas rubias pequenas": "coco-rallado-fino",
-  "semillas de calabaza": "semillas-girasol",
-  "semillas de girasol": "semillas-girasol",
-  "mixes saludables": "quinua-real-blanca",
-  "mixes premium": "quinua-real-blanca",
-  "mixes energeticos": "quinua-real-blanca",
-};
-
-function getProductSlugByTitle(title) {
-  return catalogProductSlugMap[
-    title
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-  ] || null;
-}
-
 function bindCatalogProductCards() {
-  if (window.location.pathname.split("/").pop() !== "catalogo.html") {
-    return;
-  }
-
   document.querySelectorAll(".catalog-card").forEach((card) => {
+    const productLink = card.querySelector('a[href^="producto.html"]');
     const titleElement = card.querySelector("h3");
     const button = card.querySelector('a.button[href="carrito.html"]');
 
-    if (!titleElement) {
+    if (!productLink) {
       return;
     }
 
-    const title = titleElement.textContent.trim();
-    const slug = getProductSlugByTitle(title);
+    const href = productLink.getAttribute("href");
+    const title = titleElement ? titleElement.textContent.trim() : "";
 
-    if (!slug) {
-      return;
-    }
-
-    card.classList.add("catalog-card--linked");
     card.setAttribute("role", "link");
     card.setAttribute("tabindex", "0");
 
     const navigate = () => {
-      window.location.href = `producto.html?slug=${slug}`;
+      window.location.href = href;
     };
 
     card.addEventListener("click", (event) => {
@@ -585,7 +405,7 @@ function bindCatalogProductCards() {
       }
     });
 
-    if (button) {
+    if (button && title) {
       button.setAttribute("aria-label", `Agregar ${title} al carrito`);
     }
   });
@@ -606,6 +426,93 @@ function renderProductCard({ slug, title, subtext, price, image, alt }) {
       </div>
     </article>
   `;
+}
+
+function renderCatalogCategory(category, products) {
+  const id = catalogCategoryIds[category];
+  const cards = products.map(renderProductCard).join("");
+
+  return `
+    <section class="catalog-category" aria-labelledby="${id}-title">
+      <h2 id="${id}-title">${category}</h2>
+      <div class="catalog-grid">${cards}</div>
+    </section>
+  `;
+}
+
+function renderCatalogPage() {
+  const categoriesContainer = document.querySelector("[data-catalog-categories]");
+
+  if (categoriesContainer) {
+    const filtered = catalogProducts.filter(
+      (item) => item.category !== "Mixes para ti" && matchesCatalogFilters(item)
+    );
+    const categories = [...new Set(filtered.map((item) => item.category))];
+
+    categoriesContainer.innerHTML = categories.length
+      ? categories
+          .map((category) =>
+            renderCatalogCategory(category, filtered.filter((item) => item.category === category))
+          )
+          .join("")
+      : '<p class="catalog-empty">No hay productos que coincidan con los filtros seleccionados.</p>';
+
+    const countElement = document.querySelector("[data-catalog-count]");
+    if (countElement) {
+      countElement.textContent = `${filtered.length} productos`;
+    }
+
+    const activeFiltersElement = document.querySelector("[data-active-filters]");
+    if (activeFiltersElement) {
+      const parts = [];
+      if (catalogFilterState.category !== "Todos") {
+        parts.push(catalogFilterState.category);
+      }
+      if (catalogFilterState.sizes.length) {
+        parts.push(catalogFilterState.sizes.map((size) => sizeLabels[size]).join(", "));
+      }
+      activeFiltersElement.textContent = parts.length
+        ? `Filtros activos: ${parts.join(" · ")}`
+        : "Mostrando todos los productos";
+    }
+  }
+
+  const recommendedContainer = document.querySelector("[data-recommended-grid]");
+
+  if (recommendedContainer) {
+    recommendedContainer.innerHTML = catalogProducts
+      .filter((item) => item.category === "Mixes para ti")
+      .map(renderProductCard)
+      .join("");
+  }
+
+  bindCatalogProductCards();
+}
+
+function bindCatalogFilters() {
+  const chipsContainer = document.querySelector(".catalog-chips");
+
+  if (chipsContainer) {
+    const chips = chipsContainer.querySelectorAll(".catalog-chip");
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        chips.forEach((c) => c.classList.remove("catalog-chip--active"));
+        chip.classList.add("catalog-chip--active");
+        catalogFilterState.category = chip.textContent.trim();
+        renderCatalogPage();
+      });
+    });
+  }
+
+  const applyButton = document.querySelector("[data-apply-filters]");
+
+  if (applyButton) {
+    applyButton.addEventListener("click", () => {
+      const checked = document.querySelectorAll('[data-size-filter] input[type="checkbox"]:checked');
+      catalogFilterState.sizes = Array.from(checked).map((input) => input.value);
+      renderCatalogPage();
+    });
+  }
 }
 
 function renderProductPage() {
@@ -646,7 +553,7 @@ function renderProductPage() {
     )
     .join("");
 
-  const related = product.related.map(renderProductCard).join("");
+  const related = pickRandomProducts(product.slug, 4).map(renderProductCard).join("");
 
   document.title = `${product.title} - Sumaq Rurucha`;
   const breadcrumbMarkup = product.breadcrumbs
@@ -753,6 +660,245 @@ function renderProductPage() {
       <div class="recommended-grid">${related}</div>
     </section>
   `;
+
+  bindCatalogProductCards();
+}
+
+const demoOrderContent = {
+  items: [
+    {
+      title: "Quinua real blanca",
+      subtext: "Bolsa 1 kg · x1",
+      price: "S/ 24",
+      image: "assets/img/producto/producto-quinua-blanca/producto-quinua-vista1-min.png",
+    },
+    {
+      title: "Mango deshidratado",
+      subtext: "Pack 250 g · x2",
+      price: "S/ 36",
+      image: "assets/img/home/03-mini-mango-deshidratado.png",
+    },
+    {
+      title: "Mix andino premium",
+      subtext: "Bolsa 500 g · x1",
+      price: "S/ 32",
+      image: "assets/img/home/05-mini-miel-andina.png",
+    },
+  ],
+  shipping: {
+    name: "María Fernanda Quispe",
+    address: "Av. Los Próceres 123, dpto. 201 · San Isidro, Lima",
+    phone: "987 654 321",
+  },
+  summary: {
+    rows: [
+      { label: "Subtotal", value: "S/ 92" },
+      { label: "Envío", value: "S/ 8" },
+      { label: "Método de pago", value: "Yape / Plin" },
+    ],
+    total: { label: "Total", value: "S/ 100" },
+  },
+};
+
+const orderData = {
+  "SR-10001": { orderNumber: "SR-10001", placedDate: "4 de julio de 2026", stage: "confirmado", ...demoOrderContent },
+  "SR-10002": { orderNumber: "SR-10002", placedDate: "3 de julio de 2026", stage: "preparando", ...demoOrderContent },
+  "SR-48213": { orderNumber: "SR-48213", placedDate: "4 de julio de 2026", stage: "enviado", ...demoOrderContent },
+  "SR-10004": { orderNumber: "SR-10004", placedDate: "1 de julio de 2026", stage: "entregado", ...demoOrderContent },
+};
+
+const helpActionCard = {
+  type: "help",
+  heading: "¿Necesitas ayuda?",
+  text: "Escríbenos por WhatsApp si tienes dudas sobre tu envío.",
+  buttonText: "Escribir por WhatsApp",
+  buttonHref: "https://wa.me/",
+};
+
+const orderStageData = {
+  confirmado: {
+    heading: "¡Gracias! Tu pedido fue confirmado",
+    steps: [
+      { label: "Confirmado", timestamp: "4 jul · 10:32 a.m.", state: "completed" },
+      { label: "Preparando", timestamp: "En proceso", state: "pending" },
+      { label: "Enviado", timestamp: "Pendiente", state: "pending" },
+      { label: "Entregado", timestamp: "Pendiente", state: "pending" },
+    ],
+    actionCard: helpActionCard,
+  },
+  preparando: {
+    heading: "Estamos preparando tu pedido",
+    steps: [
+      { label: "Confirmado", timestamp: "3 jul · 9:40 a.m.", state: "completed" },
+      { label: "Preparando", timestamp: "3 jul · 4:20 p.m.", state: "completed" },
+      { label: "Enviado", timestamp: "Pendiente", state: "pending" },
+      { label: "Entregado", timestamp: "Pendiente", state: "pending" },
+    ],
+    actionCard: helpActionCard,
+  },
+  enviado: {
+    heading: "Tu pedido está en camino",
+    steps: [
+      { label: "Confirmado", timestamp: "4 jul · 10:32 a.m.", state: "completed" },
+      { label: "Preparando", timestamp: "4 jul · 3:10 p.m.", state: "completed" },
+      { label: "Enviado", timestamp: "5 jul · 9:00 a.m.", state: "completed" },
+      { label: "Entregado", timestamp: "Estimado 6-8 jul", state: "pending" },
+    ],
+    actionCard: helpActionCard,
+  },
+  entregado: {
+    heading: "Tu pedido fue entregado",
+    steps: [
+      { label: "Confirmado", timestamp: "1 jul · 10:32 a.m.", state: "completed" },
+      { label: "Preparando", timestamp: "1 jul · 3:10 p.m.", state: "completed" },
+      { label: "Enviado", timestamp: "2 jul · 9:00 a.m.", state: "completed" },
+      { label: "Entregado", timestamp: "3 jul · 11:15 a.m.", state: "completed" },
+    ],
+    actionCard: {
+      type: "review",
+      heading: "¿Cómo estuvo tu pedido?",
+      text: "Cuéntanos qué te pareció. Tu opinión ayuda a otros compradores.",
+      buttonText: "Calificar mi pedido ★",
+    },
+  },
+};
+
+function renderOrderStatusPage() {
+  const container = document.querySelector("[data-order-status-page]");
+
+  if (!container) {
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const forcedStage = container.dataset.orderStage;
+  const defaultOrder = forcedStage
+    ? Object.values(orderData).find((item) => item.stage === forcedStage)
+    : orderData["SR-48213"];
+  const requested = (params.get("pedido") || defaultOrder.orderNumber).toUpperCase();
+  const order = orderData[requested] || defaultOrder;
+  const stageKey = forcedStage || order.stage;
+  const stage = orderStageData[stageKey] || orderStageData.enviado;
+
+  document.title = `Pedido ${order.orderNumber} - Sumaq Rurucha`;
+
+  const stepperMarkup = stage.steps
+    .map(
+      (step, index) => `
+        <div class="order-stepper__step order-stepper__step--${step.state}">
+          <div class="order-stepper__marker">${step.state === "completed" ? "✓" : index + 1}</div>
+          <div class="order-stepper__label">${step.label}</div>
+          <div class="order-stepper__timestamp">${step.timestamp}</div>
+        </div>
+      `
+    )
+    .join("");
+
+  const itemsMarkup = order.items
+    .map(
+      (item) => `
+        <li class="order-product-item">
+          <img src="${item.image}" alt="${item.title}">
+          <div>
+            <h3>${item.title}</h3>
+            <p>${item.subtext}</p>
+          </div>
+          <strong>${item.price}</strong>
+        </li>
+      `
+    )
+    .join("");
+
+  const actionButtonMarkup =
+    stage.actionCard.type === "review"
+      ? `<button class="button button--primary" type="button">${stage.actionCard.buttonText}</button>`
+      : `<a class="button button--primary" href="${stage.actionCard.buttonHref}" target="_blank" rel="noreferrer">${stage.actionCard.buttonText}</a>`;
+
+  const summaryRowsMarkup = order.summary.rows
+    .map(
+      (row) => `
+        <div class="order-summary__row">
+          <span>${row.label}</span>
+          <span>${row.value}</span>
+        </div>
+      `
+    )
+    .join("");
+
+  container.innerHTML = `
+    <nav class="product-breadcrumbs" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a><span>/</span>
+      <a href="mi-pedido.html">Mi cuenta</a><span>/</span>
+      <strong>Pedido #${order.orderNumber}</strong>
+    </nav>
+
+    <div class="order-status__header">
+      <h1>${stage.heading}</h1>
+      <p>Pedido #${order.orderNumber} &middot; realizado el ${order.placedDate}</p>
+    </div>
+
+    <div class="order-stepper">${stepperMarkup}</div>
+
+    <div class="order-layout">
+      <div class="order-main">
+        <section class="order-products">
+          <h2>Productos en tu pedido</h2>
+          <ul>${itemsMarkup}</ul>
+        </section>
+
+        <section class="order-address">
+          <h2>Dirección de envío</h2>
+          <p class="order-address__name">${order.shipping.name}</p>
+          <p class="order-address__line">${order.shipping.address}</p>
+          <p class="order-address__phone">${order.shipping.phone}</p>
+        </section>
+      </div>
+
+      <aside class="order-side">
+        <section class="order-summary">
+          <h2>Resumen</h2>
+          ${summaryRowsMarkup}
+          <div class="order-summary__total">
+            <span>${order.summary.total.label}</span>
+            <span>${order.summary.total.value}</span>
+          </div>
+        </section>
+
+        <section class="order-help">
+          <h2>${stage.actionCard.heading}</h2>
+          <p>${stage.actionCard.text}</p>
+          ${actionButtonMarkup}
+        </section>
+      </aside>
+    </div>
+  `;
+}
+
+function bindTrackOrderForm() {
+  const form = document.querySelector("[data-track-order-form]");
+
+  if (!form) {
+    return;
+  }
+
+  const errorMessage = form.querySelector("[data-track-order-error]");
+  const fields = form.querySelectorAll("[data-track-order-field]");
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const orderNumber = form.orderNumber.value.trim().toUpperCase();
+    const contact = form.contact.value.trim();
+    const isValid = Boolean(orderData[orderNumber]) && contact.length > 0;
+
+    fields.forEach((field) => field.classList.toggle("has-error", !isValid));
+    errorMessage.hidden = isValid;
+    form.classList.toggle("is-error", !isValid);
+
+    if (isValid) {
+      window.location.href = `estado-pedido.html?pedido=${orderNumber}`;
+    }
+  });
 }
 
 function renderFooterColumn({ title, links }) {
@@ -802,6 +948,9 @@ function renderFooter() {
 }
 
 renderNavigation();
+renderCatalogPage();
+bindCatalogFilters();
 renderProductPage();
-bindCatalogProductCards();
+renderOrderStatusPage();
+bindTrackOrderForm();
 renderFooter();

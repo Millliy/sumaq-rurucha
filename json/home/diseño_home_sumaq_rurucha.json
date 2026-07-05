@@ -1,6 +1,6 @@
 {
   "design_system": {
-    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:8 desktop/01-home) el 2026-07-05.",
+    "_source": "Extraído de Figma (figma-sumaq, fileKey YuIIAfsLcA8tzvd3gM3mBj, nodo 132:8 desktop/01-home) el 2026-07-05. Revisado por segunda vez el mismo día (pass 2) tras cambios de diseño en 'Más pedidos' y 'Categorías principales' — ver bloques marcados '_updated' y 'review_2026-07-05_pass_2'.",
     "brand_identity": {
       "name": "Sumaq Rurucha",
       "colors": {
@@ -115,15 +115,21 @@
         },
         {
           "issue": "Sección 'Más pedidos' — nombres de producto sin separación del fondo",
-          "severity": "alto (confirmado visualmente, mismo patrón que la tarjeta del hero)",
-          "detail": "Ninguna de las 5 tarjetas (feature-product + 4 mini) tiene gradiente entre la foto y el texto. 'Quinua real blanca' se mezcla con el empaque, 'Mango deshidratado'/'Cúrcuma molida' casi desaparecen contra fondos claros.",
-          "fix": "Agregar linear-gradient(to top, rgba(0,0,0,0.65), transparent) detrás del bloque de texto en las 5 tarjetas."
+          "status": "RESUELTO (verificado 2026-07-05, revisión #2 vía código real del nodo 443:2717)",
+          "detail": "Ya no aplica. Las 5 tarjetas ahora tienen un panel rgba(255,255,255,0.52), rounded 18px, de 128px de alto detrás del bloque de texto, con texto en vino/800 (#310c18). Buen contraste confirmado con captura y código actual.",
+          "fix": "Ninguno necesario. No revertir este patrón."
         },
         {
           "issue": "Sección 'Más pedidos' — botones '+' desproporcionados",
-          "severity": "alto (confirmado visualmente)",
-          "detail": "Los 4 botones '+' de las mini-tarjetas heredan el ancho de 137px del botón 'Agregar' del que fueron copiados, dejando una píldora vacía con el signo perdido en el centro.",
-          "fix": "Convertir a icon-button cuadrado ~38x38px, sin el ancho fijo de 137px."
+          "severity": "bajo (bajado de 'alto' tras revisión 2026-07-05, pass 2)",
+          "detail": "Los 4 botones '+' siguen midiendo 137px de ancho x 38px de alto (confirmado en código actual, nodo 443:2736 y análogos), pero visualmente ya no leen como una píldora rota — es una decisión de estilo aceptable.",
+          "fix": "Opcional: icon-button cuadrado ~38x38px para mejor uso del espacio. No bloqueante."
+        },
+        {
+          "issue": "Sección 'Categorías principales' — texto sin panel de protección sobre la foto",
+          "severity": "alto (nuevo hallazgo, revisión 2026-07-05 pass 2)",
+          "detail": "Ni la categoría grande 'Cereales andinos' (nodo 443:2822) ni las 3 filas 'Deshidratados' / 'Especias' / 'Frutos secos' (nodo 443:2827) tienen ningún overlay/panel entre la foto y el texto — confirmado en el código, el bloque de texto está superpuesto directo sobre la imagen sin div de scrim. Hoy se salva porque las fotos elegidas tienen zonas claras ahí, pero es frágil ante cualquier cambio de foto. Es el mismo riesgo que ya tenía 'Más pedidos' antes de su fix.",
+          "fix": "Aplicar el mismo patrón que ya funciona en 'Más pedidos': panel rgba(255,255,255,0.52) redondeado detrás del texto, en las 4 tarjetas de categoría."
         }
       ]
     },
@@ -189,33 +195,42 @@
         "subtitle_color": "#7C6F68"
       },
       "section_mas_pedidos": {
+        "_updated": "Revisión 2026-07-05 pass 2 — verificado con código real del nodo 443:2717, esta sección ya no coincide con la primera pasada del audit (los datos de abajo reemplazan a los anteriores).",
         "layout_grid": "custom-mosaic",
         "left_featured_card": {
           "width": "804px",
           "background_color": "#491325",
+          "background_comment": "El fondo vino/700 queda cubierto por la foto del producto (object-cover) + un radial-gradient beige (rgba(225,198,176,1) → rgba(211,169,137,0)) que ilumina la zona donde cae el texto.",
           "border_radius": "22px",
-          "text_position": "absolute-bottom-left",
-          "text_color": "#FFFFFF"
+          "text_position": "absolute, dentro de fp-content, alineado a la derecha del empaque",
+          "text_color": "#310C18 (vino/800)",
+          "text_color_comment": "CORRECCIÓN: ya no es blanco. El heading 'Quinua real blanca' es vino/800 oscuro, legible sobre el gradiente beige claro."
         },
         "right_grid_cards": {
           "width": "258px_each",
           "background_color": "#621931",
-          "background_color_comment": "CORRECCIÓN: no es gris (#F4F4F4), es vino/600 (#621931) — tarjetas oscuras con foto de producto.",
+          "background_color_comment": "El vino/600 es solo el color base; en la práctica cada tarjeta muestra una foto de producto a tamaño completo (object-cover) con un panel de protección rgba(255,255,255,0.52) detrás del texto (ver text_scrim_panel).",
           "border_radius": "20px",
-          "padding": "22px"
+          "padding": "22px",
+          "text_scrim_panel": {
+            "background_color": "rgba(255,255,255,0.52)",
+            "height": "128px",
+            "border_radius": "18px",
+            "position": "absolute, pegado abajo, ancho completo de la tarjeta",
+            "text_color": "#310C18 (vino/800), subtítulo #211814",
+            "contrast_check": "OK — confirmado visualmente y por código (nodo 443:2730 y análogos). Este es el patrón correcto y debe replicarse en section_categorias."
+          }
         },
         "issues_found_2026-07-05": [
           {
             "issue": "Texto de nombre de producto sin separación del fondo",
-            "severity": "alto (confirmado visualmente en las 5 tarjetas)",
-            "detail": "Ni la tarjeta grande ('Quinua real blanca') ni las 4 mini-tarjetas tienen gradiente/scrim entre la foto y el texto. Resultado real: 'Quinua real blanca' se mezcla con el empaque beige (bajo contraste), y 'Mango deshidratado' / 'Cúrcuma molida' (texto claro) casi desaparecen contra el plato/tazón claro de fondo. Es el mismo patrón de falla que la tarjeta flotante del hero — texto puesto directo sobre foto sin protección.",
-            "recommended_fix": "Agregar un overlay de gradiente 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 55%)' entre la imagen y el bloque de texto en las 5 tarjetas (feature-product y las 4 mini), igual que ya debería existir (y falta) en section_categorias."
+            "status": "RESUELTO — ver text_scrim_panel arriba. Ya no aplica."
           },
           {
             "issue": "Botones '+' de las mini-tarjetas no tienen sentido visualmente",
-            "severity": "alto (confirmado visualmente)",
-            "detail": "El botón '+' de cada mini-tarjeta mide 137px de ancho (mismo width que el componente 'Agregar' del que fue copiado) pero el contenido es solo el glifo '+'. Se ve como una píldora vacía con un signo de más perdido en el centro.",
-            "recommended_fix": "Cambiar estos 4 botones a un icon-button cuadrado de ~38x38px (mismo alto, ancho = alto), border-radius 8px, '+' centrado. No reusar el ancho fijo de 137px pensado para la palabra 'Agregar'."
+            "severity": "bajo (bajado de 'alto')",
+            "detail": "El botón '+' de cada mini-tarjeta sigue midiendo 137px de ancho x 38px de alto (confirmado en código), pero ya no se percibe como roto visualmente.",
+            "recommended_fix": "Opcional: icon-button cuadrado ~38x38px. No bloqueante."
           }
         ]
       },
@@ -233,12 +248,17 @@
         "right_column": { "type": "image" }
       },
       "section_categorias": {
+        "_updated": "Revisión 2026-07-05 pass 2 — verificado con código real del nodo 443:2820.",
         "layout_grid": "custom-mosaic-reversed",
         "border_radius_large_card": "22px",
         "border_radius_small_rows": "18px",
         "card_styles": {
-          "text_overlay": "gradient-bottom-to-top",
-          "text_color": "#FFFFFF"
+          "text_overlay": "NINGUNO",
+          "text_overlay_comment": "CORRECCIÓN: no existe overlay tipo gradient-bottom-to-top como se documentó antes. El bloque de texto está superpuesto directo sobre la foto (object-cover), sin ningún div de scrim de por medio (confirmado en código, nodos 443:2824, 443:2830, 443:2835, 443:2840).",
+          "text_color": "#310C18 (vino/800)",
+          "text_color_comment": "CORRECCIÓN: no es blanco, es vino/800 oscuro.",
+          "contrast_check": "RIESGO — funciona hoy porque las 4 fotos elegidas tienen una zona clara donde cae el texto (igual que pasaba en 'Más pedidos' antes de su fix), pero no hay ninguna protección estructural. Ver issue en review_2026-07-05_pass_2.",
+          "recommended_fix": "Replicar el patrón ya validado en section_mas_pedidos: panel rgba(255,255,255,0.52) redondeado detrás del texto en las 4 tarjetas."
         }
       },
       "section_historia": {
