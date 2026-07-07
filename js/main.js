@@ -1,19 +1,19 @@
-/* =====================================================================
-   SUMAQ RURUCHA — main.js
+﻿/* =====================================================================
+   SUMAQ RURUCHA - main.js
    Lógica de todas las páginas del sitio. Este archivo NO contiene datos
    de productos: esos viven en js/productos-data.js (catalogProducts y
    productDetails), que debe cargarse ANTES que este archivo.
 
    Índice:
-     1. NAVEGACIÓN      → barra superior compartida por todas las páginas
-     2. FOOTER          → pie de página compartido
-     3. FICHAS          → construcción de las fichas de producto
-     4. HOME            → tarjetas clicables de "Más pedidos"
-     5. BUSCADOR        → modal flotante de búsqueda de productos
-     6. CATÁLOGO        → grilla de productos, filtros y tarjetas
-     7. PRODUCTO        → página de detalle (galería, cantidad, etc.)
-     8. PEDIDOS         → estado del pedido y formulario de rastreo
-     9. INICIALIZACIÓN  → arranque: cada función detecta si aplica
+     1. NAVEGACIÓN      -> barra superior compartida por todas las páginas
+     2. FOOTER          -> pie de página compartido
+     3. FICHAS          -> construcción de las fichas de producto
+     4. HOME            -> tarjetas clicables de "Más pedidos"
+     5. BUSCADOR        -> modal flotante de búsqueda de productos
+     6. CATÁLOGO        -> grilla de productos, filtros y tarjetas
+     7. PRODUCTO        -> página de detalle (galería, cantidad, etc.)
+     8. PEDIDOS         -> estado del pedido y formulario de rastreo
+     9. INICIALIZACIÓN  -> arranque: cada función detecta si aplica
    ===================================================================== */
 
 /* =====================================================================
@@ -195,8 +195,8 @@ const productVariants = Object.fromEntries(
     slug,
     {
       slug,
-      breadcrumbs: ["Inicio", "Catálogo", detail.category, detail.title],
-      presentationTitle: "PRESENTACIÓN",
+      breadcrumbs: ["Inicio", "Cat&aacute;logo", detail.category, detail.title],
+      presentationTitle: "PRESENTACI&Oacute;N",
       availability: "En stock",
       quantity: 1,
       gallery: buildSingleImageGallery(detail.image, detail.title),
@@ -206,7 +206,505 @@ const productVariants = Object.fromEntries(
 );
 
 /* =====================================================================
-   4. HOME — sección "Más pedidos"
+   3.5 CARRITO
+   Estado local del carrito, semillas de demostración y render de
+   carrito.html a partir de la especificación extraída de Figma.
+   ===================================================================== */
+
+const cartStorageKey = "sumaq-rurucha-cart";
+
+const cartPageContent = {
+  breadcrumbs: ["Inicio", "Carrito"],
+  heading: "Tu carrito",
+  subheading: "Revisa tu pedido antes de finalizar la compra.",
+  trustItems: [
+    {
+      title: "Pago seguro",
+      text: "Compra protegida con tarjetas y billeteras digitales.",
+    },
+    {
+      title: "Envío coordinado",
+      text: "Calcula el costo antes de finalizar tu pedido.",
+    },
+    {
+      title: "Soporte cercano",
+      text: "Te ayudamos si necesitas modificar tu compra.",
+    },
+  ],
+  shipping: {
+    heading: "Envío",
+    placeholder: "Selecciona tu departamento",
+    defaultCost: 8,
+    resultPrefix: "Envío estimado:",
+  },
+  summary: {
+    heading: "Resumen",
+    ctaButton: "Finalizar compra ->",
+    couponPlaceholder: "&iquest;Tienes un c&oacute;digo?",
+  },
+};
+
+const shippingDepartments = [
+  { value: "lima", label: "Lima", cost: 8 },
+  { value: "arequipa", label: "Arequipa", cost: 12 },
+  { value: "cusco", label: "Cusco", cost: 14 },
+  { value: "la-libertad", label: "La Libertad", cost: 12 },
+  { value: "puno", label: "Puno", cost: 10 },
+];
+
+const cartSeedItems = [
+  {
+    slug: "quinua-real-blanca",
+    title: "Quinua real blanca",
+    presentation: "Bolsa 1 kg",
+    quantity: 1,
+    unitPrice: 24,
+  },
+  {
+    slug: "mango-deshidratado",
+    title: "Mango deshidratado",
+    presentation: "Pack 250 g",
+    quantity: 2,
+    unitPrice: 18,
+  },
+  {
+    slug: "mix-andino-premium",
+    title: "Mix andino premium",
+    presentation: "Bolsa 500 g",
+    quantity: 1,
+    unitPrice: 32,
+  },
+];
+
+function parsePrice(value) {
+  const numeric = Number(String(value || "").replace(/[^\d.]/g, ""));
+  return Number.isFinite(numeric) ? numeric : 0;
+}
+
+function formatPrice(value) {
+  const amount = Number(value) || 0;
+  return `S/ ${Number.isInteger(amount) ? amount : amount.toFixed(2)}`;
+}
+
+function getCartItemKey(item) {
+  return `${item.slug}::${item.presentation}`;
+}
+
+function getDefaultPresentation(product) {
+  return (
+    product?.presentations?.find((item) => item.selected)?.label ||
+    product?.presentations?.[0]?.label ||
+    ""
+  );
+}
+
+function createCartProductSnapshot(slug, overrides = {}) {
+  const detail = productVariants[slug] || productDetails[slug] || null;
+  const catalogMatch = catalogProducts.find((item) => item.slug === slug) || null;
+  const primaryImage =
+    overrides.image ||
+    detail?.gallery?.[0]?.src ||
+    detail?.image ||
+    catalogMatch?.image ||
+    "";
+  const primaryAlt =
+    overrides.alt ||
+    detail?.gallery?.[0]?.alt ||
+    detail?.title ||
+    catalogMatch?.alt ||
+    overrides.title ||
+    "";
+
+  return {
+    slug,
+    title: overrides.title || detail?.title || catalogMatch?.title || slug,
+    presentation:
+      overrides.presentation ||
+      getDefaultPresentation(detail) ||
+      catalogMatch?.subtext?.split("·").pop()?.trim() ||
+      "",
+    quantity: Math.max(1, overrides.quantity || 1),
+    unitPrice:
+      overrides.unitPrice ??
+      parsePrice(detail?.price || catalogMatch?.price || 0),
+    image: primaryImage,
+    alt: primaryAlt,
+  };
+}
+
+function getDefaultCartState() {
+  return {
+    items: cartSeedItems.map((item) => createCartProductSnapshot(item.slug, item)),
+    shippingDepartment: "",
+    shippingCost: cartPageContent.shipping.defaultCost,
+    coupon: "",
+  };
+}
+
+function loadCart() {
+  try {
+    const raw = window.localStorage.getItem(cartStorageKey);
+    if (!raw) {
+      return getDefaultCartState();
+    }
+
+    const parsed = JSON.parse(raw);
+    if (!parsed || !Array.isArray(parsed.items)) {
+      return getDefaultCartState();
+    }
+
+    return {
+      items: parsed.items
+        .map((item) => createCartProductSnapshot(item.slug, item))
+        .filter((item) => item.slug),
+      shippingDepartment: parsed.shippingDepartment || "",
+      shippingCost: Number(parsed.shippingCost) || cartPageContent.shipping.defaultCost,
+      coupon: parsed.coupon || "",
+    };
+  } catch (error) {
+    return getDefaultCartState();
+  }
+}
+
+function saveCart(state) {
+  window.localStorage.setItem(cartStorageKey, JSON.stringify(state));
+}
+
+function persistCart(state) {
+  saveCart(state);
+  updateNavigationCartCount();
+}
+
+function getCartItemCount() {
+  return loadCart().items.reduce((total, item) => total + item.quantity, 0);
+}
+
+function updateNavigationCartCount() {
+  const cartLink = document.querySelector('.nav a[href="carrito.html"]');
+
+  if (!cartLink) {
+    return;
+  }
+
+  const totalItems = getCartItemCount();
+  let badge = cartLink.querySelector(".nav-badge");
+
+  if (!totalItems) {
+    cartLink.classList.remove("nav__link--with-badge");
+    if (badge) {
+      badge.remove();
+    }
+    return;
+  }
+
+  cartLink.classList.add("nav__link--with-badge");
+
+  if (!badge) {
+    badge = document.createElement("span");
+    badge.className = "nav-badge";
+    cartLink.appendChild(badge);
+  }
+
+  badge.textContent = String(totalItems);
+}
+
+function addItemToCart(itemData) {
+  const state = loadCart();
+  const nextItem = createCartProductSnapshot(itemData.slug, itemData);
+  const key = getCartItemKey(nextItem);
+  const existing = state.items.find((item) => getCartItemKey(item) === key);
+
+  if (existing) {
+    existing.quantity += nextItem.quantity;
+  } else {
+    state.items.push(nextItem);
+  }
+
+  persistCart(state);
+}
+
+function getCartTotals(items, shippingCost) {
+  const itemCount = items.reduce((total, item) => total + item.quantity, 0);
+  const subtotal = items.reduce((total, item) => total + item.unitPrice * item.quantity, 0);
+  const appliedShippingCost = items.length ? shippingCost : 0;
+
+  return {
+    itemCount,
+    subtotal,
+    shippingCost: appliedShippingCost,
+    total: subtotal + appliedShippingCost,
+  };
+}
+
+function renderCartBreadcrumbs() {
+  const breadcrumbsMarkup = cartPageContent.breadcrumbs
+    .map((item, index) =>
+      index === cartPageContent.breadcrumbs.length - 1
+        ? `<strong>${item}</strong>`
+        : `<a href="index.html">${item}</a><span>/</span>`
+    )
+    .join("");
+
+  return `
+    <nav class="product-breadcrumbs cart-breadcrumbs" aria-label="Ruta de navegación">
+      ${breadcrumbsMarkup}
+    </nav>
+  `;
+}
+
+function renderCartHeader(itemCount) {
+  const countLabel = `${itemCount} producto${itemCount === 1 ? "" : "s"}`;
+
+  return `
+    <section class="cart-page__header" aria-labelledby="cart-title">
+      <div>
+        <h1 id="cart-title">${cartPageContent.heading}</h1>
+        <p>${cartPageContent.subheading}</p>
+      </div>
+      <span class="cart-page__count">${countLabel}</span>
+    </section>
+  `;
+}
+
+function renderCartItem(item) {
+  const itemKey = getCartItemKey(item);
+
+  return `
+    <article class="cart-item" data-cart-item="${itemKey}">
+      <img src="${item.image}" alt="${item.alt}">
+      <div class="cart-item__body">
+        <div class="cart-item__copy">
+          <h2>${item.title}</h2>
+          <p>${item.presentation}</p>
+          <button class="cart-item__remove" type="button" data-cart-remove="${itemKey}">Eliminar</button>
+        </div>
+        <div class="cart-item__meta">
+          <div class="cart-item__stepper" aria-label="Cantidad">
+            <button type="button" data-cart-step="decrease" data-cart-item-key="${itemKey}" aria-label="Disminuir cantidad">-</button>
+            <strong>${item.quantity}</strong>
+            <button type="button" data-cart-step="increase" data-cart-item-key="${itemKey}" aria-label="Aumentar cantidad">+</button>
+          </div>
+          <strong class="cart-item__price">${formatPrice(item.unitPrice * item.quantity)}</strong>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderCartItems(items) {
+  if (!items.length) {
+    return `
+      <div class="cart-empty">
+        <h2>Tu carrito est&aacute; vac&iacute;o</h2>
+        <p>Agrega productos desde el cat&aacute;logo o desde una ficha de producto.</p>
+        <a class="button button--primary" href="catalogo.html">Explorar cat&aacute;logo</a>
+      </div>
+    `;
+  }
+
+  return items.map(renderCartItem).join("");
+}
+
+function renderCartTrustItems() {
+  return cartPageContent.trustItems
+    .map(
+      (item) => `
+        <article class="cart-trust__item">
+          <h2>${item.title}</h2>
+          <p>${item.text}</p>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function renderShippingOptions(selectedDepartment) {
+  return shippingDepartments
+    .map(
+      (department) => `
+        <option value="${department.value}"${department.value === selectedDepartment ? " selected" : ""}>
+          ${department.label}
+        </option>
+      `
+    )
+    .join("");
+}
+
+function renderShippingCard(state, shippingCost) {
+  return `
+    <section class="cart-shipping">
+      <h2>${cartPageContent.shipping.heading}</h2>
+      <label class="sr-only" for="cart-department">${cartPageContent.shipping.placeholder}</label>
+      <select id="cart-department" data-cart-shipping>
+        <option value="">${cartPageContent.shipping.placeholder}</option>
+        ${renderShippingOptions(state.shippingDepartment)}
+      </select>
+      <div class="cart-shipping__result">
+        <i aria-hidden="true"></i>
+        <span>${cartPageContent.shipping.resultPrefix} ${formatPrice(shippingCost)}</span>
+      </div>
+    </section>
+  `;
+}
+
+function renderCartSummary(summary) {
+  return `
+    <section class="cart-summary">
+      <h2>${cartPageContent.summary.heading}</h2>
+      <div class="cart-summary__row">
+        <span>Subtotal</span>
+        <strong>${formatPrice(summary.subtotal)}</strong>
+      </div>
+      <div class="cart-summary__row">
+        <span>Envío</span>
+        <strong>${formatPrice(summary.shippingCost)}</strong>
+      </div>
+      <div class="cart-summary__total">
+        <span>Total</span>
+        <strong>${formatPrice(summary.total)}</strong>
+      </div>
+      <a class="button button--primary cart-summary__cta" href="pago.html">${cartPageContent.summary.ctaButton}</a>
+      <input
+        class="cart-summary__coupon"
+        type="text"
+        value="${summary.coupon}"
+        data-cart-coupon
+        placeholder="${cartPageContent.summary.couponPlaceholder}"
+        aria-label="${cartPageContent.summary.couponPlaceholder}"
+      >
+    </section>
+  `;
+}
+
+function bindAddToCartButtons() {
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest("[data-add-to-cart]");
+
+    if (!trigger) {
+      return;
+    }
+
+    const slug = trigger.dataset.cartSlug;
+    if (!slug) {
+      return;
+    }
+
+    event.preventDefault();
+
+    let quantity = 1;
+    let presentation = "";
+
+    if (trigger.classList.contains("product-buy")) {
+      const quantityElement = document.querySelector(".product-stepper strong");
+      const selectedPresentation = document.querySelector(".product-pill.is-selected");
+
+      quantity = Math.max(1, parseInt(quantityElement?.textContent || "1", 10) || 1);
+      presentation = selectedPresentation?.textContent.trim() || "";
+    }
+
+    addItemToCart({ slug, quantity, presentation });
+
+    /* Por defecto, agregar al carrito lleva a carrito.html.
+       Algunas zonas, como "Más pedidos" en el home, solo agregan
+       el producto y mantienen al usuario en la misma página. */
+    if (trigger.dataset.cartRedirect !== "stay") {
+      window.location.href = "carrito.html";
+    }
+  });
+}
+
+function renderCartPage() {
+  const container = document.querySelector("[data-cart-page]");
+
+  if (!container) {
+    return;
+  }
+
+  const state = loadCart();
+  const totals = getCartTotals(state.items, state.shippingCost);
+  const itemsMarkup = renderCartItems(state.items);
+  const trustMarkup = renderCartTrustItems();
+  const shippingMarkup = renderShippingCard(state, totals.shippingCost);
+  const summaryMarkup = renderCartSummary({ ...totals, coupon: state.coupon });
+
+  container.innerHTML = `
+    ${renderCartBreadcrumbs()}
+    ${renderCartHeader(totals.itemCount)}
+
+    <div class="cart-layout">
+      <div class="cart-main">
+        <section class="cart-items">
+          ${itemsMarkup}
+        </section>
+
+        <a class="cart-continue" href="catalogo.html">&larr; Seguir comprando</a>
+
+        <section class="cart-trust" aria-label="Beneficios del pedido">
+          ${trustMarkup}
+        </section>
+      </div>
+
+      <aside class="cart-side">
+        ${shippingMarkup}
+        ${summaryMarkup}
+      </aside>
+    </div>
+  `;
+
+  bindCartPageInteractions(container);
+  updateNavigationCartCount();
+}
+
+function bindCartPageInteractions(container) {
+  container.querySelectorAll("[data-cart-remove]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const state = loadCart();
+      state.items = state.items.filter((item) => getCartItemKey(item) !== button.dataset.cartRemove);
+      persistCart(state);
+      renderCartPage();
+    });
+  });
+
+  container.querySelectorAll("[data-cart-step]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const state = loadCart();
+      const target = state.items.find((item) => getCartItemKey(item) === button.dataset.cartItemKey);
+
+      if (!target) {
+        return;
+      }
+
+      target.quantity += button.dataset.cartStep === "increase" ? 1 : -1;
+      state.items = state.items.filter((item) => item.quantity > 0);
+      persistCart(state);
+      renderCartPage();
+    });
+  });
+
+  const shippingSelect = container.querySelector("[data-cart-shipping]");
+  if (shippingSelect) {
+    shippingSelect.addEventListener("change", () => {
+      const selected = shippingDepartments.find((item) => item.value === shippingSelect.value);
+      const state = loadCart();
+      state.shippingDepartment = shippingSelect.value;
+      state.shippingCost = selected ? selected.cost : cartPageContent.shipping.defaultCost;
+      persistCart(state);
+      renderCartPage();
+    });
+  }
+
+  const couponInput = container.querySelector("[data-cart-coupon]");
+  if (couponInput) {
+    couponInput.addEventListener("change", () => {
+      const state = loadCart();
+      state.coupon = couponInput.value.trim();
+      persistCart(state);
+    });
+  }
+}
+
+/* =====================================================================
+   4. HOME -> sección "Más pedidos"
    El degradado decorativo de las tarjetas queda por encima de la foto,
    así que el clic directo sobre la imagen no llega al enlace. Este
    manejador hace que TODA la tarjeta redirija a la ficha del producto
@@ -234,7 +732,7 @@ function bindHomeProductCards() {
 }
 
 /* =====================================================================
-   5. BUSCADOR — modal flotante de búsqueda
+   5. BUSCADOR -> modal flotante de búsqueda
    El ícono de lupa de la barra de navegación abre esta ventana modal
    (centrada, con fondo oscurecido) en lugar de ir a buscador.html.
    El usuario escribe y ve resultados en vivo enlazados a cada ficha
@@ -283,7 +781,7 @@ const searchSuggestions = ["quinua-real-blanca", "aji-amarillo", "pecanas", "man
 /* Quita tildes y pasa a minúsculas, para que "aji" encuentre "Ají"
    y "canihua" encuentre "cañihua". */
 function normalizeSearchText(text) {
-  return text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
 /* Crea el modal (una sola vez, al final del <body>), conecta el ícono
@@ -401,19 +899,95 @@ const catalogCategoryIds = {
    en los chips o al aplicar los checkboxes de tamaño). */
 const catalogFilterState = {
   category: "Todos",
+  purposes: [],
   sizes: [],
+  inStockOnly: false,
 };
 
 /* Texto legible de cada tamaño, para el resumen "Filtros activos". */
-const sizeLabels = { "100g": "100 g", "500g": "500 g", "1kg": "1 kg" };
+const sizeLabels = { "100g": "100 g", "250g": "250 g", "500g": "500 g", "1kg": "1 kg" };
+
+/* Etiquetas legibles para el bloque "Filtros activos". */
+const purposeLabels = {
+  Cocinar: "Cocinar",
+  Desayuno: "Desayuno",
+  Infusiones: "Infusiones",
+};
+
+function getCatalogProductDetail(product) {
+  return productVariants[product.slug] || productDetails[product.slug] || null;
+}
+
+/* Extrae un tamaño estable aunque el dato venga en subtext o presentación. */
+function extractSizeToken(text) {
+  if (!text) return null;
+  if (/1\s*kg/i.test(text)) return "1kg";
+  if (/500\s*g/i.test(text)) return "500g";
+  if (/250\s*g/i.test(text)) return "250g";
+  if (/100\s*g/i.test(text)) return "100g";
+  return null;
+}
 
 /* Deduce el tamaño de un producto a partir de su subtexto
-   (ej. "Cereales · Bolsa 100 g" → "100g"). */
+   (ej. "Cereales · Bolsa 100 g" -> "100g"). */
 function getProductSize(product) {
-  if (/1 kg/.test(product.subtext)) return "1kg";
-  if (/500 g/.test(product.subtext)) return "500g";
-  if (/100 g/.test(product.subtext)) return "100g";
-  return null;
+  const detail = getCatalogProductDetail(product);
+
+  return (
+    extractSizeToken(product.subtext) ||
+    extractSizeToken(getDefaultPresentation(detail)) ||
+    null
+  );
+}
+
+/* Resume el producto en etiquetas de uso para filtrar sin depender
+   de una sola categoría fija. Un producto puede vivir en varios usos. */
+function getProductPurposes(product) {
+  const detail = getCatalogProductDetail(product);
+  const searchableText = normalizeSearchText(
+    [
+      product.category,
+      product.title,
+      product.subtext,
+      detail?.description,
+      detail?.usage,
+      ...(detail?.facts || []).map((fact) => `${fact.label} ${fact.value}`),
+    ]
+      .filter(Boolean)
+      .join(" ")
+  );
+
+  const purposes = new Set();
+
+  if (
+    /infusion|infusiones|te |tes |agua caliente|digestiv|manzanilla|muña|muna|anis/.test(searchableText)
+  ) {
+    purposes.add("Infusiones");
+  }
+
+  if (
+    /desayuno|avena|porridge|yogurt|granola|granolas|batido|batidos|jugo|jugos|leche caliente|panqueques|golden milk/.test(
+      searchableText
+    )
+  ) {
+    purposes.add("Desayuno");
+  }
+
+  if (
+    product.category === "Especias" ||
+    /cocina|cocina peruana|guiso|guisos|sopa|sopas|aderezo|aderezos|salsa|salsas|arroz|guarnicion|guarniciones|remoja|hidrata|licua|espesante|marinada|marinadas|crema|cremas/.test(
+      searchableText
+    )
+  ) {
+    purposes.add("Cocinar");
+  }
+
+  return [...purposes];
+}
+
+function isProductInStock(product) {
+  const detail = getCatalogProductDetail(product);
+  return !detail?.availability || detail.availability === "En stock";
 }
 
 /* Un producto pasa el filtro si coincide con la categoría elegida
@@ -421,10 +995,14 @@ function getProductSize(product) {
 function matchesCatalogFilters(product) {
   const categoryMatch =
     catalogFilterState.category === "Todos" || product.category === catalogFilterState.category;
+  const purposeMatch =
+    catalogFilterState.purposes.length === 0 ||
+    catalogFilterState.purposes.some((purpose) => getProductPurposes(product).includes(purpose));
   const sizeMatch =
     catalogFilterState.sizes.length === 0 || catalogFilterState.sizes.includes(getProductSize(product));
+  const stockMatch = !catalogFilterState.inStockOnly || isProductInStock(product);
 
-  return categoryMatch && sizeMatch;
+  return categoryMatch && purposeMatch && sizeMatch && stockMatch;
 }
 
 /* Elige "count" productos al azar (mezcla Fisher-Yates), excluyendo el
@@ -446,7 +1024,9 @@ function pickRandomProducts(excludeSlug, count) {
 function renderProductCard({ slug, title, subtext, price, image, alt }) {
   return `
     <article class="catalog-card">
-      <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+      <button class="favorite-button" type="button" aria-label="Agregar a favoritos">
+        <img src="assets/icons/corazon.svg" alt="" class="favorite-button__icon">
+      </button>
       <a href="producto.html?slug=${slug}">
         <img src="${image}" alt="${alt}">
       </a>
@@ -454,7 +1034,7 @@ function renderProductCard({ slug, title, subtext, price, image, alt }) {
         <h3>${title}</h3>
         <p>${subtext}</p>
         <strong>${price}</strong>
-        <a class="button button--primary" href="carrito.html">Agregar al carrito</a>
+        <a class="button button--primary" href="carrito.html" data-add-to-cart data-cart-slug="${slug}">Agregar al carrito</a>
       </div>
     </article>
   `;
@@ -473,7 +1053,7 @@ function renderCatalogCategory(category, products) {
   `;
 }
 
-/* Botones de favorito (♡ ↔ ♥). Solo visual por ahora:
+/* Botones de favorito (corazón vacío/lleno). Solo visual por ahora:
    no persiste la selección entre páginas. */
 function bindFavoriteButtons() {
   document.querySelectorAll(".favorite-button").forEach((button) => {
@@ -481,7 +1061,7 @@ function bindFavoriteButtons() {
     button.addEventListener("click", () => {
       const isActive = button.getAttribute("aria-pressed") === "true";
       button.setAttribute("aria-pressed", String(!isActive));
-      button.textContent = isActive ? "♡" : "♥";
+      button.classList.toggle("is-active", !isActive);
     });
   });
 }
@@ -564,11 +1144,17 @@ function renderCatalogPage() {
       if (catalogFilterState.category !== "Todos") {
         parts.push(catalogFilterState.category);
       }
+      if (catalogFilterState.purposes.length) {
+        parts.push(catalogFilterState.purposes.map((purpose) => purposeLabels[purpose]).join(", "));
+      }
       if (catalogFilterState.sizes.length) {
         parts.push(catalogFilterState.sizes.map((size) => sizeLabels[size]).join(", "));
       }
+      if (catalogFilterState.inStockOnly) {
+        parts.push("En stock");
+      }
       activeFiltersElement.textContent = parts.length
-        ? `Filtros activos: ${parts.join(" · ")}`
+        ? `Filtros activos: ${parts.join(" &middot; ")}`
         : "Mostrando todos los productos";
     }
   }
@@ -587,7 +1173,7 @@ function renderCatalogPage() {
 
 /* Conecta los controles de filtrado:
    - Chips de categoría: filtran al instante.
-   - Checkboxes de tamaño: filtran al pulsar "Aplicar filtros". */
+   - Checkboxes: agrupan uso, tamaño y stock al pulsar "Aplicar filtros". */
 function bindCatalogFilters() {
   const chipsContainer = document.querySelector(".catalog-chips");
 
@@ -607,8 +1193,17 @@ function bindCatalogFilters() {
 
   if (applyButton) {
     applyButton.addEventListener("click", () => {
+      const checkedPurposes = document.querySelectorAll(
+        '[data-purpose-filter] input[type="checkbox"]:checked'
+      );
       const checked = document.querySelectorAll('[data-size-filter] input[type="checkbox"]:checked');
+      const inStockInput = document.querySelector(
+        '[data-stock-filter] input[type="checkbox"][value="in-stock"]'
+      );
+
+      catalogFilterState.purposes = Array.from(checkedPurposes).map((input) => input.value);
       catalogFilterState.sizes = Array.from(checked).map((input) => input.value);
+      catalogFilterState.inStockOnly = Boolean(inStockInput?.checked);
       renderCatalogPage();
     });
   }
@@ -700,8 +1295,14 @@ function renderProductPage() {
         <span class="product-badge">${product.badge}</span>
         <h1 id="product-title">${product.title}</h1>
 
-        <p class="product-rating" aria-label="Calificación ${product.rating} de 5">
-          <span aria-hidden="true">★★★★★</span>
+        <p class="product-rating" aria-label="Calificaci&oacute;n ${product.rating} de 5">
+          <span class="product-rating__stars" aria-hidden="true">
+            <img src="assets/icons/estrella.svg" alt="">
+            <img src="assets/icons/estrella.svg" alt="">
+            <img src="assets/icons/estrella.svg" alt="">
+            <img src="assets/icons/estrella.svg" alt="">
+            <img src="assets/icons/estrella.svg" alt="">
+          </span>
           <strong>${product.rating}</strong>
           <span>${product.reviews}</span>
         </p>
@@ -727,20 +1328,20 @@ function renderProductPage() {
           </div>
         </div>
 
-        <button class="button button--primary product-buy" type="button">Añadir al carrito</button>
+        <button class="button button--primary product-buy" type="button" data-add-to-cart data-cart-slug="${product.slug}">A&ntilde;adir al carrito</button>
 
         <div class="product-benefits">
           <article>
-            <strong>Envío seguro</strong>
-            <span>A todo el país</span>
+            <strong>Env&iacute;o seguro</strong>
+            <span>A todo el pa&iacute;s</span>
           </article>
           <article>
             <strong>Pago seguro</strong>
             <span>Tarjetas y billeteras</span>
           </article>
           <article>
-            <strong>Devolución</strong>
-            <span>Hasta 7 días</span>
+            <strong>Devoluci&oacute;n</strong>
+            <span>Hasta 7 d&iacute;as</span>
           </article>
         </div>
       </aside>
@@ -748,7 +1349,7 @@ function renderProductPage() {
 
     <section class="product-details" aria-label="Detalles del producto">
       <article>
-        <h2>Descripción breve</h2>
+        <h2>Descripci&oacute;n breve</h2>
         <p>${product.description}</p>
 
         <h2>Uso recomendado</h2>
@@ -764,8 +1365,8 @@ function renderProductPage() {
     <section class="related-products" aria-labelledby="related-title">
       <div class="section-heading section-heading--split">
         <div>
-          <h2 id="related-title">También puede interesarte</h2>
-          <p>Opciones similares para comparar rápidamente.</p>
+          <h2 id="related-title">Tambi&eacute;n puede interesarte</h2>
+          <p>Opciones similares para comparar r&aacute;pidamente.</p>
         </div>
         <a href="catalogo.html">Ver todos &rarr;</a>
       </div>
@@ -825,8 +1426,8 @@ function bindProductInteractions(container) {
 }
 
 /* =====================================================================
-   8. PEDIDOS — estado del pedido y rastreo
-   Datos DE DEMOSTRACIÓN: los 4 pedidos comparten el mismo contenido y
+   8. PEDIDOS -> estado del pedido y rastreo
+   Datos de demostración: los 4 pedidos comparten el mismo contenido y
    solo cambia la etapa (confirmado / preparando / enviado / entregado).
    Cuando exista backend, orderData se reemplaza por datos reales.
    ===================================================================== */
@@ -1127,11 +1728,16 @@ function bindTrackOrderForm() {
    ===================================================================== */
 
 renderNavigation();
+updateNavigationCartCount();
 initSearchModal();
+bindAddToCartButtons();
 bindHomeProductCards();
 renderCatalogPage();
 bindCatalogFilters();
 renderProductPage();
+renderCartPage();
 renderOrderStatusPage();
 bindTrackOrderForm();
 renderFooter();
+
+

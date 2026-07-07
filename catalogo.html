@@ -46,23 +46,24 @@
         </div>
         <p>Elige solo lo necesario para encontrar productos m&aacute;s r&aacute;pido.</p>
 
-        <fieldset>
+        <fieldset data-purpose-filter>
           <legend>Tipo de producto</legend>
-          <label><input type="checkbox" checked> Cocinar</label>
-          <label><input type="checkbox"> Desayuno</label>
-          <label><input type="checkbox"> Infusiones</label>
+          <label><input type="checkbox" value="Cocinar"> Cocinar</label>
+          <label><input type="checkbox" value="Desayuno"> Desayuno</label>
+          <label><input type="checkbox" value="Infusiones"> Infusiones</label>
         </fieldset>
 
         <fieldset data-size-filter>
           <legend>Tama&ntilde;o</legend>
           <label><input type="checkbox" value="100g"> 100 g</label>
+          <label><input type="checkbox" value="250g"> 250 g</label>
           <label><input type="checkbox" value="500g"> 500 g</label>
           <label><input type="checkbox" value="1kg"> 1 kg</label>
         </fieldset>
 
-        <fieldset>
+        <fieldset data-stock-filter>
           <legend>Disponibilidad</legend>
-          <label><input type="checkbox" checked> En stock</label>
+          <label><input type="checkbox" value="in-stock" checked> En stock</label>
         </fieldset>
 
         <button class="button button--primary" type="button" data-apply-filters>Aplicar filtros</button>
