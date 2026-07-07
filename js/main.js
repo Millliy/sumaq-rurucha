@@ -1,3 +1,27 @@
+/* =====================================================================
+   SUMAQ RURUCHA — main.js
+   Lógica de todas las páginas del sitio. Este archivo NO contiene datos
+   de productos: esos viven en js/productos-data.js (catalogProducts y
+   productDetails), que debe cargarse ANTES que este archivo.
+
+   Índice:
+     1. NAVEGACIÓN      → barra superior compartida por todas las páginas
+     2. FOOTER          → pie de página compartido
+     3. FICHAS          → construcción de las fichas de producto
+     4. HOME            → tarjetas clicables de "Más pedidos"
+     5. BUSCADOR        → modal flotante de búsqueda de productos
+     6. CATÁLOGO        → grilla de productos, filtros y tarjetas
+     7. PRODUCTO        → página de detalle (galería, cantidad, etc.)
+     8. PEDIDOS         → estado del pedido y formulario de rastreo
+     9. INICIALIZACIÓN  → arranque: cada función detecta si aplica
+   ===================================================================== */
+
+/* =====================================================================
+   1. NAVEGACIÓN
+   Los enlaces se definen en 3 grupos: logo (izquierda), páginas
+   principales (centro) e íconos de acción (derecha).
+   ===================================================================== */
+
 const navigationGroups = [
   [
     { href: "index.html", label: '<img src="assets/icons/logo/logo.svg" alt="Sumaq Rurucha" class="nav-logo">' },
@@ -27,6 +51,9 @@ const navigationGroups = [
   ],
 ];
 
+/* Dibuja la barra de navegación dentro de <header data-nav> y marca
+   como activo el enlace de la página actual (en producto.html se
+   marca "Catálogo", porque producto no tiene enlace propio). */
 function renderNavigation() {
   const navContainer = document.querySelector("[data-nav]");
 
@@ -57,6 +84,12 @@ function renderNavigation() {
   navContainer.innerHTML = `<nav class="nav">${links}</nav>`;
 }
 
+/* =====================================================================
+   2. FOOTER
+   Columnas de enlaces del pie de página. Los href="#" son enlaces
+   pendientes de contenido.
+   ===================================================================== */
+
 const footerColumns = [
   {
     title: "Comprar",
@@ -85,68 +118,278 @@ const footerColumns = [
   },
 ];
 
-const catalogProducts = [
-  // Cereales
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Ajonjolí tostado", subtext: "Cereales · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Cereales/cereales-ajonjoli-tostado-100g.png", alt: "Ajonjolí tostado" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Ajonjolí blanca", subtext: "Cereales · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Cereales/cereales-ajonjoli-blanca-100g.png", alt: "Ajonjolí blanca" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Ajonjolí blanca", subtext: "Cereales · Bolsa 1 kg", price: "S/ 38", image: "assets/img/catalogo/Cereales/cereales-Ajonjolí-blanca-1000g.png", alt: "Ajonjolí blanca 1 kg" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Chía en granos", subtext: "Cereales · Bolsa 500 g", price: "S/ 26", image: "assets/img/catalogo/Cereales/cereales-chia-gramos-500g.png", alt: "Chía en granos" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Crema de habas", subtext: "Cereales · Bolsa 100 g", price: "S/ 11", image: "assets/img/catalogo/Cereales/cereales-Crema-de-habas-100g.png", alt: "Crema de habas" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Harina de arvejas", subtext: "Cereales · Bolsa 100 g", price: "S/ 10", image: "assets/img/catalogo/Cereales/cereales-Harina-de-arvejas-100g.png", alt: "Harina de arvejas" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Harina de cañihua", subtext: "Cereales · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Cereales/cereales-Harina-de-cañihua-100g.png", alt: "Harina de cañihua" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Harina de quinua tostada", subtext: "Cereales · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Cereales/cereales-Harina-de-quinua-tostada-100g.png", alt: "Harina de quinua tostada" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Hojuela de kiwicha orgánica", subtext: "Cereales · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Cereales/cereales-Hojuela-de-kiwicha-orgánica-100g.png", alt: "Hojuela de kiwicha orgánica" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Hojuelas de quinua", subtext: "Cereales · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Cereales/cereales-hojuelasdequinua-100g.png", alt: "Hojuelas de quinua" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Kiwicha", subtext: "Cereales · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Cereales/cereales-kiwicha-100g.png", alt: "Kiwicha" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Quinua blanca", subtext: "Cereales · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Cereales/cereales-Quinua-blanca-100g.png", alt: "Quinua blanca" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Quinua blanca", subtext: "Cereales · Bolsa 1 kg", price: "S/ 42", image: "assets/img/catalogo/Cereales/cereales -quinua-blanca-1000g.png", alt: "Quinua blanca 1 kg" },
-  { slug: "quinua-real-blanca", category: "Cereales", title: "Hojuela de kiwicha orgánica", subtext: "Cereales · Bolsa 1 kg", price: "S/ 38", image: "assets/img/catalogo/Cereales/cereales-Hojuela-de-kiwicha-orgánica-1000g.png", alt: "Hojuela de kiwicha orgánica 1 kg" },
+/* Genera el HTML de una columna del footer (título + enlaces). */
+function renderFooterColumn({ title, links }) {
+  const linksHtml = links
+    .map(({ href, label }) => `<a href="${href}">${label}</a>`)
+    .join("");
 
-  // Deshidratados
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Aguaymanto fino", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 18", image: "assets/img/catalogo/Deshidratados/deshidratados-Aguaymanto-Fino-100g.png", alt: "Aguaymanto fino" },
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Arándanos deshidratados", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 20", image: "assets/img/catalogo/Deshidratados/deshidratados-Arándanos-deshidratados-100g.png", alt: "Arándanos deshidratados" },
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Coco rallado fino", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png", alt: "Coco rallado fino" },
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Coco rallado grueso", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-grueso-100g.png", alt: "Coco rallado grueso" },
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Guindones", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 16", image: "assets/img/catalogo/Deshidratados/deshidratados-Guindones-100g.png", alt: "Guindones" },
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Higo", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 15", image: "assets/img/catalogo/Deshidratados/deshidratados-Higo-100g.png", alt: "Higo" },
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Higos secos", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 15", image: "assets/img/catalogo/Deshidratados/deshidratados-Higos-Secos-100g.png", alt: "Higos secos" },
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Kiwi deshidratado", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 18", image: "assets/img/catalogo/Deshidratados/Deshidratados-kiwi-100g.png", alt: "Kiwi deshidratado" },
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Pera deshidratada", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 17", image: "assets/img/catalogo/Deshidratados/deshidratados-Pera-deshidradata-100g.png", alt: "Pera deshidratada" },
-  { slug: "coco-rallado-fino", category: "Deshidratados", title: "Toronja deshidratada", subtext: "Deshidratados · Bolsa 100 g", price: "S/ 17", image: "assets/img/catalogo/Deshidratados/deshitrados-toronja-dishidratado-100g.png", alt: "Toronja deshidratada" },
+  return `
+    <div class="footer-column">
+      <h3>${title}</h3>
+      ${linksHtml}
+    </div>
+  `;
+}
 
-  // Especias
-  { slug: "anis-estrella", category: "Especias", title: "Airampo", subtext: "Especias · Bolsa 100 g", price: "S/ 11", image: "assets/img/catalogo/Especias/Especias-Airampo-100g.png", alt: "Airampo" },
-  { slug: "anis-estrella", category: "Especias", title: "Ají amarillo", subtext: "Especias · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Especias/Especias-Aji-amarillo-100g.png", alt: "Ají amarillo" },
-  { slug: "anis-estrella", category: "Especias", title: "Ají panca", subtext: "Especias · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Especias/Especias-Ají-panca-100g.png", alt: "Ají panca" },
-  { slug: "anis-estrella", category: "Especias", title: "Ají panca molido", subtext: "Especias · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Especias/Especias-ají-panca-molido-100g.png", alt: "Ají panca molido" },
-  { slug: "anis-estrella", category: "Especias", title: "Anís", subtext: "Especias · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Especias/Especias-Anís-100g.png", alt: "Anís" },
-  { slug: "anis-estrella", category: "Especias", title: "Anís estrella", subtext: "Especias · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png", alt: "Anís estrella" },
-  { slug: "anis-estrella", category: "Especias", title: "Bicarbonato", subtext: "Especias · Bolsa 100 g", price: "S/ 8", image: "assets/img/catalogo/Especias/Especias-bicarbonato-100g.png", alt: "Bicarbonato" },
-  { slug: "anis-estrella", category: "Especias", title: "Canela molida", subtext: "Especias · Bolsa 100 g", price: "S/ 15", image: "assets/img/catalogo/Especias/Especias-canela-molida-100g.png", alt: "Canela molida" },
-  { slug: "anis-estrella", category: "Especias", title: "Clavo de olor", subtext: "Especias · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Especias/Especias-Clavo-de-olor-100g.png", alt: "Clavo de olor" },
+/* Dibuja el footer completo dentro de <div data-footer>:
+   marca + redes sociales + columnas de enlaces + copyright. */
+function renderFooter() {
+  const footerContainer = document.querySelector("[data-footer]");
 
-  // Frutos secos
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Almendras", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 18", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Almendras-100g.png", alt: "Almendras" },
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Cajú cruda", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 20", image: "assets/img/catalogo/Frutos secos/Fruto-secos-cajú-cruda-100g.png", alt: "Cajú cruda" },
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Cajú tostado", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 21", image: "assets/img/catalogo/Frutos secos/Fruto-secos-cajú-tostado-100g.png", alt: "Cajú tostado" },
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Castaña", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 22", image: "assets/img/catalogo/Frutos secos/Fruto-secos-castaña-100g.png", alt: "Castaña" },
-  { slug: "mani-tostado-natural", category: "Frutos secos", title: "Maní tostado natural", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png", alt: "Maní tostado natural" },
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Nueces", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 20", image: "assets/img/catalogo/Frutos secos/Fruto-secos-nueces-100g.png", alt: "Nueces" },
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Pecanas", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 24", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Pecanas-100g.png", alt: "Pecanas" },
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Pistachos", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 26", image: "assets/img/catalogo/Frutos secos/Fruto-secos-pistachos-100g.png", alt: "Pistachos" },
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Sacha inchi", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 18", image: "assets/img/catalogo/Frutos secos/Fruto-secos-sacha-inca-100g.png", alt: "Sacha inchi" },
-  { slug: "coco-rallado-fino", category: "Frutos secos", title: "Pasas morenas importadas", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 14", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Pasas-morenas-importadas-grandes-100g.png", alt: "Pasas morenas importadas" },
-  { slug: "coco-rallado-fino", category: "Frutos secos", title: "Pasas morenas nacionales", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 12", image: "assets/img/catalogo/Frutos secos/Fruto-secos-pasas-morenas-nacionales-100g.png", alt: "Pasas morenas nacionales" },
-  { slug: "coco-rallado-fino", category: "Frutos secos", title: "Pasas rubias pequeñas", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Pasas-rubias-pequeñas-100g.png", alt: "Pasas rubias pequeñas" },
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Semillas de calabaza", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 15", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-calabaza-100g.png", alt: "Semillas de calabaza" },
-  { slug: "semillas-girasol", category: "Frutos secos", title: "Semillas de girasol", subtext: "Frutos secos · Bolsa 100 g", price: "S/ 13", image: "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png", alt: "Semillas de girasol" },
+  if (!footerContainer) {
+    return;
+  }
 
-  // Mixes para ti
-  { slug: "quinua-real-blanca", category: "Mixes para ti", title: "Mixes saludables", subtext: "Mixes para ti", price: "S/ 32", image: "assets/img/catalogo/Mixes para ti/mixes-saludables.png", alt: "Mixes saludables" },
-  { slug: "quinua-real-blanca", category: "Mixes para ti", title: "Mixes premium", subtext: "Mixes para ti", price: "S/ 36", image: "assets/img/catalogo/Mixes para ti/Mixes-premium.png", alt: "Mixes premium" },
-  { slug: "quinua-real-blanca", category: "Mixes para ti", title: "Mixes energéticos", subtext: "Mixes para ti", price: "S/ 34", image: "assets/img/catalogo/Mixes para ti/Mixes-energéticos.png", alt: "Mixes energéticos" },
-];
+  const columnsHtml = footerColumns.map(renderFooterColumn).join("");
 
+  footerContainer.innerHTML = `
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo" aria-label="Sumaq Rurucha">
+            <img src="assets/icons/logo/stacked-alt.svg" alt="Sumaq Rurucha">
+          </a>
+          <p>Alimentos naturales del altiplano peruano. Directo de la chacra, sin intermediarios.</p>
+
+          <div class="footer-social">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">WhatsApp</a>
+          </div>
+        </div>
+
+        ${columnsHtml}
+      </div>
+
+      <p class="footer-copy">&copy; 2026 Sumaq Rurucha. Hecho en Per&uacute;.</p>
+    </footer>
+  `;
+}
+
+/* =====================================================================
+   3. FICHAS DE PRODUCTO
+   productDetails (js/productos-data.js) trae solo los datos únicos de
+   cada producto. Aquí se completan los campos que son iguales para
+   todos, para no repetirlos 51 veces.
+   ===================================================================== */
+
+/* Cuando un producto tiene una sola foto, se repite 4 veces en la
+   galería con textos alternativos distintos. Al generar las imágenes
+   reales, basta definir "gallery" en productos-data.js para reemplazarla. */
+function buildSingleImageGallery(src, title) {
+  return [
+    { src, alt: title },
+    { src, alt: `${title} vista alternativa` },
+    { src, alt: `${title} detalle` },
+    { src, alt: `${title} uso` },
+  ];
+}
+
+/* Ficha completa de cada producto: agrega slug, breadcrumbs,
+   disponibilidad, cantidad inicial y galería por defecto.
+   Si el producto ya define "gallery" propia, esta se respeta
+   (el spread ...detail va al final y sobreescribe la generada). */
+const productVariants = Object.fromEntries(
+  Object.entries(productDetails).map(([slug, detail]) => [
+    slug,
+    {
+      slug,
+      breadcrumbs: ["Inicio", "Catálogo", detail.category, detail.title],
+      presentationTitle: "PRESENTACIÓN",
+      availability: "En stock",
+      quantity: 1,
+      gallery: buildSingleImageGallery(detail.image, detail.title),
+      ...detail,
+    },
+  ])
+);
+
+/* =====================================================================
+   4. HOME — sección "Más pedidos"
+   El degradado decorativo de las tarjetas queda por encima de la foto,
+   así que el clic directo sobre la imagen no llega al enlace. Este
+   manejador hace que TODA la tarjeta redirija a la ficha del producto
+   (los botones "Agregar" conservan su propio destino).
+   ===================================================================== */
+
+function bindHomeProductCards() {
+  document.querySelectorAll(".featured-product, .mini-products article").forEach((card) => {
+    const productLink = card.querySelector('a[href^="producto.html"]');
+
+    if (!productLink) {
+      return;
+    }
+
+    const href = productLink.getAttribute("href");
+
+    card.addEventListener("click", (event) => {
+      // Si el clic fue sobre un enlace o botón, se respeta su destino.
+      if (event.target.closest("a, button")) {
+        return;
+      }
+      window.location.href = href;
+    });
+  });
+}
+
+/* =====================================================================
+   5. BUSCADOR — modal flotante de búsqueda
+   El ícono de lupa de la barra de navegación abre esta ventana modal
+   (centrada, con fondo oscurecido) en lugar de ir a buscador.html.
+   El usuario escribe y ve resultados en vivo enlazados a cada ficha
+   de producto. Se cierra con la X, con Escape o clicando el fondo.
+   ===================================================================== */
+
+/* Índice de búsqueda: un registro por producto único (sin duplicar los
+   tamaños 100 g / 1 kg) + los productos que solo existen en el home. */
+const searchIndex = (() => {
+  const items = [];
+  const seen = new Set();
+
+  catalogProducts.forEach((product) => {
+    if (seen.has(product.slug)) return;
+    seen.add(product.slug);
+    items.push({
+      slug: product.slug,
+      title: product.title,
+      subtext: product.subtext,
+      category: product.category,
+      price: product.price,
+      image: product.image,
+    });
+  });
+
+  // Productos con ficha pero sin tarjeta de catálogo (mango, cúrcuma...).
+  Object.entries(productDetails).forEach(([slug, detail]) => {
+    if (seen.has(slug)) return;
+    seen.add(slug);
+    items.push({
+      slug,
+      title: detail.title,
+      subtext: detail.category,
+      category: detail.category,
+      price: detail.price,
+      image: detail.gallery ? detail.gallery[0].src : detail.image,
+    });
+  });
+
+  return items;
+})();
+
+/* Sugerencias que se muestran al abrir el modal, antes de escribir. */
+const searchSuggestions = ["quinua-real-blanca", "aji-amarillo", "pecanas", "mango-deshidratado"];
+
+/* Quita tildes y pasa a minúsculas, para que "aji" encuentre "Ají"
+   y "canihua" encuentre "cañihua". */
+function normalizeSearchText(text) {
+  return text.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+}
+
+/* Crea el modal (una sola vez, al final del <body>), conecta el ícono
+   de la barra de navegación y maneja búsqueda, apertura y cierre. */
+function initSearchModal() {
+  const modal = document.createElement("div");
+  modal.className = "search-modal";
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="search-modal__backdrop" data-search-close></div>
+    <div class="search-modal__card" role="dialog" aria-modal="true" aria-label="Buscar productos">
+      <div class="search-modal__head">
+        <input type="search" placeholder="Busca quinua, ají, pecanas..." data-search-input aria-label="Buscar productos" autocomplete="off">
+        <button type="button" data-search-close aria-label="Cerrar buscador">&#10005;</button>
+      </div>
+      <p class="search-modal__hint" data-search-hint></p>
+      <ul class="search-modal__results" data-search-results></ul>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  const input = modal.querySelector("[data-search-input]");
+  const resultsList = modal.querySelector("[data-search-results]");
+  const hint = modal.querySelector("[data-search-hint]");
+
+  // HTML de un resultado: miniatura + nombre + presentación + precio.
+  const renderResultItem = (item) => `
+    <li>
+      <a href="producto.html?slug=${item.slug}">
+        <img src="${item.image}" alt="">
+        <span class="search-result__info">
+          <strong>${item.title}</strong>
+          <small>${item.subtext}</small>
+        </span>
+        <span class="search-result__price">${item.price}</span>
+      </a>
+    </li>
+  `;
+
+  // Filtra el índice según lo escrito y pinta la lista de resultados.
+  const renderResults = (query) => {
+    const term = normalizeSearchText(query.trim());
+
+    if (!term) {
+      hint.textContent = "Sugerencias para empezar:";
+      resultsList.innerHTML = searchSuggestions
+        .map((slug) => searchIndex.find((item) => item.slug === slug))
+        .filter(Boolean)
+        .map(renderResultItem)
+        .join("");
+      return;
+    }
+
+    const matches = searchIndex
+      .filter((item) => normalizeSearchText(`${item.title} ${item.category}`).includes(term))
+      .slice(0, 8);
+
+    hint.textContent = matches.length
+      ? `${matches.length} resultado${matches.length === 1 ? "" : "s"} para "${query.trim()}"`
+      : `Sin resultados para "${query.trim()}". Prueba con "quinua", "ají" o "pecanas".`;
+    resultsList.innerHTML = matches.map(renderResultItem).join("");
+  };
+
+  const openModal = () => {
+    modal.hidden = false;
+    document.body.classList.add("search-open"); // bloquea el scroll del fondo
+    input.value = "";
+    renderResults("");
+    input.focus();
+  };
+
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.classList.remove("search-open");
+  };
+
+  input.addEventListener("input", () => renderResults(input.value));
+
+  // Cierra con la X o clicando el fondo oscuro.
+  modal.querySelectorAll("[data-search-close]").forEach((element) => {
+    element.addEventListener("click", closeModal);
+  });
+
+  // Cierra con la tecla Escape.
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) {
+      closeModal();
+    }
+  });
+
+  // El ícono de lupa de la barra abre el modal en vez de navegar.
+  document.querySelectorAll('.nav a[href="buscador.html"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    });
+  });
+}
+
+/* =====================================================================
+   6. CATÁLOGO
+   Renderiza la grilla por categorías, aplica los filtros (chips de
+   categoría + checkboxes de tamaño) y hace las tarjetas clicables.
+   ===================================================================== */
+
+/* Ids usados en aria-labelledby de cada sección de categoría. */
 const catalogCategoryIds = {
   Cereales: "cereales",
   Deshidratados: "deshidratados",
@@ -154,6 +397,18 @@ const catalogCategoryIds = {
   "Frutos secos": "frutos",
 };
 
+/* Estado actual de los filtros del catálogo (se modifica al hacer clic
+   en los chips o al aplicar los checkboxes de tamaño). */
+const catalogFilterState = {
+  category: "Todos",
+  sizes: [],
+};
+
+/* Texto legible de cada tamaño, para el resumen "Filtros activos". */
+const sizeLabels = { "100g": "100 g", "500g": "500 g", "1kg": "1 kg" };
+
+/* Deduce el tamaño de un producto a partir de su subtexto
+   (ej. "Cereales · Bolsa 100 g" → "100g"). */
 function getProductSize(product) {
   if (/1 kg/.test(product.subtext)) return "1kg";
   if (/500 g/.test(product.subtext)) return "500g";
@@ -161,13 +416,8 @@ function getProductSize(product) {
   return null;
 }
 
-const catalogFilterState = {
-  category: "Todos",
-  sizes: [],
-};
-
-const sizeLabels = { "100g": "100 g", "500g": "500 g", "1kg": "1 kg" };
-
+/* Un producto pasa el filtro si coincide con la categoría elegida
+   Y con alguno de los tamaños marcados (o si no hay filtros). */
 function matchesCatalogFilters(product) {
   const categoryMatch =
     catalogFilterState.category === "Todos" || product.category === catalogFilterState.category;
@@ -177,6 +427,8 @@ function matchesCatalogFilters(product) {
   return categoryMatch && sizeMatch;
 }
 
+/* Elige "count" productos al azar (mezcla Fisher-Yates), excluyendo el
+   producto actual. Se usa en "También puede interesarte". */
 function pickRandomProducts(excludeSlug, count) {
   const pool = catalogProducts.filter((item) => item.slug !== excludeSlug);
   const shuffled = pool.slice();
@@ -189,189 +441,57 @@ function pickRandomProducts(excludeSlug, count) {
   return shuffled.slice(0, count);
 }
 
-function buildSingleImageGallery(src, title) {
-  return [
-    { src, alt: title },
-    { src, alt: `${title} vista alternativa` },
-    { src, alt: `${title} detalle` },
-    { src, alt: `${title} uso` },
-  ];
+/* HTML de una tarjeta de producto del catálogo:
+   corazón de favorito + imagen + título + precio + botón de carrito. */
+function renderProductCard({ slug, title, subtext, price, image, alt }) {
+  return `
+    <article class="catalog-card">
+      <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
+      <a href="producto.html?slug=${slug}">
+        <img src="${image}" alt="${alt}">
+      </a>
+      <div>
+        <h3>${title}</h3>
+        <p>${subtext}</p>
+        <strong>${price}</strong>
+        <a class="button button--primary" href="carrito.html">Agregar al carrito</a>
+      </div>
+    </article>
+  `;
 }
 
-const productVariants = {
-  "quinua-real-blanca": {
-    slug: "quinua-real-blanca",
-    category: "Cereales",
-    breadcrumbs: ["Inicio", "Catálogo", "Cereales", "Quinua real blanca"],
-    title: "Quinua real blanca",
-    badge: "TOP VENTAS",
-    rating: "4.9",
-    reviews: "312 reseñas verificadas",
-    price: "S/ 24",
-    presentationTitle: "PRESENTACIÓN",
-    presentations: [
-      { label: "Bolsa 100 g", selected: true },
-      { label: "Herbal" },
-      { label: "Bolsa 500 g" },
-    ],
-    availability: "En stock",
-    quantity: 2,
-    gallery: [
-      {
-        src: "assets/img/producto/producto-quinua-blanca/producto-quinua-vista1.png",
-        alt: "Quinua real blanca en empaque",
-      },
-      {
-        src: "assets/img/producto/producto-quinua-blanca/producto-quinua-vista1-min.png",
-        alt: "Vista frontal de la quinua real blanca",
-      },
-      {
-        src: "assets/img/producto/producto-quinua-blanca/producto-quinua-detalle.png",
-        alt: "Detalle de la quinua real blanca",
-      },
-      {
-        src: "assets/img/producto/producto-quinua-blanca/producto-quinua-uso.png",
-        alt: "Quinua real blanca en uso",
-      },
-    ],
-    description:
-      "Quinua real blanca cultivada en comunidades del altiplano de Puno, a más de 3,800 m s.n.m. Grano grande, de cocción rápida y sabor limpio.",
-    usage:
-      "Ideal para ensaladas, bowls, guarniciones calientes o como reemplazo de arroz.",
-    facts: [
-      { label: "Ingredientes", value: "100% quinua" },
-      { label: "Origen", value: "Puno, Perú" },
-      { label: "Cocción", value: "15 minutos" },
-      { label: "Conservación", value: "Lugar fresco y seco" },
-    ],
-  },
-  "anis-estrella": {
-    slug: "anis-estrella",
-    category: "Especias",
-    breadcrumbs: ["Inicio", "Catálogo", "Especias", "Anís estrella"],
-    title: "Anís estrella",
-    badge: "TOP VENTAS",
-    rating: "4.8",
-    reviews: "184 reseñas verificadas",
-    price: "S/ 12",
-    presentationTitle: "PRESENTACIÓN",
-    presentations: [
-      { label: "Bolsa 100 g", selected: true },
-      { label: "Bolsa 250 g" },
-      { label: "Bolsa 500 g" },
-    ],
-    availability: "En stock",
-    quantity: 2,
-    gallery: buildSingleImageGallery(
-      "assets/img/catalogo/Especias/Especias-Anís-estrella-100g.png",
-      "Anís estrella"
-    ),
-    description:
-      "Especia aromática de sabor intenso, ideal para infusiones, postres y mezclas especiadas.",
-    usage: "Perfecto para infusiones, repostería y preparaciones aromáticas.",
-    facts: [
-      { label: "Ingredientes", value: "100% anís estrella" },
-      { label: "Origen", value: "Perú" },
-      { label: "Cocción", value: "Infusión 5 minutos" },
-      { label: "Conservación", value: "Lugar fresco y seco" },
-    ],
-  },
-  "semillas-girasol": {
-    slug: "semillas-girasol",
-    category: "Frutos secos",
-    breadcrumbs: ["Inicio", "Catálogo", "Frutos secos", "Semillas de girasol"],
-    title: "Semillas de girasol",
-    badge: "NUEVO",
-    rating: "4.7",
-    reviews: "129 reseñas verificadas",
-    price: "S/ 18",
-    presentationTitle: "PRESENTACIÓN",
-    presentations: [
-      { label: "Bolsa 100 g", selected: true },
-      { label: "Bolsa 250 g" },
-      { label: "Bolsa 500 g" },
-    ],
-    availability: "En stock",
-    quantity: 2,
-    gallery: buildSingleImageGallery(
-      "assets/img/catalogo/Frutos secos/Fruto-secos-Semillas-de-girasol-100g.png",
-      "Semillas de girasol"
-    ),
-    description:
-      "Semillas naturales listas para snacks, desayunos y mezclas caseras.",
-    usage: "Úsalas en ensaladas, panes, bowls o como snack directo.",
-    facts: [
-      { label: "Ingredientes", value: "100% semillas de girasol" },
-      { label: "Origen", value: "Perú" },
-      { label: "Cocción", value: "Listo para consumo" },
-      { label: "Conservación", value: "Lugar fresco y seco" },
-    ],
-  },
-  "coco-rallado-fino": {
-    slug: "coco-rallado-fino",
-    category: "Deshidratados",
-    breadcrumbs: ["Inicio", "Catálogo", "Deshidratados", "Coco rallado fino"],
-    title: "Coco rallado fino",
-    badge: "TOP VENTAS",
-    rating: "4.8",
-    reviews: "207 reseñas verificadas",
-    price: "S/ 16",
-    presentationTitle: "PRESENTACIÓN",
-    presentations: [
-      { label: "Bolsa 100 g", selected: true },
-      { label: "Bolsa 250 g" },
-      { label: "Bolsa 500 g" },
-    ],
-    availability: "En stock",
-    quantity: 2,
-    gallery: buildSingleImageGallery(
-      "assets/img/catalogo/Deshidratados/deshidratados-Coco-Rallado-Fino-100g.png",
-      "Coco rallado fino"
-    ),
-    description:
-      "Deshidratado fino para repostería, bowls y preparaciones dulces.",
-    usage: "Ideal para pasteles, granolas y preparaciones de desayuno.",
-    facts: [
-      { label: "Ingredientes", value: "100% coco rallado" },
-      { label: "Origen", value: "Perú" },
-      { label: "Cocción", value: "Listo para consumo" },
-      { label: "Conservación", value: "Lugar fresco y seco" },
-    ],
-  },
-  "mani-tostado-natural": {
-    slug: "mani-tostado-natural",
-    category: "Frutos secos",
-    breadcrumbs: ["Inicio", "Catálogo", "Frutos secos", "Maní tostado al natural"],
-    title: "Maní tostado al natural",
-    badge: "TOP VENTAS",
-    rating: "4.9",
-    reviews: "256 reseñas verificadas",
-    price: "S/ 14",
-    presentationTitle: "PRESENTACIÓN",
-    presentations: [
-      { label: "Bolsa 100 g", selected: true },
-      { label: "Bolsa 250 g" },
-      { label: "Bolsa 500 g" },
-    ],
-    availability: "En stock",
-    quantity: 2,
-    gallery: buildSingleImageGallery(
-      "assets/img/catalogo/Frutos secos/Fruto-secos-Maní-tostado-al-natural-100g.png",
-      "Maní tostado al natural"
-    ),
-    description:
-      "Snack clásico, tostado sin añadidos, ideal para consumo directo o mixes.",
-    usage: "Perfecto para meriendas, mezclas y consumo directo.",
-    facts: [
-      { label: "Ingredientes", value: "100% maní tostado" },
-      { label: "Origen", value: "Perú" },
-      { label: "Cocción", value: "Listo para consumo" },
-      { label: "Conservación", value: "Lugar fresco y seco" },
-    ],
-  },
-};
+/* HTML de una sección de categoría: título + grilla de tarjetas. */
+function renderCatalogCategory(category, products) {
+  const id = catalogCategoryIds[category];
+  const cards = products.map(renderProductCard).join("");
 
+  return `
+    <section class="catalog-category" aria-labelledby="${id}-title">
+      <h2 id="${id}-title">${category}</h2>
+      <div class="catalog-grid">${cards}</div>
+    </section>
+  `;
+}
+
+/* Botones de favorito (♡ ↔ ♥). Solo visual por ahora:
+   no persiste la selección entre páginas. */
+function bindFavoriteButtons() {
+  document.querySelectorAll(".favorite-button").forEach((button) => {
+    button.setAttribute("aria-pressed", "false");
+    button.addEventListener("click", () => {
+      const isActive = button.getAttribute("aria-pressed") === "true";
+      button.setAttribute("aria-pressed", String(!isActive));
+      button.textContent = isActive ? "♡" : "♥";
+    });
+  });
+}
+
+/* Hace clicable toda la tarjeta del catálogo (imagen, título, fondo)
+   hacia la ficha del producto, con soporte de teclado (Enter/Espacio).
+   Los enlaces y botones internos conservan su propio destino. */
 function bindCatalogProductCards() {
+  bindFavoriteButtons();
+
   document.querySelectorAll(".catalog-card").forEach((card) => {
     const productLink = card.querySelector('a[href^="producto.html"]');
     const titleElement = card.querySelector("h3");
@@ -411,35 +531,11 @@ function bindCatalogProductCards() {
   });
 }
 
-function renderProductCard({ slug, title, subtext, price, image, alt }) {
-  return `
-    <article class="catalog-card">
-      <button class="favorite-button" type="button" aria-label="Agregar a favoritos">♡</button>
-      <a href="producto.html?slug=${slug}">
-        <img src="${image}" alt="${alt}">
-      </a>
-      <div>
-        <h3>${title}</h3>
-        <p>${subtext}</p>
-        <strong>${price}</strong>
-        <a class="button button--primary" href="carrito.html">Agregar al carrito</a>
-      </div>
-    </article>
-  `;
-}
-
-function renderCatalogCategory(category, products) {
-  const id = catalogCategoryIds[category];
-  const cards = products.map(renderProductCard).join("");
-
-  return `
-    <section class="catalog-category" aria-labelledby="${id}-title">
-      <h2 id="${id}-title">${category}</h2>
-      <div class="catalog-grid">${cards}</div>
-    </section>
-  `;
-}
-
+/* Dibuja la página del catálogo:
+   - Grilla principal por categorías (sin "Mixes para ti"), aplicando filtros.
+   - Contador de productos y resumen de filtros activos.
+   - Fila "Mixes para ti" en su propia sección recomendada.
+   Se vuelve a ejecutar cada vez que cambian los filtros. */
 function renderCatalogPage() {
   const categoriesContainer = document.querySelector("[data-catalog-categories]");
 
@@ -489,6 +585,9 @@ function renderCatalogPage() {
   bindCatalogProductCards();
 }
 
+/* Conecta los controles de filtrado:
+   - Chips de categoría: filtran al instante.
+   - Checkboxes de tamaño: filtran al pulsar "Aplicar filtros". */
 function bindCatalogFilters() {
   const chipsContainer = document.querySelector(".catalog-chips");
 
@@ -515,6 +614,13 @@ function bindCatalogFilters() {
   }
 }
 
+/* =====================================================================
+   7. PÁGINA DE PRODUCTO (producto.html?slug=...)
+   Lee el slug de la URL, busca la ficha y dibuja toda la página:
+   breadcrumbs, galería, resumen de compra, detalles y relacionados.
+   Si el slug no existe, muestra la quinua como producto por defecto.
+   ===================================================================== */
+
 function renderProductPage() {
   const container = document.querySelector("[data-product-page]");
 
@@ -525,6 +631,8 @@ function renderProductPage() {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("slug") || "quinua-real-blanca";
   const product = productVariants[slug] || productVariants["quinua-real-blanca"];
+
+  // Miniaturas de la galería (la primera arranca activa).
   const galleryThumbs = product.gallery
     .map(
       (image, index) => `
@@ -535,6 +643,7 @@ function renderProductPage() {
     )
     .join("");
 
+  // Píldoras de presentación (Bolsa 100 g, 250 g, ...).
   const presentations = product.presentations
     .map(
       ({ label, selected }) =>
@@ -542,6 +651,7 @@ function renderProductPage() {
     )
     .join("");
 
+  // Tabla de datos clave (ingredientes, origen, cocción, conservación).
   const facts = product.facts
     .map(
       ({ label, value }) => `
@@ -553,9 +663,12 @@ function renderProductPage() {
     )
     .join("");
 
+  // 4 productos al azar para "También puede interesarte".
   const related = pickRandomProducts(product.slug, 4).map(renderProductCard).join("");
 
   document.title = `${product.title} - Sumaq Rurucha`;
+
+  // Breadcrumbs: el último elemento es texto plano; el resto, enlaces.
   const breadcrumbMarkup = product.breadcrumbs
     .map((item, index) => {
       if (index === product.breadcrumbs.length - 1) {
@@ -588,7 +701,7 @@ function renderProductPage() {
         <h1 id="product-title">${product.title}</h1>
 
         <p class="product-rating" aria-label="Calificación ${product.rating} de 5">
-          <span aria-hidden="true">☆☆☆☆☆</span>
+          <span aria-hidden="true">★★★★★</span>
           <strong>${product.rating}</strong>
           <span>${product.reviews}</span>
         </p>
@@ -661,9 +774,64 @@ function renderProductPage() {
     </section>
   `;
 
+  bindProductInteractions(container);
   bindCatalogProductCards();
 }
 
+/* Interactividad de la página de producto:
+   - Miniaturas: al hacer clic cambian la imagen principal.
+   - Presentaciones: solo una píldora seleccionada a la vez.
+   - Cantidad: botones +/- con mínimo de 1 unidad. */
+function bindProductInteractions(container) {
+  const mainImage = container.querySelector(".product-gallery__main img");
+  const thumbs = container.querySelectorAll(".product-gallery__thumb");
+
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      thumbs.forEach((t) => t.classList.remove("is-active"));
+      thumb.classList.add("is-active");
+
+      const thumbImage = thumb.querySelector("img");
+      if (mainImage && thumbImage) {
+        mainImage.src = thumbImage.src;
+        mainImage.alt = thumb.getAttribute("aria-label") || "";
+      }
+    });
+  });
+
+  const pills = container.querySelectorAll(".product-pill");
+  pills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      pills.forEach((p) => p.classList.remove("is-selected"));
+      pill.classList.add("is-selected");
+    });
+  });
+
+  const stepper = container.querySelector(".product-stepper");
+  if (stepper) {
+    const quantityElement = stepper.querySelector("strong");
+    const [decreaseButton, increaseButton] = stepper.querySelectorAll("button");
+
+    decreaseButton.addEventListener("click", () => {
+      const current = parseInt(quantityElement.textContent, 10);
+      quantityElement.textContent = Math.max(1, current - 1);
+    });
+
+    increaseButton.addEventListener("click", () => {
+      const current = parseInt(quantityElement.textContent, 10);
+      quantityElement.textContent = current + 1;
+    });
+  }
+}
+
+/* =====================================================================
+   8. PEDIDOS — estado del pedido y rastreo
+   Datos DE DEMOSTRACIÓN: los 4 pedidos comparten el mismo contenido y
+   solo cambia la etapa (confirmado / preparando / enviado / entregado).
+   Cuando exista backend, orderData se reemplaza por datos reales.
+   ===================================================================== */
+
+/* Contenido compartido por los pedidos demo: productos, envío y resumen. */
 const demoOrderContent = {
   items: [
     {
@@ -700,6 +868,8 @@ const demoOrderContent = {
   },
 };
 
+/* Pedidos de prueba. La clave es el número que el usuario escribe
+   en "Rastrea tu pedido" (mi-pedido.html). */
 const orderData = {
   "SR-10001": { orderNumber: "SR-10001", placedDate: "4 de julio de 2026", stage: "confirmado", ...demoOrderContent },
   "SR-10002": { orderNumber: "SR-10002", placedDate: "3 de julio de 2026", stage: "preparando", ...demoOrderContent },
@@ -707,6 +877,7 @@ const orderData = {
   "SR-10004": { orderNumber: "SR-10004", placedDate: "1 de julio de 2026", stage: "entregado", ...demoOrderContent },
 };
 
+/* Tarjeta lateral de ayuda (WhatsApp), común a las etapas en curso. */
 const helpActionCard = {
   type: "help",
   heading: "¿Necesitas ayuda?",
@@ -715,8 +886,13 @@ const helpActionCard = {
   buttonHref: "https://wa.me/",
 };
 
+/* Contenido de cada etapa del pedido: título, pasos del stepper
+   (completado/pendiente con su marca de tiempo) y tarjeta de acción.
+   La etapa "entregado" muestra la invitación a calificar en lugar
+   de la ayuda por WhatsApp. */
 const orderStageData = {
   confirmado: {
+    pillLabel: "Confirmado",
     heading: "¡Gracias! Tu pedido fue confirmado",
     steps: [
       { label: "Confirmado", timestamp: "4 jul · 10:32 a.m.", state: "completed" },
@@ -727,6 +903,7 @@ const orderStageData = {
     actionCard: helpActionCard,
   },
   preparando: {
+    pillLabel: "En preparación",
     heading: "Estamos preparando tu pedido",
     steps: [
       { label: "Confirmado", timestamp: "3 jul · 9:40 a.m.", state: "completed" },
@@ -737,6 +914,7 @@ const orderStageData = {
     actionCard: helpActionCard,
   },
   enviado: {
+    pillLabel: "En camino",
     heading: "Tu pedido está en camino",
     steps: [
       { label: "Confirmado", timestamp: "4 jul · 10:32 a.m.", state: "completed" },
@@ -747,6 +925,7 @@ const orderStageData = {
     actionCard: helpActionCard,
   },
   entregado: {
+    pillLabel: "Entregado",
     heading: "Tu pedido fue entregado",
     steps: [
       { label: "Confirmado", timestamp: "1 jul · 10:32 a.m.", state: "completed" },
@@ -763,6 +942,10 @@ const orderStageData = {
   },
 };
 
+/* Dibuja la página de estado del pedido. La usan 3 páginas:
+   - estado-pedido.html: lee ?pedido=SR-XXXXX de la URL.
+   - pedido-confirmado.html / pedido-entregado.html: fuerzan su etapa
+     con el atributo data-order-stage del <main>. */
 function renderOrderStatusPage() {
   const container = document.querySelector("[data-order-status-page]");
 
@@ -782,10 +965,18 @@ function renderOrderStatusPage() {
 
   document.title = `Pedido ${order.orderNumber} - Sumaq Rurucha`;
 
+  // Stepper horizontal: ✓ en pasos completados, número en pendientes.
+  // El último paso completado se marca como "actual" y recibe un anillo
+  // de realce para que se vea de un vistazo en qué etapa va el pedido.
+  const lastCompletedIndex = stage.steps.reduce(
+    (lastIndex, step, index) => (step.state === "completed" ? index : lastIndex),
+    -1
+  );
+
   const stepperMarkup = stage.steps
     .map(
       (step, index) => `
-        <div class="order-stepper__step order-stepper__step--${step.state}">
+        <div class="order-stepper__step order-stepper__step--${step.state}${index === lastCompletedIndex ? " order-stepper__step--current" : ""}">
           <div class="order-stepper__marker">${step.state === "completed" ? "✓" : index + 1}</div>
           <div class="order-stepper__label">${step.label}</div>
           <div class="order-stepper__timestamp">${step.timestamp}</div>
@@ -794,6 +985,7 @@ function renderOrderStatusPage() {
     )
     .join("");
 
+  // Lista de productos del pedido.
   const itemsMarkup = order.items
     .map(
       (item) => `
@@ -809,11 +1001,17 @@ function renderOrderStatusPage() {
     )
     .join("");
 
+  // Botón de la tarjeta lateral: calificar (entregado) o WhatsApp (resto).
+  // El botón de WhatsApp lleva un icono de burbuja de chat inline.
+  const chatIconSvg =
+    '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>';
+
   const actionButtonMarkup =
     stage.actionCard.type === "review"
       ? `<button class="button button--primary" type="button">${stage.actionCard.buttonText}</button>`
-      : `<a class="button button--primary" href="${stage.actionCard.buttonHref}" target="_blank" rel="noreferrer">${stage.actionCard.buttonText}</a>`;
+      : `<a class="button button--primary" href="${stage.actionCard.buttonHref}" target="_blank" rel="noreferrer">${chatIconSvg} ${stage.actionCard.buttonText}</a>`;
 
+  // Filas del resumen (subtotal, envío, método de pago).
   const summaryRowsMarkup = order.summary.rows
     .map(
       (row) => `
@@ -833,8 +1031,12 @@ function renderOrderStatusPage() {
     </nav>
 
     <div class="order-status__header">
-      <h1>${stage.heading}</h1>
-      <p>Pedido #${order.orderNumber} &middot; realizado el ${order.placedDate}</p>
+      <div>
+        <span class="order-stage-pill order-stage-pill--${stageKey}">${stage.pillLabel}</span>
+        <h1>${stage.heading}</h1>
+        <p>Pedido #${order.orderNumber} &middot; realizado el ${order.placedDate}</p>
+      </div>
+      <a class="button button--outline order-status__track" href="mi-pedido.html">Rastrear otro pedido</a>
     </div>
 
     <div class="order-stepper">${stepperMarkup}</div>
@@ -874,6 +1076,10 @@ function renderOrderStatusPage() {
   `;
 }
 
+/* Formulario "Rastrea tu pedido" (mi-pedido.html):
+   valida que el número exista en orderData y que haya un contacto.
+   Si es válido redirige a estado-pedido.html; si no, marca los campos
+   en rojo y muestra el mensaje de error. */
 function bindTrackOrderForm() {
   const form = document.querySelector("[data-track-order-form]");
 
@@ -883,6 +1089,16 @@ function bindTrackOrderForm() {
 
   const errorMessage = form.querySelector("[data-track-order-error]");
   const fields = form.querySelectorAll("[data-track-order-field]");
+
+  // Acceso de demostración: cada botón rellena los campos con un pedido
+  // de ejemplo (uno por etapa) para probar el flujo sin escribir nada.
+  form.querySelectorAll("[data-demo-order]").forEach((demoButton) => {
+    demoButton.addEventListener("click", () => {
+      form.orderNumber.value = demoButton.dataset.demoOrder;
+      form.contact.value = "maria@gmail.com";
+      form.orderNumber.focus();
+    });
+  });
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -901,53 +1117,18 @@ function bindTrackOrderForm() {
   });
 }
 
-function renderFooterColumn({ title, links }) {
-  const linksHtml = links
-    .map(({ href, label }) => `<a href="${href}">${label}</a>`)
-    .join("");
-
-  return `
-    <div class="footer-column">
-      <h3>${title}</h3>
-      ${linksHtml}
-    </div>
-  `;
-}
-
-function renderFooter() {
-  const footerContainer = document.querySelector("[data-footer]");
-
-  if (!footerContainer) {
-    return;
-  }
-
-  const columnsHtml = footerColumns.map(renderFooterColumn).join("");
-
-  footerContainer.innerHTML = `
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-brand">
-          <a href="index.html" class="footer-logo" aria-label="Sumaq Rurucha">
-            <img src="assets/icons/logo/stacked-alt.svg" alt="Sumaq Rurucha">
-          </a>
-          <p>Alimentos naturales del altiplano peruano. Directo de la chacra, sin intermediarios.</p>
-
-          <div class="footer-social">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">WhatsApp</a>
-          </div>
-        </div>
-
-        ${columnsHtml}
-      </div>
-
-      <p class="footer-copy">&copy; 2026 Sumaq Rurucha. Hecho en Per&uacute;.</p>
-    </footer>
-  `;
-}
+/* =====================================================================
+   9. INICIALIZACIÓN
+   Se ejecuta en todas las páginas. Cada función busca su contenedor
+   (data-nav, data-catalog-categories, data-product-page, etc.) y no
+   hace nada si la página actual no lo tiene.
+   initSearchModal va después de renderNavigation porque conecta el
+   ícono de lupa que esa función acaba de dibujar.
+   ===================================================================== */
 
 renderNavigation();
+initSearchModal();
+bindHomeProductCards();
 renderCatalogPage();
 bindCatalogFilters();
 renderProductPage();

@@ -1,4 +1,28 @@
-/* Design tokens */
+/* =====================================================================
+   SUMAQ RURUCHA — styles.css
+   Hoja de estilos única para todo el sitio.
+
+   Índice:
+     1. VARIABLES DE DISEÑO  → colores, tipografías y anchos globales
+     2. BASE                 → resets y estilos por defecto
+     3. LAYOUT COMPARTIDO    → ancho de contenido y encabezados de sección
+     4. COMPONENTES          → botones, eyebrows y acciones reutilizables
+     5. NAVEGACIÓN           → barra superior
+     6. PÁGINAS GENÉRICAS    → plantilla "en construcción"
+     7. HOME                 → hero, más pedidos, categorías, testimonios...
+     8. CATÁLOGO             → filtros, chips, grilla y tarjetas
+     9. PRODUCTO             → galería, resumen de compra y detalles
+    10. CONÓCENOS            → historia, equipo, valores y galería
+    11. CONTACTO             → formulario, canales y FAQ
+    12. DISTRIBUIDOR         → propuesta comercial y cotización
+    13. FOOTER               → pie de página
+    14. PEDIDOS              → rastreo y estado del pedido
+    15. RESPONSIVE           → ajustes para tablet (1100px) y móvil (760px)
+    16. BUSCADOR MODAL       → ventana flotante de búsqueda (al final)
+   ===================================================================== */
+
+/* 1. VARIABLES DE DISEÑO: paleta de marca (vinos, dorados, plomos),
+   tipografías (Inter para texto, Cormorant para títulos) y anchos. */
 :root {
   --font-body: Inter, Arial, sans-serif;
   --font-heading: Cormorant, Georgia, serif;
@@ -27,7 +51,9 @@
   --error-500: #e74848;
 }
 
-/* Base */
+/* 2. BASE: reset de cajas, tipografía del body e imágenes fluidas.
+   OJO: main usa overflow:clip (no hidden) para no romper el
+   position:sticky de los filtros del catálogo. */
 * {
   box-sizing: border-box;
 }
@@ -40,7 +66,7 @@ body {
 }
 
 main {
-  overflow: hidden;
+  overflow: clip;
 }
 
 img {
@@ -57,7 +83,8 @@ img {
   white-space: nowrap;
 }
 
-/* Shared layout */
+/* 3. LAYOUT COMPARTIDO: todas las secciones listadas comparten el
+   mismo ancho máximo de contenido, centrado con margen automático. */
 .home-hero,
 .features-bar,
 .section,
@@ -147,7 +174,9 @@ img {
   text-decoration: none;
 }
 
-/* Shared components */
+/* 4. COMPONENTES REUTILIZABLES: eyebrow (etiqueta superior de sección),
+   fila de acciones y todas las variantes de botón (primario, secundario,
+   outline, danger, mini). */
 .eyebrow {
   margin: 0 0 14px;
   color: var(--vino-500);
@@ -211,7 +240,8 @@ img {
   font-size: 13px;
 }
 
-/* Navigation */
+/* 5. NAVEGACIÓN: barra superior de 3 grupos (logo / páginas / íconos).
+   El enlace activo se marca con aria-current y subrayado vino. */
 .nav {
   width: min(100%, var(--frame-width));
   min-height: 69px;
@@ -287,7 +317,8 @@ img {
   height: auto;
 }
 
-/* Generic pages */
+/* 6. PÁGINAS GENÉRICAS: plantilla centrada para las páginas aún
+   en construcción (buscador, carrito, pago). */
 .page {
   min-height: calc(100vh - 69px);
   display: grid;
@@ -317,7 +348,8 @@ img {
   font-size: 1.1rem;
 }
 
-/* Home: hero */
+/* 7. HOME — HERO: portada a pantalla completa con foto de fondo,
+   degradado oscuro para legibilidad y tarjeta flotante de rating. */
 .home-hero {
   min-height: 700px;
   position: relative;
@@ -398,7 +430,8 @@ img {
   line-height: 1.45;
 }
 
-/* Home: features */
+/* 7. HOME — BARRA DE BENEFICIOS: 4 tarjetas (SENASA, envío,
+   garantía, pago seguro) en una fila con números circulares. */
 .features-bar {
   margin-top: 24px;
   padding: 18px;
@@ -445,7 +478,10 @@ img {
   line-height: 1.35;
 }
 
-/* Home: most ordered */
+/* 7. HOME — MÁS PEDIDOS: producto destacado grande + 4 tarjetas mini.
+   Las fotos van absolutas de fondo y el texto vive en un panel blanco
+   semitransparente redondeado ("cuadradito", patrón del Figma original).
+   El clic en toda la tarjeta lo captura el JS: bindHomeProductCards. */
 .most-ordered .eyebrow,
 .most-ordered .section-heading h2,
 .most-ordered .section-heading p,
@@ -457,13 +493,6 @@ img {
   font-size: clamp(2.6rem, 5vw, 4.5rem);
   line-height: 0.9;
   letter-spacing: -0.03em;
-}
-
-.most-ordered__leaf {
-  display: inline-block;
-  transform: translateY(-0.2em);
-  font-size: 0.55em;
-  color: var(--vino-500);
 }
 
 .product-layout {
@@ -481,6 +510,7 @@ img {
   background: var(--vino-700);
   box-shadow: none;
   filter: none;
+  cursor: pointer;
 }
 
 .featured-product::after {
@@ -494,14 +524,17 @@ img {
   opacity: 0.84;
 }
 
+/* Panel blanco semitransparente con la información del destacado. */
 .featured-product > div {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
   z-index: 1;
-  padding: 34px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.86) 45%, rgba(255, 255, 255, 0.94) 100%);
+  padding: 26px 28px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
 }
 
 .featured-product h3 {
@@ -551,7 +584,7 @@ img {
   min-height: 292px;
   position: relative;
   overflow: hidden;
-  padding: 22px;
+  padding: 14px;
   border-radius: 20px;
   color: var(--blanco);
   background: var(--vino-600);
@@ -560,18 +593,35 @@ img {
   justify-content: flex-end;
   box-shadow: none;
   filter: none;
+  cursor: pointer;
 }
 
-.mini-products article::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.88) 70%, rgba(255, 255, 255, 0.94) 100%);
+/* Panel blanco semitransparente detrás del texto de cada mini-tarjeta
+   (Figma nodo 443:2730). Reemplaza al antiguo degradado. */
+.mini-products__panel {
+  position: relative;
+  z-index: 2;
+  min-height: 128px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.mini-products article::after {
-  content: none;
+/* Fila inferior del panel: precio a la izquierda, botón a la derecha. */
+.mini-products__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.mini-products__row .button--mini {
+  margin-top: 0;
 }
 
 .mini-products img {
@@ -585,14 +635,6 @@ img {
   object-fit: cover;
   object-position: center;
   opacity: 0.82;
-}
-
-.mini-products span,
-.mini-products h3,
-.mini-products strong,
-.mini-products .button {
-  position: relative;
-  z-index: 2;
 }
 
 .mini-products span {
@@ -613,12 +655,12 @@ img {
 
 .mini-products strong {
   display: block;
-  margin-top: 16px;
   color: var(--vino-800);
   font-size: 16px;
 }
 
-/* Home: manifesto */
+/* 7. HOME — MANIFIESTO: bloque negro a dos columnas con frase de
+   marca en dorado/ámbar y foto macro de granos. */
 .brand-manifesto {
   margin-top: 78px;
   overflow: hidden;
@@ -667,7 +709,8 @@ img {
   object-fit: cover;
 }
 
-/* Home: categories */
+/* 7. HOME — CATEGORÍAS: tarjeta grande (cereales) + pila de 3 tarjetas,
+   cada una con foto de fondo y degradado oscuro. */
 .category-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 0.78fr;
@@ -683,9 +726,8 @@ img {
   min-height: 170px;
   position: relative;
   overflow: hidden;
-  padding: 24px;
+  padding: 14px;
   border-radius: 18px;
-  color: var(--blanco);
   background: var(--vino-700);
   display: flex;
   flex-direction: column;
@@ -706,25 +748,24 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.74;
 }
 
-.category-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.78));
-}
-
-.category-card span,
-.category-card strong {
+/* Panel blanco semitransparente detrás del texto de cada categoría:
+   mismo patrón "cuadradito" de Más pedidos (recomendado por el audit
+   del diseño en Figma). Reemplaza al antiguo degradado negro. */
+.category-card__panel {
   position: relative;
   z-index: 2;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
 }
 
 .category-card span {
-  margin-bottom: 8px;
+  display: block;
+  margin-bottom: 6px;
+  color: var(--vino-800);
   font-family: var(--font-heading);
   font-size: 28px;
   font-weight: 700;
@@ -732,13 +773,16 @@ img {
 }
 
 .category-card strong {
+  display: block;
   max-width: 360px;
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--tinta-500);
   font-size: 14px;
+  font-weight: 400;
   line-height: 1.45;
 }
 
-/* Home: origin and final promo */
+/* 7. HOME — ORIGEN Y PROMO FINAL: dos bloques foto+texto espejados
+   (imagen izquierda/derecha) con fondo crema. */
 .origin-story,
 .promo-bundle {
   margin-top: 78px;
@@ -798,7 +842,8 @@ img {
   line-height: 1;
 }
 
-/* Home: testimonials */
+/* 7. HOME — TESTIMONIOS: puntaje promedio con estrellas y grilla
+   de 4 reseñas de clientes. */
 .review-score {
   margin: 0 0 8px;
   display: flex;
@@ -833,37 +878,60 @@ img {
   gap: 24px;
 }
 
+/* Tarjeta de reseña: icono de opinión + cita + estrellas y autor.
+   Sin altura fija: la tarjeta crece según el contenido y el espacio
+   entre elementos lo da "gap", no justify-content. */
 .testimonial-grid article {
-  min-height: 224px;
-  padding: 28px;
+  padding: 22px;
   border: 1px solid var(--borde-500);
   border-radius: 18px;
   background: var(--blanco);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 12px;
 }
 
-.testimonial-grid strong {
+/* Círculo con burbuja de diálogo, mismo lenguaje que los números
+   circulares de la barra de beneficios. */
+.testimonial-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
   color: var(--vino-500);
-  font-family: var(--font-heading);
-  font-size: 34px;
-  line-height: 1;
+  background: var(--plomo-200);
 }
 
 .testimonial-grid p {
+  margin: 0;
+  flex: 1;
   color: var(--tinta-500);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
-.testimonial-grid span {
+.testimonial-grid footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.testimonial-stars {
+  color: var(--advertencia-500);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.testimonial-author {
   color: var(--atenuado-500);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
 }
 
-/* Catalog page */
+/* 8. CATÁLOGO: hero con lateral de mixes, chips de categoría,
+   sidebar de filtros fijo al hacer scroll (sticky), grilla de
+   tarjetas por categoría, guía de compra y newsletter. */
 .catalog-page {
   padding-bottom: 56px;
   background: var(--blanco);
@@ -1085,6 +1153,17 @@ img {
   font-weight: 800;
 }
 
+.catalog-empty {
+  margin: 0;
+  padding: 34px 24px;
+  border: 1px dashed var(--borde-500);
+  border-radius: 10px;
+  color: var(--atenuado-500);
+  background: var(--plomo-100);
+  font-size: 14px;
+  text-align: center;
+}
+
 .catalog-category {
   margin-top: 34px;
 }
@@ -1302,7 +1381,9 @@ img {
   font-family: var(--font-body);
 }
 
-/* Product page */
+/* 9. PRODUCTO: breadcrumbs, galería (imagen principal + 4 miniaturas),
+   panel de compra (badge, rating, precio, presentaciones, cantidad),
+   descripción, datos clave y productos relacionados. */
 .product-page {
   padding: 28px 0 64px;
   background: var(--blanco);
@@ -1428,7 +1509,7 @@ img {
 }
 
 .product-rating span:first-child {
-  color: var(--negro-800);
+  color: var(--advertencia-500);
   letter-spacing: 1px;
 }
 
@@ -1625,7 +1706,8 @@ img {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* About page */
+/* 10. CONÓCENOS: hero con retrato, historia, tarjetas del equipo,
+   barra de valores, calidad y origen, galería e impacto. */
 .about-page {
   padding: 28px 0 64px;
 }
@@ -1969,7 +2051,8 @@ img {
   line-height: 1.5;
 }
 
-/* Contact page */
+/* 11. CONTACTO: hero con foto, accesos rápidos (WhatsApp/mensaje),
+   formulario de contacto, tarjeta de canales y preguntas frecuentes. */
 .contact-page {
   padding: 28px 0 64px;
 }
@@ -2225,7 +2308,8 @@ img {
   line-height: 1.5;
 }
 
-/* Distributor page */
+/* 12. DISTRIBUIDOR: hero comercial, ventajas, oportunidades por canal,
+   bloque de cotización (stats + formulario) y banner de catálogo PDF. */
 .distributor-page {
   padding: 28px 0 64px;
 }
@@ -2529,7 +2613,7 @@ img {
   font-size: 14px;
 }
 
-/* Footer */
+/* 13. FOOTER: marca + redes, columnas de enlaces y copyright. */
 .footer {
   padding: 58px var(--page-padding) 28px;
   color: var(--tinta-500);
@@ -2611,7 +2695,8 @@ img {
   font-size: 13px;
 }
 
-/* Rastrea tu pedido */
+/* 14. PEDIDOS — RASTREO (mi-pedido.html): tarjeta centrada con el
+   formulario de número de pedido y contacto; estados de error en rojo. */
 .track-order-page {
   padding: 64px 0 96px;
   background: var(--plomo-100);
@@ -2652,6 +2737,7 @@ img {
   position: relative;
   margin-bottom: 24px;
   padding: 32px 28px 28px;
+  box-shadow: 0 18px 44px rgba(33, 24, 20, 0.08);
   border: 1px solid var(--borde-500);
   border-radius: 12px;
   background: var(--blanco);
@@ -2700,8 +2786,52 @@ img {
   font-size: 12px;
 }
 
+.track-order-field input:focus {
+  border-color: var(--vino-500);
+  outline: 2px solid var(--vino-500);
+  outline-offset: -1px;
+  background: var(--blanco);
+}
+
 .track-order-field.has-error input {
   border-color: var(--error-500);
+}
+
+/* Nota de demostración con los 4 pedidos de ejemplo clicables
+   (uno por etapa: confirmado, preparando, en camino, entregado). */
+.track-order-demo {
+  margin: 16px 0 0;
+  color: var(--atenuado-500);
+  font-size: 12px;
+  text-align: center;
+}
+
+.track-order-demo p {
+  margin: 0 0 8px;
+}
+
+.track-order-demo__options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.track-order-demo__fill {
+  border: 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: var(--vino-500);
+  background: var(--plomo-200);
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.track-order-demo__fill:hover {
+  color: var(--blanco);
+  background: var(--vino-500);
 }
 
 .track-order-error {
@@ -2755,7 +2885,8 @@ img {
   width: 100%;
 }
 
-/* Estado del pedido */
+/* 14. PEDIDOS — ESTADO: stepper horizontal de 4 etapas (✓ completado),
+   lista de productos, dirección, resumen de pago y tarjeta de ayuda. */
 .order-status-page {
   padding: 28px 0 64px;
   background: var(--plomo-100);
@@ -2767,8 +2898,14 @@ img {
   margin-right: auto;
 }
 
+/* Encabezado del pedido: pill de estado + título a la izquierda,
+   acceso "Rastrear otro pedido" a la derecha. */
 .order-status__header {
   margin-top: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
 }
 
 .order-status__header h1 {
@@ -2784,12 +2921,37 @@ img {
   font-size: 13.5px;
 }
 
+.order-status__track {
+  flex: 0 0 auto;
+}
+
+/* Pill con la etapa actual del pedido (Confirmado / En camino / ...). */
+.order-stage-pill {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  color: var(--vino-500);
+  background: rgba(122, 31, 61, 0.1);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.order-stage-pill--entregado {
+  color: var(--exito-500);
+  background: rgba(110, 143, 84, 0.14);
+}
+
 .order-stepper {
   margin-top: 24px;
-  padding: 0 32px;
+  padding: 32px 32px 0;
   display: flex;
   align-items: flex-start;
   min-height: 160px;
+  border: 1px solid var(--borde-500);
   border-radius: 12px;
   background: var(--blanco);
 }
@@ -2807,8 +2969,9 @@ img {
   top: 24px;
   left: -50%;
   width: 100%;
-  height: 2px;
-  background: var(--plomo-100);
+  height: 3px;
+  border-radius: 3px;
+  background: var(--plomo-500);
 }
 
 .order-stepper__step:first-child::before {
@@ -2840,6 +3003,16 @@ img {
   border-color: var(--vino-500);
   background: var(--vino-500);
   color: var(--blanco);
+}
+
+/* Paso actual (último completado): anillo suave alrededor del círculo
+   y etiqueta en vino para ubicar la etapa de un vistazo. */
+.order-stepper__step--current .order-stepper__marker {
+  box-shadow: 0 0 0 6px rgba(122, 31, 61, 0.14);
+}
+
+.order-stepper__step--current .order-stepper__label {
+  color: var(--vino-500);
 }
 
 .order-stepper__label {
@@ -2892,14 +3065,26 @@ img {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
-  gap: 14px;
 }
 
 .order-product-item {
   display: flex;
   align-items: center;
   gap: 14px;
+  padding: 12px 0;
+}
+
+/* Separador sutil entre productos del pedido. */
+.order-product-item + .order-product-item {
+  border-top: 1px solid var(--borde-500);
+}
+
+.order-product-item:first-child {
+  padding-top: 0;
+}
+
+.order-product-item:last-child {
+  padding-bottom: 0;
 }
 
 .order-product-item img {
@@ -2953,9 +3138,13 @@ img {
   color: var(--atenuado-500);
 }
 
+/* La columna lateral (resumen + ayuda) queda fija al hacer scroll
+   para que el total siempre esté a la vista. */
 .order-side {
   display: grid;
   gap: 24px;
+  position: sticky;
+  top: 16px;
 }
 
 .order-summary {
@@ -3013,9 +3202,13 @@ img {
 
 .order-help .button {
   width: 100%;
+  gap: 8px;
 }
 
-/* Responsive */
+/* 15. RESPONSIVE:
+   - max-width 1100px (tablet): las grillas de 2-4 columnas pasan a 1-2.
+   - max-width 760px (móvil): todo a 1 columna, paddings reducidos,
+     botones a ancho completo y stepper de pedido en 2 filas. */
 @media (max-width: 1100px) {
   :root {
     --page-padding: 24px;
@@ -3162,6 +3355,15 @@ img {
     gap: 24px 0;
     padding: 24px 16px;
     min-height: 0;
+  }
+
+  .order-status__header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .order-side {
+    position: static;
   }
 
   .order-stepper__step {
@@ -3383,4 +3585,143 @@ img {
   .related-products .recommended-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* 16. BUSCADOR MODAL: ventana flotante de búsqueda que el JS inyecta
+   al final del <body> en todas las páginas (main.js → initSearchModal).
+   Se abre con el ícono de lupa de la barra; se cierra con la X, con
+   Escape o clicando el fondo oscuro. */
+.search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: start center;
+  padding: 12vh 16px 24px;
+}
+
+.search-modal[hidden] {
+  display: none;
+}
+
+/* Fondo oscuro semitransparente; clicable para cerrar. */
+.search-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(33, 24, 20, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+/* Tarjeta blanca centrada que contiene input y resultados. */
+.search-modal__card {
+  position: relative;
+  width: min(100%, 560px);
+  border-radius: 14px;
+  background: var(--blanco);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.search-modal__head {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+  border-bottom: 1px solid var(--borde-500);
+}
+
+.search-modal__head input {
+  flex: 1;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--borde-500);
+  border-radius: 8px;
+  color: var(--tinta-500);
+  background: var(--plomo-100);
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+
+.search-modal__head input:focus {
+  border-color: var(--vino-500);
+  outline: 2px solid var(--vino-500);
+  outline-offset: -1px;
+}
+
+/* Botón X de cierre. */
+.search-modal__head button {
+  width: 46px;
+  border: 0;
+  border-radius: 8px;
+  color: var(--vino-500);
+  background: var(--plomo-200);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Texto de estado: sugerencias, conteo de resultados o "sin resultados". */
+.search-modal__hint {
+  margin: 14px 16px 0;
+  color: var(--atenuado-500);
+  font-size: 13px;
+}
+
+/* Lista de resultados con scroll propio si crece demasiado. */
+.search-modal__results {
+  max-height: 46vh;
+  margin: 8px 0 0;
+  padding: 0 8px 12px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+/* Cada resultado: miniatura + nombre/presentación + precio. */
+.search-modal__results a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--tinta-500);
+  text-decoration: none;
+}
+
+.search-modal__results a:hover,
+.search-modal__results a:focus {
+  background: var(--plomo-100);
+}
+
+.search-modal__results img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--plomo-100);
+}
+
+.search-result__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.search-result__info strong {
+  font-size: 14px;
+}
+
+.search-result__info small {
+  color: var(--atenuado-500);
+  font-size: 12px;
+}
+
+.search-result__price {
+  color: var(--vino-500);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* Bloquea el scroll de la página mientras el modal está abierto
+   (la clase la pone y quita el JS al abrir/cerrar). */
+body.search-open {
+  overflow: hidden;
 }
