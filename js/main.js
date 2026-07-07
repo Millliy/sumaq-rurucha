@@ -84,6 +84,22 @@ function renderNavigation() {
   navContainer.innerHTML = `<nav class="nav">${links}</nav>`;
 }
 
+/* Inyecta el favicon del sitio si la página todavía no lo declaró.
+   Se hace por JS para reutilizarlo en todos los HTML que cargan main.js. */
+function ensureSiteFavicon() {
+  const existingFavicon = document.querySelector('link[rel="icon"]');
+
+  if (existingFavicon) {
+    return;
+  }
+
+  const favicon = document.createElement("link");
+  favicon.rel = "icon";
+  favicon.type = "image/svg+xml";
+  favicon.href = "assets/icons/icon-logo.svg";
+  document.head.appendChild(favicon);
+}
+
 /* =====================================================================
    2. FOOTER
    Columnas de enlaces del pie de página. Los href="#" son enlaces
@@ -1727,6 +1743,7 @@ function bindTrackOrderForm() {
    ícono de lupa que esa función acaba de dibujar.
    ===================================================================== */
 
+ensureSiteFavicon();
 renderNavigation();
 updateNavigationCartCount();
 initSearchModal();
